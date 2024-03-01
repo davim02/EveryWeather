@@ -1,2 +1,2 @@
-# Qt_EveryWeather
-project for OOP course
+# EveryWeather
+project for OOP course: desktop application made with Qt framework 
