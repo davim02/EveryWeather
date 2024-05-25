@@ -7,10 +7,11 @@ SensorsList::SensorsList(Repository* repository, QWidget *parent)
     : QWidget(parent), repository(repository)
 {
 
-    layout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+    vlayout = new QVBoxLayout();
+    vlayout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
     
     QWidget* container = new QWidget();
-    container->setLayout(layout);
+    container->setLayout(vlayout);
 
     QScrollArea* scroll_area = new QScrollArea();
     scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -24,8 +25,8 @@ void SensorsList::show() {
     SensorWidgetVisitor visitor;
     
     for (auto sensor : repository->getAll()) {
-        sensor.accept(visitor);
-        layout->addWidget(visitor.getWidget());  
+        sensor->accept(visitor);
+        vlayout->addWidget(visitor.getWidget());  
     }
 }
 

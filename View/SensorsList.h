@@ -9,7 +9,7 @@ class SensorsList: public QWidget {
     Q_OBJECT
     private:
         Repository* repository;
-        QVBoxLayout* layout;
+        QVBoxLayout* vlayout;
 
     public:
         SensorsList(Repository* repository, QWidget *parent = nullptr);

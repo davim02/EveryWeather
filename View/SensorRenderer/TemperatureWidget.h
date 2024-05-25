@@ -7,8 +7,8 @@
 class TemperatureWidget: public SensorWidget {
 
     private:
-        *QLabel icon;
-        *QLabel label;
+        QLabel* icon;
+        QLabel* label;
 
     public:
         TemperatureWidget(SensorWidget& sensor_widget, QWidget* parent = 0);
