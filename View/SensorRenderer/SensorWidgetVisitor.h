@@ -12,9 +12,9 @@ class SensorWidgetVisitor: public SensorVisitorInterface {
   public:
     QWidget* getWidget();
     virtual void visitTemperature(Temperature& temperature);
-    virtual void visitHumidity(Humidity& humidity);
-    virtual void visitRainfall(Rainfall& rainfall);
     virtual void visitUV(UV& uv);
+    virtual void visitRainfall(Rainfall& rainfall);
+    virtual void visitHumidity(Humidity& humidity);
 };
 
 #endif

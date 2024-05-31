@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource>
+    <file>assets/humidity.png</file>
+    <file>assets/rainfall.png</file>
+    <file>assets/temperature.png</file>
+    <file>assets/uv.png</file>
+</qresource>
+</RCC>

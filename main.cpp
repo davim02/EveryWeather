@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
     repository.add(new UV("London", "UK"));
 
     MainWindow window(&repository);
+    window.resize(1024, 512);
     window.show();
 
     return app.exec();

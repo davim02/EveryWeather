@@ -1,32 +1,30 @@
 #include "SensorsList.h"
-
+#include "../View/SensorRenderer/SensorWidgetVisitor.h"
 #include <QVBoxLayout>
 #include <QScrollArea>
+#include <iostream>
 
 SensorsList::SensorsList(Repository* repository, QWidget *parent)
     : QWidget(parent), repository(repository)
 {
-
-    vlayout = new QVBoxLayout();
+    QWidget* container = new QWidget(this);
+    vlayout = new QVBoxLayout(container);
     vlayout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
-    
-    QWidget* container = new QWidget();
-    container->setLayout(vlayout);
 
-    QScrollArea* scroll_area = new QScrollArea();
+    QScrollArea* scroll_area = new QScrollArea(this);
     scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scroll_area->setWidgetResizable(true);
     scroll_area->setWidget(container);
+
 }
 
 void SensorsList::show() {
     
-    SensorWidgetVisitor visitor;
-    
     for (auto sensor : repository->getAll()) {
-        sensor->accept(visitor);
-        vlayout->addWidget(visitor.getWidget());  
+
+        vlayout->addWidget(new SensorWidget(*sensor));
     }
+
 }
 

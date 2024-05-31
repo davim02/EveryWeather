@@ -7,12 +7,9 @@ release/UV.o
 release/MainWindow.o
 release/SensorsList.o
 release/Repository.o
-release/HumidityWidget.o
-release/RainfallWidget.o
 release/SensorWidget.o
 release/SensorWidgetVisitor.o
-release/TemperatureWidget.o
-release/UVWidget.o
+release/qrc_resources.o
 release/moc_MainWindow.o
 release/moc_SensorsList.o
 release/moc_SensorWidget.o

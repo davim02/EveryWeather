@@ -14,7 +14,7 @@ class SensorGraphVisitor: public SensorVisitorInterface {
     virtual void visitTemperature(Temperature& temperature);
     virtual void visitHumidity(Humidity& humidity);
     virtual void visitRainfall(Rainfall& rainfall);
-    virtual void VisitUV(UV& uv);
+    virtual void visitUV(UV& uv);
 };
 
 #endif

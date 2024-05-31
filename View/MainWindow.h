@@ -9,8 +9,9 @@
 class MainWindow : public QMainWindow {
     Q_OBJECT
     private:
-        Repository* repository;
+        
         SensorsList* sensors_list;
+        
     public:
         explicit MainWindow(Repository* repository, QWidget *parent = 0);
         Repository* getRepository();

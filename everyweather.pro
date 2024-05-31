@@ -25,12 +25,8 @@ HEADERS += model/Humidity.h \
            View/SensorsList.h \
            model/Repository/Repository.h \
            View/GraphRenderer/SensorGraphVisitor.h \
-           View/SensorRenderer/HumidityWidget.h \
-           View/SensorRenderer/RainfallWidget.h \
            View/SensorRenderer/SensorWidget.h \
-           View/SensorRenderer/SensorWidgetVisitor.h \
-           View/SensorRenderer/TemperatureWidget.h \
-           View/SensorRenderer/UVWidget.h
+           View/SensorRenderer/SensorWidgetVisitor.h
 SOURCES += main.cpp \
            model/Humidity.cpp \
            model/Rainfall.cpp \
@@ -40,9 +36,6 @@ SOURCES += main.cpp \
            View/MainWindow.cpp \
            View/SensorsList.cpp \
            model/Repository/Repository.cpp \
-           View/SensorRenderer/HumidityWidget.cpp \
-           View/SensorRenderer/RainfallWidget.cpp \
            View/SensorRenderer/SensorWidget.cpp \
-           View/SensorRenderer/SensorWidgetVisitor.cpp \
-           View/SensorRenderer/TemperatureWidget.cpp \
-           View/SensorRenderer/UVWidget.cpp
+           View/SensorRenderer/SensorWidgetVisitor.cpp
+RESOURCES = resources.qrc

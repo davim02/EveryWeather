@@ -7,12 +7,9 @@ debug/UV.o
 debug/MainWindow.o
 debug/SensorsList.o
 debug/Repository.o
-debug/HumidityWidget.o
-debug/RainfallWidget.o
 debug/SensorWidget.o
 debug/SensorWidgetVisitor.o
-debug/TemperatureWidget.o
-debug/UVWidget.o
+debug/qrc_resources.o
 debug/moc_MainWindow.o
 debug/moc_SensorsList.o
 debug/moc_SensorWidget.o
