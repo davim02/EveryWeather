@@ -60,7 +60,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSensorWidgetENDCLASS[] = {
 };
 
 Q_CONSTINIT const QMetaObject SensorWidget::staticMetaObject = { {
-    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    QMetaObject::SuperData::link<QPushButton::staticMetaObject>(),
     qt_meta_stringdata_CLASSSensorWidgetENDCLASS.offsetsAndSizes,
     qt_meta_data_CLASSSensorWidgetENDCLASS,
     qt_static_metacall,
@@ -92,12 +92,12 @@ void *SensorWidget::qt_metacast(const char *_clname)
         return static_cast<void*>(this);
     if (!strcmp(_clname, "SensorWidgetVisitor"))
         return static_cast< SensorWidgetVisitor*>(this);
-    return QWidget::qt_metacast(_clname);
+    return QPushButton::qt_metacast(_clname);
 }
 
 int SensorWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QWidget::qt_metacall(_c, _id, _a);
+    _id = QPushButton::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP

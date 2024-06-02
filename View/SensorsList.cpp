@@ -17,6 +17,7 @@ SensorsList::SensorsList(Repository* repository, QWidget *parent)
     scroll_area->setWidgetResizable(true);
     scroll_area->setWidget(container);
 
+    show();
 }
 
 void SensorsList::show() {
