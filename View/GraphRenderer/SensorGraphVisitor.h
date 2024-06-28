@@ -1,16 +1,16 @@
 #ifndef SENSOR_GRAPH_VISITOR_H
 #define SENSOR_GRAPH_VISITOR_H
 
-#include <QtCharts>
-#include "../model/SensorVisitorInterface.h"
+#include <QChart>
+#include "../../model/SensorVisitorInterface.h"
 
 
 class SensorGraphVisitor: public SensorVisitorInterface {
   private:
-    QWidget* widget;
+    QChart* chart;
 
   public:
-    QWidget* getWidget();
+    QChart* getChart();
     virtual void visitTemperature(Temperature& temperature);
     virtual void visitHumidity(Humidity& humidity);
     virtual void visitRainfall(Rainfall& rainfall);

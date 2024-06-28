@@ -5,7 +5,7 @@
 TEMPLATE = app
 TARGET = everyweather
 INCLUDEPATH += .
-QT += widgets, charts
+QT += widgets charts
 
 # You can make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -16,6 +16,12 @@ QT += widgets, charts
 
 # Input
 HEADERS += model/Humidity.h \
+           View/GraphRenderer/SensorGraph.h \
+           View/GraphRenderer/humiditygraph.h \
+           View/GraphRenderer/rainfallgraph.h \
+           View/GraphRenderer/temperaturegraph.h \
+           View/GraphRenderer/uvgraph.h \
+           View/MainWidget.h \
            model/Rainfall.h \
            model/Sensor.h \
            model/SensorVisitorInterface.h \
@@ -28,6 +34,12 @@ HEADERS += model/Humidity.h \
            View/SensorRenderer/SensorWidget.h \
            View/SensorRenderer/SensorWidgetVisitor.h
 SOURCES += main.cpp \
+           View/GraphRenderer/humiditygraph.cpp \
+           View/GraphRenderer/rainfallgraph.cpp \
+           View/GraphRenderer/temperaturegraph.cpp \
+           View/GraphRenderer/uvgraph.cpp \
+           View/GraphRenderer/SensorGraph.cpp \
+           View/MainWidget.cpp \
            model/Humidity.cpp \
            model/Rainfall.cpp \
            model/Sensor.cpp \
@@ -36,6 +48,7 @@ SOURCES += main.cpp \
            View/MainWindow.cpp \
            View/SensorsList.cpp \
            model/Repository/Repository.cpp \
+           View/GraphRenderer/SensorGraphVisitor.cpp \
            View/SensorRenderer/SensorWidget.cpp \
            View/SensorRenderer/SensorWidgetVisitor.cpp
 RESOURCES = resources.qrc

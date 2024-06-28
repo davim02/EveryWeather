@@ -8,14 +8,22 @@ Temperature::Temperature(
         simulate();
 }
 
-std::vector<int> Temperature::getData() const {
-    return temperature;
+std::vector<int> Temperature::getMinTemp() const {
+    return temp_min;
+}
+
+std::vector<int> Temperature::getMaxTemp() const {
+    return temp_max;
 }
 
 void Temperature::simulate() {
-    temperature.clear();
+    int temp;
+    temp_max.clear();
+    temp_min.clear();
     for (int i = 0; i < 12; i++) {
-        temperature.push_back((rand() % 50) - 15);
+        temp = (rand() % 30);
+        temp_min.push_back(temp - 15);
+        temp_max.push_back(temp + 15);
     }
 }
 

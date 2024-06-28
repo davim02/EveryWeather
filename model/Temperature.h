@@ -5,7 +5,8 @@
 
 class Temperature: public Sensor {
     private:
-        std::vector<int> temperature;
+        std::vector<int> temp_min;
+        std::vector<int> temp_max;
 
     public:
         Temperature(
@@ -13,7 +14,8 @@ class Temperature: public Sensor {
             const std::string country
         );
 
-        std::vector<int> getData() const;
+        std::vector<int> getMinTemp() const;
+        std::vector<int> getMaxTemp() const;
         virtual void simulate();
         virtual void accept(SensorVisitorInterface& visitor);
 };

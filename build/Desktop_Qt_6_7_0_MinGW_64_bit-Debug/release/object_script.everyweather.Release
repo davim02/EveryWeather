@@ -1,4 +1,10 @@
 release/main.o
+release/humiditygraph.o
+release/rainfallgraph.o
+release/temperaturegraph.o
+release/uvgraph.o
+release/SensorGraph.o
+release/MainWidget.o
 release/Humidity.o
 release/Rainfall.o
 release/Sensor.o
@@ -7,9 +13,16 @@ release/UV.o
 release/MainWindow.o
 release/SensorsList.o
 release/Repository.o
+release/SensorGraphVisitor.o
 release/SensorWidget.o
 release/SensorWidgetVisitor.o
 release/qrc_resources.o
+release/moc_SensorGraph.o
+release/moc_humiditygraph.o
+release/moc_rainfallgraph.o
+release/moc_temperaturegraph.o
+release/moc_uvgraph.o
+release/moc_MainWidget.o
 release/moc_MainWindow.o
 release/moc_SensorsList.o
 release/moc_SensorWidget.o

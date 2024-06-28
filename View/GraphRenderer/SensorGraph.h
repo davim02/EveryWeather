@@ -1,21 +1,22 @@
 #ifndef SENSOR_GRAPH_H
 #define SENSOR_GRAPH_H
 
-#include <QtCharts>
-#include "../model/SensorVisitorInterface.h"
+#include <QWidget>
+#include <QChartView>
+#include "../../model/Sensor.h"
 
-class SensorGraph: public QChart {
-  private:
-    QChartView* chart_view;
-    QLineSeries* series;
-    QValueAxis* axis_x;
-    QValueAxis* axis_y;
-    QScatterSeries* scatter_series;
+class SensorGraph: public QWidget {
+    Q_OBJECT
+
+  private:  
+    QChartView *chart_view;
 
   public:
-    SensorGraph();
-    void updateGraph(Sensor& sensor);
-    void clearGraph();
+    SensorGraph(QWidget* parent = 0);
+
+  public slots:
+    void setGraphSensor(Sensor& sensor);
+
 };
 
 #endif

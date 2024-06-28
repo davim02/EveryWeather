@@ -1,13 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'SensorsList.h'
+** Meta object code from reading C++ file 'SensorGraph.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../View/SensorsList.h"
-#include <QtGui/qtextcursor.h>
+#include "../../../View/GraphRenderer/SensorGraph.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -17,7 +16,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'SensorsList.h' doesn't include <QObject>."
+#error "The header file 'SensorGraph.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -34,12 +33,12 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSSensorsListENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSSensorsListENDCLASS = QtMocHelpers::stringData(
-    "SensorsList",
-    "sensorSelected",
+struct qt_meta_stringdata_CLASSSensorGraphENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSSensorGraphENDCLASS = QtMocHelpers::stringData(
+    "SensorGraph",
+    "setGraphSensor",
     "",
-    "const Sensor*",
+    "Sensor&",
     "sensor"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -47,7 +46,7 @@ constexpr auto qt_meta_stringdata_CLASSSensorsListENDCLASS = QtMocHelpers::strin
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSSensorsListENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSSensorGraphENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -58,68 +57,59 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSensorsListENDCLASS[] = {
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       0,       // signalCount
 
- // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   20,    2, 0x06,    1 /* Public */,
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    1,   20,    2, 0x0a,    1 /* Public */,
 
- // signals: parameters
+ // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
 
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject SensorsList::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject SensorGraph::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_CLASSSensorsListENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSSensorsListENDCLASS,
+    qt_meta_stringdata_CLASSSensorGraphENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSSensorGraphENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSSensorsListENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSSensorGraphENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<SensorsList, std::true_type>,
-        // method 'sensorSelected'
+        QtPrivate::TypeAndForceComplete<SensorGraph, std::true_type>,
+        // method 'setGraphSensor'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const Sensor *, std::false_type>
+        QtPrivate::TypeAndForceComplete<Sensor &, std::false_type>
     >,
     nullptr
 } };
 
-void SensorsList::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void SensorGraph::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<SensorsList *>(_o);
+        auto *_t = static_cast<SensorGraph *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->sensorSelected((*reinterpret_cast< std::add_pointer_t<const Sensor*>>(_a[1]))); break;
+        case 0: _t->setGraphSensor((*reinterpret_cast< std::add_pointer_t<Sensor&>>(_a[1]))); break;
         default: ;
-        }
-    } else if (_c == QMetaObject::IndexOfMethod) {
-        int *result = reinterpret_cast<int *>(_a[0]);
-        {
-            using _t = void (SensorsList::*)(const Sensor * );
-            if (_t _q_method = &SensorsList::sensorSelected; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 0;
-                return;
-            }
         }
     }
 }
 
-const QMetaObject *SensorsList::metaObject() const
+const QMetaObject *SensorGraph::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *SensorsList::qt_metacast(const char *_clname)
+void *SensorGraph::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSSensorsListENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSSensorGraphENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int SensorsList::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int SensorGraph::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
@@ -134,12 +124,5 @@ int SensorsList::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 1;
     }
     return _id;
-}
-
-// SIGNAL 0
-void SensorsList::sensorSelected(const Sensor * _t1)
-{
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

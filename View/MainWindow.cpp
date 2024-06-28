@@ -3,11 +3,10 @@
 
 #include <QWidget>
 
-MainWindow::MainWindow(Repository* repository, QWidget *parent)
-    : QMainWindow(parent)
+MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(parent)
 {
-    sensors_list = new SensorsList(repository);
-    setCentralWidget(sensors_list);
+    mainWidget = new MainWidget(repository, this);
+    setCentralWidget(mainWidget);
 
 
     setWindowTitle("EveryWeather");

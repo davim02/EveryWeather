@@ -1,4 +1,10 @@
 debug/main.o
+debug/humiditygraph.o
+debug/rainfallgraph.o
+debug/temperaturegraph.o
+debug/uvgraph.o
+debug/SensorGraph.o
+debug/MainWidget.o
 debug/Humidity.o
 debug/Rainfall.o
 debug/Sensor.o
@@ -7,9 +13,16 @@ debug/UV.o
 debug/MainWindow.o
 debug/SensorsList.o
 debug/Repository.o
+debug/SensorGraphVisitor.o
 debug/SensorWidget.o
 debug/SensorWidgetVisitor.o
 debug/qrc_resources.o
+debug/moc_SensorGraph.o
+debug/moc_humiditygraph.o
+debug/moc_rainfallgraph.o
+debug/moc_temperaturegraph.o
+debug/moc_uvgraph.o
+debug/moc_MainWidget.o
 debug/moc_MainWindow.o
 debug/moc_SensorsList.o
 debug/moc_SensorWidget.o

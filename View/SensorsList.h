@@ -12,8 +12,11 @@ class SensorsList: public QWidget {
         QVBoxLayout* vlayout;
 
     public:
-        SensorsList(Repository* repository, QWidget *parent = nullptr);
+        explicit SensorsList(Repository* repository, QWidget *parent = nullptr);
         void show();
+    
+    signals:
+        void sensorSelected(const Sensor* sensor);
 };
 
 
