@@ -25,7 +25,7 @@ void SensorsList::show() {
     for (auto sensor : repository->getAll()) {
         SensorWidget* sensor_widget = new SensorWidget(*sensor);
         vlayout->addWidget(sensor_widget);
-        connect(sensor_widget, &SensorWidget::clicked, this, [sensor, this](){emit sensorSelected(sensor);});
+        connect(sensor_widget, &SensorWidget::clicked, std::bind(&SensorsList::sensorSelected, this, sensor));
     }
 
 }
