@@ -20,5 +20,9 @@ void Rainfall::simulate() {
 }
 
 void Rainfall::accept(SensorVisitorInterface& visitor) {
-    visitor.visitRainfall(*this);
+    visitor.visit(*this);
+}
+
+void Rainfall::accept(SensorVisitorConstInterface& visitor) const {
+    visitor.visit(*this);
 }

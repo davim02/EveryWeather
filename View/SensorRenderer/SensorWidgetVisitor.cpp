@@ -10,7 +10,7 @@ QWidget* SensorWidgetVisitor::getWidget() {
     return widget;
 }
 
-void SensorWidgetVisitor::visitTemperature(Temperature& temperature) {
+void SensorWidgetVisitor::visit(const Temperature& temperature) {
     widget = new QWidget();
     
     QVBoxLayout* layout = new QVBoxLayout(widget);
@@ -26,7 +26,7 @@ void SensorWidgetVisitor::visitTemperature(Temperature& temperature) {
     layout->setAlignment(type_label, Qt::AlignHCenter);
 }
 
-void SensorWidgetVisitor::visitHumidity(Humidity& humidity) {
+void SensorWidgetVisitor::visit(const Humidity& humidity) {
     widget = new QWidget();
     
     QVBoxLayout* layout = new QVBoxLayout(widget);
@@ -42,7 +42,7 @@ void SensorWidgetVisitor::visitHumidity(Humidity& humidity) {
     layout->setAlignment(type_label, Qt::AlignHCenter);
 }
 
-void SensorWidgetVisitor::visitRainfall(Rainfall& rainfall) {
+void SensorWidgetVisitor::visit(const Rainfall& rainfall) {
     widget = new QWidget();
     
     QVBoxLayout* layout = new QVBoxLayout(widget);
@@ -58,7 +58,7 @@ void SensorWidgetVisitor::visitRainfall(Rainfall& rainfall) {
     layout->setAlignment(type_label, Qt::AlignHCenter);
 }
 
-void SensorWidgetVisitor::visitUV(UV& uv) {
+void SensorWidgetVisitor::visit(const UV& uv) {
     widget = new QWidget();
 
     QVBoxLayout* layout = new QVBoxLayout(widget);

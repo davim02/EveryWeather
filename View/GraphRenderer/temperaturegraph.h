@@ -8,11 +8,9 @@ class TemperatureGraph : public QChart
 {
     Q_OBJECT
 
-private:
-    Temperature& temperature;
 
 public:
-    TemperatureGraph(Temperature& temperature, QGraphicsItem *parent = nullptr, Qt::WindowFlags wFlags = {});
+    TemperatureGraph(const Temperature& temperature, QGraphicsItem *parent = nullptr, Qt::WindowFlags wFlags = {});
 };
 
 #endif // TEMPERATUREGRAPH_H

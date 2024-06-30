@@ -6,9 +6,8 @@
 #include <QValueAxis>
 
 
-TemperatureGraph::TemperatureGraph(Temperature& temperature, QGraphicsItem *parent, Qt::WindowFlags wFlags): 
-    QChart(parent, wFlags),
-    temperature(temperature)
+TemperatureGraph::TemperatureGraph(const Temperature& temperature, QGraphicsItem *parent, Qt::WindowFlags wFlags):
+    QChart(parent, wFlags)
 {
 
     auto low = new QBarSet("Min");

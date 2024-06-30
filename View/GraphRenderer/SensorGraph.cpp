@@ -10,8 +10,8 @@ SensorGraph::SensorGraph(QWidget* parent): QWidget(parent) {
     chart_view->setMaximumSize(400, 300);
 }
 
-void SensorGraph::setGraphSensor(Sensor& sensor) {
+void SensorGraph::setGraphSensor(const Sensor* sensor) {
     SensorGraphVisitor visitor;
-    sensor.accept(visitor);
+    sensor->accept(visitor);
     chart_view->setChart(visitor.getChart());
 }

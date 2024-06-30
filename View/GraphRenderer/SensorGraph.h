@@ -15,7 +15,7 @@ class SensorGraph: public QWidget {
     SensorGraph(QWidget* parent = 0);
 
   public slots:
-    void setGraphSensor(Sensor& sensor);
+    void setGraphSensor(const Sensor* sensor);
 
 };
 

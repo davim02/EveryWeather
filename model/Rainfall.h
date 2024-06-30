@@ -16,6 +16,7 @@ class Rainfall: public Sensor {
         const std::vector<double>& getData() const;
         virtual void simulate();
         virtual void accept(SensorVisitorInterface& visitor);
+        virtual void accept(SensorVisitorConstInterface& visitor) const;
 };
 
 

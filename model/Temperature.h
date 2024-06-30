@@ -18,6 +18,7 @@ class Temperature: public Sensor {
         std::vector<int> getMaxTemp() const;
         virtual void simulate();
         virtual void accept(SensorVisitorInterface& visitor);
+        virtual void accept(SensorVisitorConstInterface& visitor) const;
 };
 
 

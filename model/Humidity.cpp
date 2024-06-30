@@ -20,5 +20,9 @@ void Humidity::simulate() {
 }
 
 void Humidity::accept(SensorVisitorInterface& visitor) {
-    visitor.visitHumidity(*this);
+    visitor.visit(*this);
+}
+
+void Humidity::accept(SensorVisitorConstInterface &visitor) const {
+    visitor.visit(*this);
 }

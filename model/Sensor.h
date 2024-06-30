@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "SensorVisitorInterface.h"
+#include "SensorVisitorConstInterface.h"
 
 class Sensor {
     private:
@@ -23,7 +24,7 @@ class Sensor {
         void setCountry(const std::string country);
         virtual void simulate() = 0;
         virtual void accept(SensorVisitorInterface& visitor) = 0;
-        
+        virtual void accept(SensorVisitorConstInterface& visitor) const = 0;
 };
 
 #endif

@@ -2,19 +2,19 @@
 #define SENSOR_GRAPH_VISITOR_H
 
 #include <QChart>
-#include "../../model/SensorVisitorInterface.h"
+#include "../../model/SensorVisitorConstInterface.h"
 
 
-class SensorGraphVisitor: public SensorVisitorInterface {
+class SensorGraphVisitor: public SensorVisitorConstInterface {
   private:
     QChart* chart;
 
   public:
     QChart* getChart();
-    virtual void visitTemperature(Temperature& temperature);
-    virtual void visitHumidity(Humidity& humidity);
-    virtual void visitRainfall(Rainfall& rainfall);
-    virtual void visitUV(UV& uv);
+    virtual void visit(const Temperature& temperature);
+    virtual void visit(const Humidity& humidity);
+    virtual void visit(const Rainfall& rainfall);
+    virtual void visit(const UV& uv);
 };
 
 #endif

@@ -26,5 +26,9 @@ void UV::simulate() {
 }
 
 void UV::accept(SensorVisitorInterface& visitor) {
-    visitor.visitUV(*this);
+    visitor.visit(*this);
+}
+
+void UV::accept(SensorVisitorConstInterface &visitor) const {
+    visitor.visit(*this);
 }

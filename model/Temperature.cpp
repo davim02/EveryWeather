@@ -28,5 +28,9 @@ void Temperature::simulate() {
 }
 
 void Temperature::accept(SensorVisitorInterface& visitor) {
-    visitor.visitTemperature(*this);
+    visitor.visit(*this);
+}
+
+void Temperature::accept(SensorVisitorConstInterface &visitor) const {
+    visitor.visit(*this);
 }

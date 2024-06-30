@@ -24,6 +24,7 @@ HEADERS += model/Humidity.h \
            View/MainWidget.h \
            model/Rainfall.h \
            model/Sensor.h \
+           model/SensorVisitorConstInterface.h \
            model/SensorVisitorInterface.h \
            model/Temperature.h \
            model/UV.h \

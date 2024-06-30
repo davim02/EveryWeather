@@ -11,22 +11,22 @@ QChart* SensorGraphVisitor::getChart() {
     return chart;
 }
 
-void SensorGraphVisitor::visitTemperature(Temperature& temperature) {
+void SensorGraphVisitor::visit(const Temperature& temperature) {
     chart = new TemperatureGraph(temperature);
     
 }
 
-void SensorGraphVisitor::visitHumidity(Humidity& humidity) {
+void SensorGraphVisitor::visit(const Humidity& humidity) {
     chart = new HumidityGraph(humidity);
 
 }
 
-void SensorGraphVisitor::visitRainfall(Rainfall& rainfall) {
+void SensorGraphVisitor::visit(const Rainfall& rainfall) {
     chart = new RainfallGraph(rainfall);
 
 }
 
-void SensorGraphVisitor::visitUV(UV& uv) {
+void SensorGraphVisitor::visit(const UV& uv) {
     chart = new UVGraph(uv);
 
 }
