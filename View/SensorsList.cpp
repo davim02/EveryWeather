@@ -20,10 +20,14 @@ SensorsList::SensorsList(Repository* repository, QWidget *parent)
     show();
 }
 
-void SensorsList::show() {
+void SensorsList::show() const {
     
-    for (auto sensor : repository->getAll()) {
-        SensorWidget* sensor_widget = new SensorWidget(*sensor);
+    for (std::vector<Sensor>::const_iterator it = repository->getAll().begin();
+         it != repository->getAll().end();
+         it++
+        )
+    {
+        SensorWidget* sensor_widget = new SensorWidget(*it);
         vlayout->addWidget(sensor_widget);
         connect(sensor_widget, &SensorWidget::clicked, std::bind(&SensorsList::sensorSelected, this, sensor));
     }

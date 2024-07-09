@@ -8,14 +8,14 @@
 class SensorGraph: public QWidget {
     Q_OBJECT
 
-  private:  
-    QChartView *chart_view;
+  private:
+    QChartView* chart_view;
 
   public:
     SensorGraph(QWidget* parent = 0);
 
   public slots:
-    void setGraphSensor(const Sensor* sensor);
+    void setGraphSensor(const Sensor& sensor);
 
 };
 

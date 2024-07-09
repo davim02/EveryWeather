@@ -17,10 +17,6 @@ QT += widgets charts
 # Input
 HEADERS += model/Humidity.h \
            View/GraphRenderer/SensorGraph.h \
-           View/GraphRenderer/humiditygraph.h \
-           View/GraphRenderer/rainfallgraph.h \
-           View/GraphRenderer/temperaturegraph.h \
-           View/GraphRenderer/uvgraph.h \
            View/MainWidget.h \
            model/Rainfall.h \
            model/Sensor.h \
@@ -35,10 +31,6 @@ HEADERS += model/Humidity.h \
            View/SensorRenderer/SensorWidget.h \
            View/SensorRenderer/SensorWidgetVisitor.h
 SOURCES += main.cpp \
-           View/GraphRenderer/humiditygraph.cpp \
-           View/GraphRenderer/rainfallgraph.cpp \
-           View/GraphRenderer/temperaturegraph.cpp \
-           View/GraphRenderer/uvgraph.cpp \
            View/GraphRenderer/SensorGraph.cpp \
            View/MainWidget.cpp \
            model/Humidity.cpp \

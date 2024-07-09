@@ -13,10 +13,10 @@ class SensorsList: public QWidget {
 
     public:
         explicit SensorsList(Repository* repository, QWidget *parent = nullptr);
-        void show();
+        void show() const;
     
     signals:
-        void sensorSelected(const Sensor* sensor);
+        void sensorSelected(const Sensor& sensor);
 };
 
 
