@@ -22,14 +22,14 @@ SensorsList::SensorsList(Repository* repository, QWidget *parent)
 
 void SensorsList::show() const {
     
-    for (std::vector<Sensor>::const_iterator it = repository->getAll().begin();
+    for (std::vector<Sensor*>::const_iterator it = repository->getAll().begin();
          it != repository->getAll().end();
          it++
         )
     {
         SensorWidget* sensor_widget = new SensorWidget(*it);
         vlayout->addWidget(sensor_widget);
-        connect(sensor_widget, &SensorWidget::clicked, std::bind(&SensorsList::sensorSelected, this, sensor));
+        connect(sensor_widget, &SensorWidget::clicked, std::bind(&SensorsList::sensorSelected, this, *it));
     }
 
 }
