@@ -14,7 +14,7 @@ class SensorWidget: public QPushButton, public SensorWidgetVisitor {
     QLabel* country_label;
 
   public:
-    SensorWidget(Sensor& sensor, QWidget* parent = 0);
+    SensorWidget(const Sensor& sensor, QWidget* parent = 0);
 };
 
 #endif

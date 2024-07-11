@@ -4,7 +4,7 @@
 #include "SensorWidgetVisitor.h"
 #include "SensorWidget.h"
 
-SensorWidget::SensorWidget(Sensor& sensor, QWidget* parent): QPushButton(parent), sensor(sensor) {
+SensorWidget::SensorWidget(const Sensor& sensor, QWidget* parent): QPushButton(parent), sensor(sensor) {
     QHBoxLayout* layout = new QHBoxLayout(this);
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
