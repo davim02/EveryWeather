@@ -9,7 +9,7 @@
 class SensorWidget: public QPushButton, public SensorWidgetVisitor {
     Q_OBJECT
   private:
-    Sensor& sensor;
+    const Sensor& sensor;
     QLabel* city_label;
     QLabel* country_label;
 
