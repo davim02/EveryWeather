@@ -38,7 +38,7 @@ constexpr auto qt_meta_stringdata_CLASSSensorGraphENDCLASS = QtMocHelpers::strin
     "SensorGraph",
     "setGraphSensor",
     "",
-    "Sensor",
+    "const Sensor*",
     "sensor"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -79,7 +79,7 @@ Q_CONSTINIT const QMetaObject SensorGraph::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<SensorGraph, std::true_type>,
         // method 'setGraphSensor'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const Sensor &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const Sensor *, std::false_type>
     >,
     nullptr
 } };
@@ -90,7 +90,7 @@ void SensorGraph::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<SensorGraph *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->setGraphSensor((*reinterpret_cast< std::add_pointer_t<Sensor>>(_a[1]))); break;
+        case 0: _t->setGraphSensor((*reinterpret_cast< std::add_pointer_t<const Sensor*>>(_a[1]))); break;
         default: ;
         }
     }

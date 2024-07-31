@@ -17,9 +17,9 @@ class MainWindow : public QMainWindow {
         Repository* getRepository();
         MainWindow& reloadData();
 
-    public slots:
+    /*public slots:
         void onSensorSelected(const Sensor* sensor);
-        /*void onSensorDeselected(const Sensor* sensor);
+        void onSensorDeselected(const Sensor* sensor);
         void onSensorAdded(const Sensor* sensor);
         void onSensorRemoved(const Sensor* sensor);
         void onSensorUpdated(const Sensor* sensor);*/

@@ -5,6 +5,7 @@
 #include "../model/Repository/Repository.h"
 #include <QVBoxLayout>
 
+
 class SensorsList: public QWidget {
     Q_OBJECT
     private:
@@ -13,10 +14,12 @@ class SensorsList: public QWidget {
 
     public:
         explicit SensorsList(Repository* repository, QWidget *parent = nullptr);
-        void show() const;
     
     signals:
-        void sensorSelected(const Sensor& sensor);
+        void sensorSelected(const Sensor* sensor);
+
+    public slots:
+        void show();
 };
 
 
