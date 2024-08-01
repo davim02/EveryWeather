@@ -7,8 +7,8 @@ SensorGraph::SensorGraph(QWidget* parent): QWidget(parent) {
     chart_view = new QChartView(this);
     
     chart_view->setRenderHint(QPainter::Antialiasing);
-    chart_view->setMinimumSize(700, 700);
-    chart_view->setMaximumSize(700, 700);
+    chart_view->setMinimumSize(600, 500);
+
 }
 
 void SensorGraph::setGraphSensor(const Sensor* sensor) {

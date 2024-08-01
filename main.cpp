@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
 
     Repository repository;
     repository.add(new Temperature("London", "UK"));
+    repository.add(new Temperature("Paris", "FR"));
     repository.add(new Humidity("London", "UK"));
     repository.add(new UV("London", "UK"));
 
