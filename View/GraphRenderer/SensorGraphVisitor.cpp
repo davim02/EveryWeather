@@ -63,6 +63,8 @@ void SensorGraphVisitor::visit(const Temperature& temperature) {
 }
 
 void SensorGraphVisitor::visit(const Humidity& humidity) {
+    chart = new QChart();
+
     auto line_series = new QLineSeries;
 
     auto dataVector = humidity.getData();
@@ -91,6 +93,8 @@ void SensorGraphVisitor::visit(const Humidity& humidity) {
 }
 
 void SensorGraphVisitor::visit(const Rainfall& rainfall) {
+    chart = new QChart();
+
     auto set = new QBarSet("Months");
 
     auto dataVector = rainfall.getData();
@@ -127,6 +131,7 @@ void SensorGraphVisitor::visit(const Rainfall& rainfall) {
 }
 
 void SensorGraphVisitor::visit(const UV& uv) {
+    chart = new QChart();
 
     auto series = new QLineSeries;
 

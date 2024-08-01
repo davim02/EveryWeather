@@ -4,6 +4,7 @@
 #include "model/Temperature.h"
 #include "model/Humidity.h"
 #include "model/UV.h"
+#include "model/Rainfall.h"
 #include "View/MainWindow.h"
 
 int main(int argc, char *argv[]) {
@@ -14,9 +15,10 @@ int main(int argc, char *argv[]) {
     repository.add(new Temperature("Paris", "FR"));
     repository.add(new Humidity("London", "UK"));
     repository.add(new UV("London", "UK"));
+    repository.add(new Rainfall("London", "UK"));
 
     MainWindow window(&repository);
-    window.resize(1024, 512);
+    window.resize(1250, 512);
     window.show();
 
     return app.exec();
