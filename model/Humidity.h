@@ -9,12 +9,13 @@ class Humidity: public Sensor {
 
     public:
         Humidity(
+            const unsigned int id,
             const std::string city,
             const std::string country
         );
 
         const std::vector<int>& getData() const;
-        virtual void simulate();
+        
         virtual void accept(SensorVisitorInterface& visitor);
         virtual void accept(SensorVisitorConstInterface& visitor) const;
 };

@@ -1,9 +1,21 @@
 #include "Sensor.h"
 
-Sensor::Sensor(const std::string city, const std::string country) : city(city), country(country) {
+Sensor::Sensor(
+    const unsigned int id, 
+    const std::string city, 
+    const std::string country
+) 
+    : id(id), 
+    city(city), 
+    country(country) 
+{
 }
 
 Sensor::~Sensor() {
+}
+
+const unsigned int Sensor::getId() const {
+    return id;
 }
 
 const std::string& Sensor::getCity() const {

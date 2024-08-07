@@ -1,22 +1,23 @@
 #ifndef REPOSITORY_H
 #define REPOSITORY_H
 
-#include <vector>
+#include <map>
+#include "RepositoryInterface.h"
 
-#include "../Sensor.h"
-
-class Repository {
+class Repository : public RepositoryInterface {
     private:
-        std::vector<Sensor*> sensors;
+        std::map<unsigned int, Sensor*> repository;
 
     public:
         Repository();
         virtual ~Repository();
-        Repository& add(Sensor* sensor);
-        Repository& remove(Sensor* sensor);
+        virtual Repository& add(Sensor* sensor);
+        virtual Repository& remove(const unsigned int id);
+        virtual Repository& update(Sensor* sensor);
         Repository& clear();
-        std::vector<Sensor*> getAll() const;
-        std::vector<Sensor*> search(const std::string& query) const;
+        virtual Sensor* get(const unsigned int id) const;
+        virtual std::vector<Sensor*> getAll() const;
+        std::vector<Sensor*> search(const std::string& city) const;
         void saveToFile(const std::string& filename) const;
 };
 
