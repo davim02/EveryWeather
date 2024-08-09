@@ -3,7 +3,7 @@
 
 #include "../model/Repository/Repository.h"
 #include "SensorsList.h"
-#include "GraphRenderer/SensorGraph.h"
+#include "GraphRenderer/SensorGraphWidget.h"
 #include <QMainWindow>
 #include <QToolBar>
 #include <QAction>

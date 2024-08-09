@@ -14,10 +14,9 @@ SensorWidget::SensorWidget(const Sensor& sensor, QWidget* parent): QPushButton(p
     
     city_label = new QLabel("City: " + QString::fromStdString(sensor.getCity()));
     country_label = new QLabel("Country: " + QString::fromStdString(sensor.getCountry()));
-    id_label = new QLabel("ID: " + QString::number(sensor.getId()));
     layout->addWidget(city_label);
     layout->addWidget(country_label);
-    layout->addWidget(id_label);
+    
 
     setMinimumSize(250, 120);
 }

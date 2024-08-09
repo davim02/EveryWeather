@@ -16,33 +16,53 @@ QT += widgets charts
 
 # Input
 HEADERS += model/Humidity.h \
-           View/GraphRenderer/SensorGraph.h \
+           View/GraphRenderer/HumidityGraph.h \
+           View/GraphRenderer/RainfallGraph.h \
+           View/GraphRenderer/SensorGraphWidget.h \
+           View/GraphRenderer/SensorGraphWidgetVisitor.h \
+           View/GraphRenderer/TemperatureGraph.h \
+           View/GraphRenderer/UVGraph.h \
            View/SensorDialogs/EditSensorDialog.h \
+           View/SensorRenderer/SensorInfoWidget.h \
+           View/SensorRenderer/SensorInfoWidgetVisitor.h \
            model/Rainfall.h \
            model/Sensor.h \
            model/SensorVisitorConstInterface.h \
            model/SensorVisitorInterface.h \
+           model/Simulation/HumiditySim.h \
+           model/Simulation/RainfallSim.h \
+           model/Simulation/UVSim.h \
            model/Temperature.h \
            model/UV.h \
+           model/Simulation/TemperatureSim.h \
            View/MainWindow.h \
            View/SensorsList.h \
            model/Repository/Repository.h \
            model/Repository/RepositoryInterface.h \
-           View/GraphRenderer/SensorGraphVisitor.h \
            View/SensorRenderer/SensorWidget.h \
            View/SensorRenderer/SensorWidgetVisitor.h
 SOURCES += main.cpp \
-           View/GraphRenderer/SensorGraph.cpp \
+           View/GraphRenderer/HumidityGraph.cpp \
+           View/GraphRenderer/RainfallGraph.cpp \
+           View/GraphRenderer/SensorGraphWidget.cpp \
+           View/GraphRenderer/SensorGraphWidgetVisitor.cpp \
+           View/GraphRenderer/TemperatureGraph.cpp \
+           View/GraphRenderer/UVGraph.cpp \
            View/SensorDialogs/EditSensorDialog.cpp \
+           View/SensorRenderer/SensorInfoWidget.cpp \
+           View/SensorRenderer/SensorInfoWidgetVisitor.cpp \
            model/Humidity.cpp \
            model/Rainfall.cpp \
            model/Sensor.cpp \
+           model/Simulation/HumiditySim.cpp \
+           model/Simulation/RainfallSim.cpp \
+           model/Simulation/UVSim.cpp \
            model/Temperature.cpp \
            model/UV.cpp \
+           model/Simulation/TemperatureSim.cpp \
            View/MainWindow.cpp \
            View/SensorsList.cpp \
            model/Repository/Repository.cpp \
-           View/GraphRenderer/SensorGraphVisitor.cpp \
            View/SensorRenderer/SensorWidget.cpp \
            View/SensorRenderer/SensorWidgetVisitor.cpp
 RESOURCES = resources.qrc

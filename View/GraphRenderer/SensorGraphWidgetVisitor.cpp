@@ -1,4 +1,4 @@
-#include "SensorGraphVisitor.h"
+#include "SensorGraphWidgetVisitor.h"
 
 #include <QLineSeries>
 #include <QValueAxis>
@@ -13,13 +13,13 @@
 #include "../../model/Temperature.h"
 #include "../../model/UV.h"
 
-QChart* SensorGraphVisitor::getChart() const {
+QChart* SensorGraphWidgetVisitor::getChart() const {
     return chart;
 }
 
-SensorGraphVisitor::SensorGraphVisitor() {}
+SensorGraphWidgetVisitor::SensorGraphWidgetVisitor() {}
 
-void SensorGraphVisitor::visit(const Temperature& temperature) {
+void SensorGraphWidgetVisitor::visit(const Temperature& temperature) {
     chart = new QChart();
 
     auto low = new QBarSet("Min");
@@ -62,7 +62,7 @@ void SensorGraphVisitor::visit(const Temperature& temperature) {
     
 }
 
-void SensorGraphVisitor::visit(const Humidity& humidity) {
+void SensorGraphWidgetVisitor::visit(const Humidity& humidity) {
     chart = new QChart();
 
     auto line_series = new QLineSeries;
@@ -92,7 +92,7 @@ void SensorGraphVisitor::visit(const Humidity& humidity) {
 
 }
 
-void SensorGraphVisitor::visit(const Rainfall& rainfall) {
+void SensorGraphWidgetVisitor::visit(const Rainfall& rainfall) {
     chart = new QChart();
 
     auto set = new QBarSet("Months");
@@ -130,7 +130,7 @@ void SensorGraphVisitor::visit(const Rainfall& rainfall) {
 
 }
 
-void SensorGraphVisitor::visit(const UV& uv) {
+void SensorGraphWidgetVisitor::visit(const UV& uv) {
     chart = new QChart();
 
     auto series = new QLineSeries;

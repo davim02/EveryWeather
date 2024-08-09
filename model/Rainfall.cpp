@@ -1,22 +1,16 @@
 #include "Rainfall.h"
 
 Rainfall::Rainfall(
+    const unsigned int id,
     const std::string city,
-    const std::string country
-): Sensor(city, country) {
-
-    simulate();
+    const std::string country,
+    bool is_inches
+): Sensor(id, city, country), is_inches(is_inches) {
+    
 }
 
-const std::vector<double>& Rainfall::getData() const {
-    return millimeters;
-}
-
-void Rainfall::simulate() {
-    millimeters.clear();
-    for (int i = 0; i < 12; i++) {
-        millimeters.push_back((rand() % 100) / 10.0);
-    }
+bool Rainfall::isInches() const {
+    return is_inches;
 }
 
 void Rainfall::accept(SensorVisitorInterface& visitor) {
