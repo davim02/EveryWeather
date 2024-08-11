@@ -1,7 +1,7 @@
 #include "HumiditySim.h"
 #include <cstdlib>
 
-HumiditySim::HumiditySim() {
+HumiditySim::HumiditySim(const Humidity& humidity) : humidity(humidity) {
     percentages = std::vector<int>();
     simulateHumidity();
 }

@@ -12,10 +12,10 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
     sensors_list = new SensorsList(repository, this);
     layout->addWidget(sensors_list);
 
-    sensor_graph = new SensorGraph(this);
+    sensor_graph_widget = new SensorGraphWidget(this);
     layout->addWidget(sensor_graph);
 
-    connect(sensors_list, &SensorsList::sensorSelected, sensor_graph, &SensorGraph::setGraphSensor);
+    connect(sensors_list, &SensorsList::sensorSelected, sensor_graph_widget, &SensorGraphWidget::setSensorInfo);
 
     mainWidget->setLayout(layout);
     mainWidget->setMinimumSize(700, 400);

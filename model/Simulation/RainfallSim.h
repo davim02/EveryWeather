@@ -1,17 +1,19 @@
 #ifndef RAINFALLSIM_H
 #define RAINFALLSIM_H
 
+#include "../../model/Rainfall.h"
 #include <vector>
 
 class RainfallSim {
 
 private:
-    std::vector<double> millimeters;
+    const Rainfall& rainfall;
+    std::vector<double> quantities;
 
 public:
-    RainfallSim();
-    void simulate_rand();
+    RainfallSim(const Rainfall& rainfall);
     const std::vector<double>& getData() const;
+    void simulateRainfall();
 };
 
 #endif // RAINFALLSIM_H

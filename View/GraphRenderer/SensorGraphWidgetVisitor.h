@@ -7,11 +7,10 @@
 
 class SensorGraphWidgetVisitor: public SensorVisitorConstInterface {
   private:
-    SensorGraphWidget* graph_widget;
+    QChart* chart;
 
   public:
-    SensorGraphWidgetVisitor();
-    SensorGraphWidget* getWidget() const;
+    QChart* getChart() const;
     virtual void visit(const Temperature& temperature);
     virtual void visit(const Humidity& humidity);
     virtual void visit(const Rainfall& rainfall);

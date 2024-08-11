@@ -1,5 +1,6 @@
 #include "SensorGraphWidget.h"
 #include "SensorGraphWidgetVisitor.h"
+#include "../../View/SensorRenderer/SensorInfoWidget.h"
 #include <iostream>
 #include <QChart>
 #include <QVBoxLayout>
@@ -9,20 +10,8 @@ SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
 
     QVBoxLayout* layout = new QVBoxLayout(this);
 
-    QWudget* sensor_info = new QWidget(this);   //make a visitor for this
-    QHBoxLayout* sensor_info_layout = new QHBoxLayout(sensor_info);
-    sensor_info_layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    sensor_info = new QWidget(this);
     layout->addWidget(sensor_info);
-
-    QLabel* city_label = new QLabel("City: ");
-    sensor_info_layout->addWidget(city_label);
-    QLabel* city_value = new QLabel();
-    sensor_info_layout->addWidget(city_value);
-
-    QLabel* country_label = new QLabel("Country: ");
-    sensor_info_layout->addWidget(country_label);
-    QLabel* country_value = new QLabel();
-    sensor_info_layout->addWidget(country_value);
 
     QPushButton* button = new QPushButton("Simulate sensor", this);
     layout->addWidget(button);
@@ -32,6 +21,11 @@ SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
     chart_view->setMinimumSize(600, 500);
     layout->addWidget(chart_view);
 
+}
+
+void SensorGraph::setSensorInfo(const Sensor* sensor) {
+    sensor_info = new SensorInfoWidget(sensor);
+    layout->addWidget(sensor_info);
 }
 
 void SensorGraph::setGraph(const Sensor* sensor) {

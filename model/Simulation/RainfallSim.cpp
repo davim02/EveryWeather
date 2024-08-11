@@ -1,18 +1,25 @@
 #include "RainfallSim.h"
 #include <cstdlib>
 
-RainfallSim::RainfallSim() {
-    millimeters = std::vector<double>();
-    simulate_rand();
+RainfallSim::RainfallSim(const Rainfall& rainfall) : rainfall(rainfall) {
+    quantities = std::vector<double>();
+    simulateRainfall();
 }
 
-void RainfallSim::simulate_rand() {
-    millimeters.clear();
-    for (int i = 0; i < 12; i++) {
-        millimeters.push_back((rand() % 100) / 10.0);
-    }
+void RainfallSim::simulateRainfall() {
+    quantities.clear();
+    if (rainfall.isInches()) {
+        for (int i = 0; i < 12; i++) {
+            quantities.push_back((rand() % 5000) / 254.0);
+        }
+    } else {
+        for (int i = 0; i < 12; i++) {
+            quantities.push_back((rand() % 5000) / 10.0);
+        }
+    }  
+    
 }
 
 const std::vector<double>& RainfallSim::getData() const {
-    return millimeters;
+    return quantities;
 }

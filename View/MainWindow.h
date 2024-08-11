@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow {
     private:
         bool has_unsaved_changes;
         SensorsList* sensors_list;
-        SensorGraph* sensor_graph;
+        SensorGraphWidget* sensor_graph_widget;
         QAction* create_sensor;
         QToolBar* toolbar;
 
@@ -27,6 +27,7 @@ class MainWindow : public QMainWindow {
     public slots:
     void createSensor();
     void editSensor(const Sensor* sensor);
+    void setSelectedSensor(const Sensor* sensor);
     void close();
         /*void onSensorSelected(const Sensor* sensor);
         void onSensorDeselected(const Sensor* sensor);
