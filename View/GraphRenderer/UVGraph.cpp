@@ -6,7 +6,7 @@
 UVGraph::UVGraph(const UV& uv) : uv(uv) {
     UVSim uv_sim(uv);
 
-    uv_values = uv_sim.getData();
+    const std::vector<unsigned int>& uv_values = uv_sim.getData();
 
     auto series = new QLineSeries;
 

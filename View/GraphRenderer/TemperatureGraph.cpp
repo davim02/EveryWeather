@@ -13,8 +13,8 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
     auto low = new QBarSet("Min");
     auto high = new QBarSet("Max");
 
-    min_temp = temperature_sim.getMinTemp();
-    max_temp = temperature_sim.getMaxTemp();
+    const std::vector<int>& min_temp = temperature_sim.getMinTemp();
+    const std::vector<int>& max_temp = temperature_sim.getMaxTemp();
 
     for(int i=0; i<12; i++){
         *low << min_temp[i];

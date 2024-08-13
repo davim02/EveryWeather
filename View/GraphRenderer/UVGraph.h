@@ -8,7 +8,6 @@ class UVGraph : public QChart {
 
 private:
     const UV& uv;
-    const std::vector<unsigned int>& uv_values;
 
 public:
     UVGraph(const UV& uv);

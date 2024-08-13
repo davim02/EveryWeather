@@ -90,8 +90,6 @@ void *SensorWidget::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_CLASSSensorWidgetENDCLASS.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "SensorWidgetVisitor"))
-        return static_cast< SensorWidgetVisitor*>(this);
     return QPushButton::qt_metacast(_clname);
 }
 

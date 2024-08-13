@@ -8,7 +8,6 @@ class RainfallGraph : public QChart {
 
 private:
     const Rainfall& rainfall;
-    const std::vector<double>& rainfall_quantities;
     
 public:
     RainfallGraph(const Rainfall& rainfall);

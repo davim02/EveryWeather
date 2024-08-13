@@ -3,23 +3,26 @@
 
 #include <QWidget>
 #include <QChartView>
+#include <QPushButton>
 #include "../../model/Sensor.h"
+#include "../../View/SensorRenderer/SensorInfoWidget.h"
 
 class SensorGraphWidget: public QWidget {
     Q_OBJECT
 
   private:
-    Sensor* sensor;
+    const Sensor* sensor;
     QChartView* chart_view;
-    QWidget* sensor_info;
+    SensorInfoWidget* sensor_info;
+    QPushButton* button;
+    void setGraph();
 
   public:
     SensorGraphWidget(QWidget* parent = 0);
 
   public slots:
     void simulateSensor();
-    void setGraph(const Sensor* sensor);
-    void setSensorInfo(const Sensor* sensor);
+    void setSensor(const Sensor* sensor);
 
 };
 

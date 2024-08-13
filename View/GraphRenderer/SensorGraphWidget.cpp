@@ -1,34 +1,36 @@
 #include "SensorGraphWidget.h"
 #include "SensorGraphWidgetVisitor.h"
-#include "../../View/SensorRenderer/SensorInfoWidget.h"
 #include <iostream>
 #include <QChart>
 #include <QVBoxLayout>
-#include <QPushButton>
 
 SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
 
     QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->setDirection(QBoxLayout::BottomToTop);
 
-    sensor_info = new QWidget(this);
-    layout->addWidget(sensor_info);
-
-    QPushButton* button = new QPushButton("Simulate sensor", this);
-    layout->addWidget(button);
-    
     chart_view = new QChartView(this);
     chart_view->setRenderHint(QPainter::Antialiasing);
     chart_view->setMinimumSize(600, 500);
     layout->addWidget(chart_view);
+    
+    button = new QPushButton("Simulate sensor", this);
+    button->setEnabled(false);
+    layout->addWidget(button);
+
+    connect(button, &QPushButton::clicked, this, &SensorGraphWidget::simulateSensor);
 
 }
 
-void SensorGraph::setSensorInfo(const Sensor* sensor) {
-    sensor_info = new SensorInfoWidget(sensor);
+void SensorGraphWidget::setSensor(const Sensor* sensor) {
+    this->sensor = sensor;
+    sensor_info = new SensorInfoWidget(*sensor);
+    sensor_info->setMinimumSize(600, 100);
     layout->addWidget(sensor_info);
+    button->setEnabled(true);
 }
 
-void SensorGraph::setGraph(const Sensor* sensor) {
+void SensorGraphWidget::setGraph() {
     //save chart pointer
     QChart* oldChart = chart_view->chart();
 
@@ -42,4 +44,8 @@ void SensorGraph::setGraph(const Sensor* sensor) {
         std::cout << "old chart deleted" << std::endl;
         oldChart->deleteLater();
     }
+}
+
+void SensorGraphWidget::simulateSensor() {
+    setGraph();
 }

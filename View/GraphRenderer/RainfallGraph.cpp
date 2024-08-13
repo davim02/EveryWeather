@@ -10,7 +10,7 @@ RainfallGraph::RainfallGraph(const Rainfall& rainfall) : rainfall(rainfall) {
 
     RainfallSim rainfall_sim(rainfall);
 
-    rainfall_quantities = rainfall_sim.getData();
+    const std::vector<double>& rainfall_quantities = rainfall_sim.getData();
 
     auto set = new QBarSet("Months");
 

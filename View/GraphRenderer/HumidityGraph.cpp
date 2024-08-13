@@ -5,11 +5,11 @@
 #include <QAreaSeries>
 
 HumidityGraph::HumidityGraph(const Humidity& humidity) : humidity(humidity) {
-    HumiditySim humidity_sim = HumiditySim();
+    HumiditySim humidity_sim = HumiditySim(humidity);
 
     auto line_series = new QLineSeries;
 
-    percentages = humidity_sim.getData();
+    const std::vector<int>& percentages = humidity_sim.getData();
 
     for (int i = 0; i < 12; i++) {
         line_series->append(i, percentages[i]);

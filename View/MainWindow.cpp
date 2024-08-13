@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include "SensorDialogs/EditSensorDialog.h"
+#include "SensorDialogs/SensorEditorDialog.h"
 #include <QHBoxLayout>
 #include <QWidget>
 #include <QMenu>
@@ -9,13 +9,15 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
     QWidget* mainWidget = new QWidget(this);
     QHBoxLayout *layout = new QHBoxLayout(this);
 
-    sensors_list = new SensorsList(repository, this);
+    sensors_list = new SensorsList(this);
     layout->addWidget(sensors_list);
+    std::vector<Sensor*> repo = repository->getAll();
+    sensors_list.show(&repo);
 
     sensor_graph_widget = new SensorGraphWidget(this);
     layout->addWidget(sensor_graph);
 
-    connect(sensors_list, &SensorsList::sensorSelected, sensor_graph_widget, &SensorGraphWidget::setSensorInfo);
+    connect(sensors_list, &SensorsList::sensorSelected, sensor_graph_widget, &SensorGraphWidget::setSensor);
 
     mainWidget->setLayout(layout);
     mainWidget->setMinimumSize(700, 400);
@@ -44,8 +46,8 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
 void MainWindow::createSensor() {
     EditSensorDialog dialog(this);
     if (dialog.exec() == QDialog::Accepted) {
-        Sensor sensor = dialog.getSensor();
-        repository->addSensor(sensor);
+        Sensor* sensor = dialog.getSensor();
+        repository->add(sensor);
         sensors_list->show(); // refresh sensors list
         has_unsaved_changes = true;
         
@@ -56,7 +58,7 @@ void MainWindow::editSensor(const Sensor* sensor) {
     EditSensorDialog dialog(this, sensor);
     if (dialog.exec() == QDialog::Accepted) {
         Sensor new_sensor = dialog.getSensor();
-        repository->updateSensor(sensor, new_sensor);
+        repository->update(&new_sensor);
         sensors_list->show(); // refresh sensors list
         has_unsaved_changes = true;
     }

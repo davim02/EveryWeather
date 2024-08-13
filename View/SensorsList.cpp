@@ -2,10 +2,11 @@
 #include "../View/SensorRenderer/SensorWidgetVisitor.h"
 #include <QVBoxLayout>
 #include <QScrollArea>
+#include <QLayoutItem>
 #include <functional>
 
-SensorsList::SensorsList(Repository* repository, QWidget *parent)
-    : QWidget(parent), repository(repository)
+SensorsList::SensorsList(QWidget *parent)
+    : QWidget(parent)
 {
     QWidget* container = new QWidget(this);
     vlayout = new QVBoxLayout(container);
@@ -17,15 +18,23 @@ SensorsList::SensorsList(Repository* repository, QWidget *parent)
     scroll_area->setWidgetResizable(true);
     scroll_area->setWidget(container);
 
-    show();
+    
+}
+
+void SensorsList::clear() {
+    QLayoutItem* child;
+    while ((child = layout->takeAt(0)) != nullptr) {
+
+        delete child->widget();
+        delete child;
+    }
 }
 
 void SensorsList::show() {
+    clear();
 
-    std::vector<Sensor*> results = repository->getAll();
-    
-    for (std::vector<Sensor*>::const_iterator it = results.begin();
-         it != results.end();
+    for (std::vector<Sensor*>::const_iterator it = sensors_list.begin();
+         it != sensors_list.end();
          it++
         )
     {
@@ -34,6 +43,10 @@ void SensorsList::show() {
         connect(sensor_widget, &SensorWidget::clicked, std::bind(&SensorsList::sensorSelected, this, *it));
         //connect(sensor_widget, &SensorWidget::clicked, [=](){ emit sensorSelected(*it); });
     }
-
 }
 
+void SensorsList::show(std::vector<Sensor*>* results) {
+    
+    sensors_list = results;
+    show();
+}

@@ -1,5 +1,6 @@
 #include "SensorInfoWidget.h"
 #include "SensorInfoWidgetVisitor.h"
+#include <QVBoxLayout>
 
 SensorInfoWidget::SensorInfoWidget(const Sensor& sensor, QWidget *parent)
     : QWidget{parent}, sensor{sensor}

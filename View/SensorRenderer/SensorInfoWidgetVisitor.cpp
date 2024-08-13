@@ -21,10 +21,11 @@ void SensorInfoWidgetVisitor::visit(const Temperature& temperature) {
     layout->addWidget(type_label);
     layout->setAlignment(type_label, Qt::AlignHCenter);
 
+    QLabel* unit_label;
     if (temperature.isFahrenheit()) {
-        QLabel* unit_label = new QLabel("Unit: Fahrenheit");
+        unit_label = new QLabel("Unit: Fahrenheit");
     } else {
-        QLabel* unit_label = new QLabel("Unit: Celsius");
+        unit_label = new QLabel("Unit: Celsius");
     }
 
     layout->addWidget(unit_label);
@@ -51,10 +52,11 @@ void SensorInfoWidgetVisitor::visit(const Rainfall& rainfall) {
     layout->addWidget(type_label);
     layout->setAlignment(type_label, Qt::AlignHCenter);
 
+    QLabel* unit_label;
     if (rainfall.isInches()) {
-        QLabel* unit_label = new QLabel("Unit: Inches");
+        unit_label = new QLabel("Unit: Inches");
     } else {
-        QLabel* unit_label = new QLabel("Unit: Millimeters");
+        unit_label = new QLabel("Unit: Millimeters");
     }
 
     layout->addWidget(unit_label);

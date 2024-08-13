@@ -22,7 +22,14 @@ HEADERS += model/Humidity.h \
            View/GraphRenderer/SensorGraphWidgetVisitor.h \
            View/GraphRenderer/TemperatureGraph.h \
            View/GraphRenderer/UVGraph.h \
-           View/SensorDialogs/EditSensorDialog.h \
+           View/SensorDialogs/HumidityEditor.h \
+           View/SensorDialogs/RainfallEditor.h \
+           View/SensorDialogs/SensorEditor.h \
+           View/SensorDialogs/SensorEditorDialog.h \
+           View/SensorDialogs/SensorEditorDialogInjector.h \
+           View/SensorDialogs/TemperatureEditor.h \
+           View/SensorDialogs/TypeSelector.h \
+           View/SensorDialogs/UVEditor.h \
            View/SensorRenderer/SensorInfoWidget.h \
            View/SensorRenderer/SensorInfoWidgetVisitor.h \
            model/Rainfall.h \
@@ -48,7 +55,14 @@ SOURCES += main.cpp \
            View/GraphRenderer/SensorGraphWidgetVisitor.cpp \
            View/GraphRenderer/TemperatureGraph.cpp \
            View/GraphRenderer/UVGraph.cpp \
-           View/SensorDialogs/EditSensorDialog.cpp \
+           View/SensorDialogs/HumidityEditor.cpp \
+           View/SensorDialogs/RainfallEditor.cpp \
+           View/SensorDialogs/SensorEditor.cpp \
+           View/SensorDialogs/SensorEditorDialog.cpp \
+           View/SensorDialogs/SensorEditorDialogInjector.cpp \
+           View/SensorDialogs/TemperatureEditor.cpp \
+           View/SensorDialogs/TypeSelector.cpp \
+           View/SensorDialogs/UVEditor.cpp \
            View/SensorRenderer/SensorInfoWidget.cpp \
            View/SensorRenderer/SensorInfoWidgetVisitor.cpp \
            model/Humidity.cpp \
