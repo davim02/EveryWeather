@@ -8,6 +8,7 @@
 SensorsList::SensorsList(QWidget *parent)
     : QWidget(parent)
 {
+    setMinimumWidth(300);
     QWidget* container = new QWidget(this);
     vlayout = new QVBoxLayout(container);
     vlayout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
@@ -23,7 +24,7 @@ SensorsList::SensorsList(QWidget *parent)
 
 void SensorsList::clear() {
     QLayoutItem* child;
-    while ((child = layout->takeAt(0)) != nullptr) {
+    while ((child = vlayout->takeAt(0)) != nullptr) {
 
         delete child->widget();
         delete child;
@@ -33,8 +34,8 @@ void SensorsList::clear() {
 void SensorsList::show() {
     clear();
 
-    for (std::vector<Sensor*>::const_iterator it = sensors_list.begin();
-         it != sensors_list.end();
+    for (std::vector<Sensor*>::const_iterator it = sensors_list->begin();
+         it != sensors_list->end();
          it++
         )
     {

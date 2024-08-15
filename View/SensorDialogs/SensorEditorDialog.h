@@ -1,6 +1,6 @@
 #include "../../model/Sensor.h"
-#include "../../model/Repository.h"
-#include "MainWindow.h"
+#include "../../model/Repository/Repository.h"
+#include "../../View/MainWindow.h"
 #include "SensorEditor.h"
 #include <QDialog>
 #include <QLineEdit>
@@ -25,7 +25,7 @@ class SensorEditorDialog : public QDialog {
         SensorEditorDialog(MainWindow *mainWindow, Repository *repository, const Sensor *sensor = nullptr);
         
     public slots:
-        Sensor* getSensor() const;
+        void showTypeEditor(int index);
         void apply();
 
    

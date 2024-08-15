@@ -6,7 +6,7 @@
 
 SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
 
-    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout = new QVBoxLayout(this);
     layout->setDirection(QBoxLayout::BottomToTop);
 
     chart_view = new QChartView(this);

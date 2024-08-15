@@ -5,7 +5,14 @@ release/SensorGraphWidget.o
 release/SensorGraphWidgetVisitor.o
 release/TemperatureGraph.o
 release/UVGraph.o
-release/EditSensorDialog.o
+release/HumidityEditor.o
+release/RainfallEditor.o
+release/SensorEditor.o
+release/SensorEditorDialog.o
+release/SensorEditorDialogInjector.o
+release/TemperatureEditor.o
+release/TypeSelector.o
+release/UVEditor.o
 release/SensorInfoWidget.o
 release/SensorInfoWidgetVisitor.o
 release/Humidity.o
@@ -24,7 +31,8 @@ release/SensorWidget.o
 release/SensorWidgetVisitor.o
 release/qrc_resources.o
 release/moc_SensorGraphWidget.o
-release/moc_EditSensorDialog.o
+release/moc_SensorEditor.o
+release/moc_SensorEditorDialog.o
 release/moc_SensorInfoWidget.o
 release/moc_MainWindow.o
 release/moc_SensorsList.o

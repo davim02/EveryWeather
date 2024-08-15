@@ -1,12 +1,17 @@
 #include "SensorEditorDialog.h"
-#include "TypeSetter.h"
 #include "../../model/Temperature.h"
 #include "../../model/Humidity.h"
 #include "../../model/Rainfall.h"
 #include "../../model/UV.h"
-
+#include "HumidityEditor.h"
+#include "RainfallEditor.h"
+#include "TemperatureEditor.h"
+#include "UVEditor.h"
+#include "TypeSelector.h"
+#include "SensorEditorDialogInjector.h"
 
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QFormLayout>
 #include <QLabel>
 
@@ -30,7 +35,7 @@ SensorEditorDialog::SensorEditorDialog(
 
     QLabel *title;
     if (sensor) {
-        title = new QLabel("Change sensor's informations");
+        title = new QLabel("Change sensor's characteristics");
     } else {
         title = new QLabel("Create new sensor");
     }
@@ -68,39 +73,69 @@ SensorEditorDialog::SensorEditorDialog(
     type->addItem("Rainfall");
     type->addItem("UV");
     if (sensor) {
-        TypeSetter type_setter(type);
-        sensor->accept(type_setter);
+        TypeSelector type_selector(type);
+        sensor->accept(type_selector);
     }
     formLayout->addRow("Type", type);
 
+    stackedLayout = new QStackedLayout();
+    layout->addLayout(stackedLayout);
+
+    TemperatureEditor *temperature_editor = new TemperatureEditor();
+    stackedLayout->addWidget(temperature_editor);
+    editors.push_back(temperature_editor);
+
+    HumidityEditor *humidity_editor = new HumidityEditor();
+    stackedLayout->addWidget(humidity_editor);
+    editors.push_back(humidity_editor);
+
+    RainfallEditor *rainfall_editor = new RainfallEditor();
+    stackedLayout->addWidget(rainfall_editor);
+    editors.push_back(rainfall_editor);
+
+    UVEditor *uv_editor = new UVEditor();
+    stackedLayout->addWidget(uv_editor);
+    editors.push_back(uv_editor);
+
+    if (sensor) {
+        SensorEditorDialogInjector injector(
+            *humidity_editor,
+            *rainfall_editor,
+            *temperature_editor,
+            *uv_editor
+        );
+        sensor->accept(injector);
+    }
+    showTypeEditor(type->currentIndex());
+    connect(type, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SensorEditorDialog::showTypeEditor);
+
+    layout->addStretch();
+
+    QHBoxLayout* actions = new QHBoxLayout();
+    actions->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    layout->addLayout(actions);
+
     QPushButton *okButton = new QPushButton("OK");
-    connect(okButton, &QPushButton::clicked, this, &QDialog::accept);
-    layout->addWidget(okButton);
+    actions->addWidget(okButton);
+    connect(okButton, &QPushButton::clicked, this, &SensorEditorDialog::apply);
     
     QPushButton *cancelButton = new QPushButton("Cancel");
+    actions->addWidget(cancelButton);
     connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
-    layout->addWidget(cancelButton);
     
 }
 
-Sensor* SensorEditorDialog::getSensor() const
-{
-    switch (type->currentIndex()) {
-    case 0:
-        sensor = new Temperature(id->text(), city->text(), country->text());
-        break;
-    case 1:
-        sensor = new Humidity(id->text(), city->text(), country->text());
-        break;
-    case 2:
-        sensor = new Rainfall(id->text(), city->text(), country->text());
-        break;
-    case 3:
-        sensor = new UV(id->text(), city->text(), country->text());
-        break;
-    default:
-        break;
-    }
-    
-    return &sensor;
+void SensorEditorDialog::showTypeEditor(int index) {
+    stackedLayout->setCurrentIndex(index);
+}
+
+void SensorEditorDialog::apply() {
+    int sensor_id = id->value();
+    QString sensor_city = city->text();
+    QString sensor_country = country->text();
+    SensorEditor* editor = editors[stackedLayout->currentIndex()];
+    Sensor* sensor = editor->create(sensor_id, sensor_city, sensor_country);
+    mainWindow->getRepository()->update(sensor);
+    mainWindow->reloadData();
+    accept();
 }

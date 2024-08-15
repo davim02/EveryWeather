@@ -42,7 +42,6 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "editSensor",
     "const Sensor*",
     "sensor",
-    "setSelectedSensor",
     "close"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -56,7 +55,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,14 +63,12 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x0a,    1 /* Public */,
-       3,    1,   39,    2, 0x0a,    2 /* Public */,
-       6,    1,   42,    2, 0x0a,    4 /* Public */,
-       7,    0,   45,    2, 0x0a,    6 /* Public */,
+       1,    0,   32,    2, 0x0a,    1 /* Public */,
+       3,    1,   33,    2, 0x0a,    2 /* Public */,
+       6,    0,   36,    2, 0x0a,    4 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 4,    5,
     QMetaType::Void, 0x80000000 | 4,    5,
     QMetaType::Void,
 
@@ -92,9 +89,6 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'editSensor'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const Sensor *, std::false_type>,
-        // method 'setSelectedSensor'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const Sensor *, std::false_type>,
         // method 'close'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -109,8 +103,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->createSensor(); break;
         case 1: _t->editSensor((*reinterpret_cast< std::add_pointer_t<const Sensor*>>(_a[1]))); break;
-        case 2: _t->setSelectedSensor((*reinterpret_cast< std::add_pointer_t<const Sensor*>>(_a[1]))); break;
-        case 3: _t->close(); break;
+        case 2: _t->close(); break;
         default: ;
         }
     }
@@ -135,13 +128,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 3;
     }
     return _id;
 }

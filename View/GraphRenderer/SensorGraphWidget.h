@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QChartView>
 #include <QPushButton>
+#include <QVBoxLayout>
+
 #include "../../model/Sensor.h"
 #include "../../View/SensorRenderer/SensorInfoWidget.h"
 
@@ -12,6 +14,7 @@ class SensorGraphWidget: public QWidget {
 
   private:
     const Sensor* sensor;
+    QVBoxLayout* layout;
     QChartView* chart_view;
     SensorInfoWidget* sensor_info;
     QPushButton* button;
