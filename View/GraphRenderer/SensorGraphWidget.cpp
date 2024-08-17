@@ -3,6 +3,7 @@
 #include <iostream>
 #include <QChart>
 #include <QVBoxLayout>
+#include <QLayoutItem>
 
 SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
 
@@ -11,7 +12,7 @@ SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
 
     chart_view = new QChartView(this);
     chart_view->setRenderHint(QPainter::Antialiasing);
-    chart_view->setMinimumSize(600, 500);
+    chart_view->setMinimumSize(500, 400);
     layout->addWidget(chart_view);
     
     button = new QPushButton("Simulate sensor", this);
@@ -23,9 +24,15 @@ SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
 }
 
 void SensorGraphWidget::setSensor(const Sensor* sensor) {
+    // delete old sensor info widget
+    QLayoutItem *child = layout->takeAt(2);
+    if (child != nullptr) {
+        delete child->widget();
+        delete child;
+    }
+
     this->sensor = sensor;
     sensor_info = new SensorInfoWidget(*sensor);
-    sensor_info->setMinimumSize(600, 100);
     layout->addWidget(sensor_info);
     button->setEnabled(true);
 }

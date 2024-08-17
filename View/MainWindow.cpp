@@ -23,13 +23,13 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
     connect(sensors_list, &SensorsList::sensorSelected, sensor_graph_widget, &SensorGraphWidget::setSensor);
 
     mainWidget->setLayout(layout);
-    mainWidget->setMinimumSize(700, 400);
+    mainWidget->setMinimumSize(800, 600);
     mainWidget->setBackgroundRole(QPalette::Light);
     
     setCentralWidget(mainWidget);
 
     setWindowTitle("EveryWeather");
-    setMinimumSize(700, 400);
+    //setMinimumSize(800, 600);
     setBackgroundRole(QPalette::Light);
 
     create_sensor = new QAction(
