@@ -14,7 +14,7 @@ RainfallGraph::RainfallGraph(const Rainfall& rainfall) : rainfall(rainfall) {
 
     auto set = new QBarSet("Months");
 
-    for(int i=0; i<rainfall_quantities.size(); i++){
+    for(unsigned int i=0; i<rainfall_quantities.size(); i++){
         *set << rainfall_quantities[i];
     }
 

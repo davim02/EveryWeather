@@ -3,6 +3,7 @@
 
 #include "../model/Repository/Repository.h"
 #include "SensorsList.h"
+#include "SearchWidget.h"
 #include "GraphRenderer/SensorGraphWidget.h"
 #include <QMainWindow>
 #include <QToolBar>
@@ -15,6 +16,7 @@ class MainWindow : public QMainWindow {
         bool has_unsaved_changes;
         Repository* repository;
         SensorsList* sensors_list;
+        SearchWidget* search_widget;
         SensorGraphWidget* sensor_graph_widget;
         QAction* create_sensor;
         QToolBar* toolbar;
@@ -28,7 +30,7 @@ class MainWindow : public QMainWindow {
     public slots:
     void createSensor();
     void editSensor(const Sensor* sensor);
-    //void setSelectedSensor(const Sensor* sensor);
+    void search(const QString& city);
     void close();
         /*void onSensorSelected(const Sensor* sensor);
         void onSensorDeselected(const Sensor* sensor);

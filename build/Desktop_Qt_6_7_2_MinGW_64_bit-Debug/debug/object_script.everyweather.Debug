@@ -5,6 +5,7 @@ debug/SensorGraphWidget.o
 debug/SensorGraphWidgetVisitor.o
 debug/TemperatureGraph.o
 debug/UVGraph.o
+debug/SearchWidget.o
 debug/HumidityEditor.o
 debug/RainfallEditor.o
 debug/SensorEditor.o
@@ -31,6 +32,7 @@ debug/SensorWidget.o
 debug/SensorWidgetVisitor.o
 debug/qrc_resources.o
 debug/moc_SensorGraphWidget.o
+debug/moc_SearchWidget.o
 debug/moc_SensorEditor.o
 debug/moc_SensorEditorDialog.o
 debug/moc_SensorInfoWidget.o

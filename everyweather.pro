@@ -22,6 +22,7 @@ HEADERS += model/Humidity.h \
            View/GraphRenderer/SensorGraphWidgetVisitor.h \
            View/GraphRenderer/TemperatureGraph.h \
            View/GraphRenderer/UVGraph.h \
+           View/SearchWidget.h \
            View/SensorDialogs/HumidityEditor.h \
            View/SensorDialogs/RainfallEditor.h \
            View/SensorDialogs/SensorEditor.h \
@@ -55,6 +56,7 @@ SOURCES += main.cpp \
            View/GraphRenderer/SensorGraphWidgetVisitor.cpp \
            View/GraphRenderer/TemperatureGraph.cpp \
            View/GraphRenderer/UVGraph.cpp \
+           View/SearchWidget.cpp \
            View/SensorDialogs/HumidityEditor.cpp \
            View/SensorDialogs/RainfallEditor.cpp \
            View/SensorDialogs/SensorEditor.cpp \

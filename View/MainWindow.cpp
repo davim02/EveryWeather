@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "SensorDialogs/SensorEditorDialog.h"
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QWidget>
 #include <QMenu>
 #include <QMenuBar>
@@ -12,10 +13,19 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
     QWidget* mainWidget = new QWidget(this);
     QHBoxLayout *layout = new QHBoxLayout(mainWidget);
 
+    QVBoxLayout* left_side = new QVBoxLayout();
+
+    search_widget = new SearchWidget(this);
+    left_side->addWidget(search_widget);
+
+    connect(search_widget, &SearchWidget::searchButtonClicked, this, &MainWindow::search);
+
     sensors_list = new SensorsList(this);
-    layout->addWidget(sensors_list);
+    left_side->addWidget(sensors_list);
     std::vector<Sensor*> list = repository->getAll();
     sensors_list->show(&list);
+
+    layout->addLayout(left_side);
 
     sensor_graph_widget = new SensorGraphWidget(this);
     layout->addWidget(sensor_graph_widget);
@@ -71,6 +81,13 @@ void MainWindow::editSensor(const Sensor* sensor) {
         
         has_unsaved_changes = true;
     }
+}
+
+void MainWindow::search(const QString& city) {
+    QString case_ins_city = city.toLower();
+    case_ins_city[0] = case_ins_city[0].toUpper();
+    std::vector<Sensor*> list = repository->search(case_ins_city.toStdString());
+    sensors_list->show(&list);
 }
 
 void MainWindow::close() {

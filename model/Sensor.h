@@ -19,7 +19,7 @@ class Sensor {
         );
 
         virtual ~Sensor();
-        const unsigned int getId() const;
+        unsigned int getId() const;
         const std::string& getCity() const;
         const std::string& getCountry() const;
         void setCity(const std::string city);

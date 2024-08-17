@@ -14,7 +14,7 @@ Sensor::Sensor(
 Sensor::~Sensor() {
 }
 
-const unsigned int Sensor::getId() const {
+unsigned int Sensor::getId() const {
     return id;
 }
 

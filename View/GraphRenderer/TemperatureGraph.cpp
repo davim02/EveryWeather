@@ -26,11 +26,8 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
     series->append(high);
 
     addSeries(series);
-    if (temperature.isFahrenheit()) {
-        setTitle("Temperature records in Fahrenheit");
-    } else {
-        setTitle("Temperature records in Celcius");
-    }
+    setTitle("Average temperatures over the year");
+
     setAnimationOptions(QChart::SeriesAnimations);
 
     QStringList categories = {

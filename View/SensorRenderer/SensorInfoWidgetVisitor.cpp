@@ -16,10 +16,10 @@ void SensorInfoWidgetVisitor::visit(const Temperature& temperature) {
     widget = new QWidget();
     
     QVBoxLayout* layout = new QVBoxLayout(widget);
+    layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
     QLabel* type_label = new QLabel("Type: Temperature");
     layout->addWidget(type_label);
-    layout->setAlignment(type_label, Qt::AlignHCenter);
 
     QLabel* unit_label;
     if (temperature.isFahrenheit()) {
@@ -28,29 +28,27 @@ void SensorInfoWidgetVisitor::visit(const Temperature& temperature) {
         unit_label = new QLabel("Unit: Celsius");
     }
 
-    layout->addWidget(unit_label);
-    layout->setAlignment(unit_label, Qt::AlignHCenter);
-    
+    layout->addWidget(unit_label);  
 }
 
 void SensorInfoWidgetVisitor::visit(const Humidity& humidity) {
     widget = new QWidget();
     
     QVBoxLayout* layout = new QVBoxLayout(widget);
+    layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
     QLabel* type_label = new QLabel("Type: Humidity");
     layout->addWidget(type_label);
-    layout->setAlignment(type_label, Qt::AlignHCenter);
 }
 
 void SensorInfoWidgetVisitor::visit(const Rainfall& rainfall) {
     widget = new QWidget();
     
     QVBoxLayout* layout = new QVBoxLayout(widget);
+    layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
     QLabel* type_label = new QLabel("Type: Rainfall");
     layout->addWidget(type_label);
-    layout->setAlignment(type_label, Qt::AlignHCenter);
 
     QLabel* unit_label;
     if (rainfall.isInches()) {
@@ -60,15 +58,14 @@ void SensorInfoWidgetVisitor::visit(const Rainfall& rainfall) {
     }
 
     layout->addWidget(unit_label);
-    layout->setAlignment(unit_label, Qt::AlignHCenter);
 }
 
 void SensorInfoWidgetVisitor::visit(const UV& uv) {
     widget = new QWidget();
     
     QVBoxLayout* layout = new QVBoxLayout(widget);
+    layout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
     QLabel* type_label = new QLabel("Type: UV");
     layout->addWidget(type_label);
-    layout->setAlignment(type_label, Qt::AlignHCenter);
 }
