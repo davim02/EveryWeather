@@ -31,6 +31,8 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
     layout->addWidget(sensor_graph_widget);
 
     connect(sensors_list, &SensorsList::sensorSelected, sensor_graph_widget, &SensorGraphWidget::setSensor);
+    connect(sensors_list, &SensorsList::editSensor, this, &MainWindow::editSensor);
+    connect(sensors_list, &SensorsList::removeSensor, this, &MainWindow::removeSensor);
 
     mainWidget->setLayout(layout);
     mainWidget->setMinimumSize(800, 600);
@@ -73,6 +75,12 @@ void MainWindow::createSensor() {
         has_unsaved_changes = true;
         
     }
+}
+
+void MainWindow::removeSensor(const unsigned int sensor_id) {
+    repository->remove(sensor_id);
+    reloadData();
+    has_unsaved_changes = true;
 }
 
 void MainWindow::editSensor(const Sensor* sensor) {

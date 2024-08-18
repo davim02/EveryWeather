@@ -19,7 +19,7 @@ void SensorWidgetVisitor::visit(const Temperature& temperature) {
     QLabel* icon = new QLabel();
     icon->setPixmap(image.scaledToHeight(45));
     layout->addWidget(icon);
-    layout->setAlignment(icon, Qt::AlignLeft | Qt::AlignTop);
+    layout->setAlignment(icon, Qt::AlignHCenter);
 
     QLabel* type_label = new QLabel("Temperature");
     layout->addWidget(type_label);
@@ -35,7 +35,7 @@ void SensorWidgetVisitor::visit(const Humidity& humidity) {
     QLabel* icon = new QLabel();
     icon->setPixmap(image.scaledToHeight(45));
     layout->addWidget(icon);
-    layout->setAlignment(icon, Qt::AlignLeft | Qt::AlignTop);
+    layout->setAlignment(icon, Qt::AlignHCenter);
 
     QLabel* type_label = new QLabel("Humidity");
     layout->addWidget(type_label);
@@ -51,7 +51,7 @@ void SensorWidgetVisitor::visit(const Rainfall& rainfall) {
     QLabel* icon = new QLabel();
     icon->setPixmap(image.scaledToHeight(45));
     layout->addWidget(icon);
-    layout->setAlignment(icon, Qt::AlignLeft | Qt::AlignTop);
+    layout->setAlignment(icon, Qt::AlignHCenter);
 
     QLabel* type_label = new QLabel("Rainfall");
     layout->addWidget(type_label);
@@ -67,7 +67,7 @@ void SensorWidgetVisitor::visit(const UV& uv) {
     QLabel* icon = new QLabel();
     icon->setPixmap(image.scaledToHeight(45));
     layout->addWidget(icon);
-    layout->setAlignment(icon, Qt::AlignLeft | Qt::AlignTop);
+    layout->setAlignment(icon, Qt::AlignHCenter);
 
     QLabel* type_label = new QLabel("UV");
     layout->addWidget(type_label);

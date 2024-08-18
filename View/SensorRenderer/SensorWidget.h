@@ -12,9 +12,15 @@ class SensorWidget: public QPushButton {
     const Sensor& sensor;
     QLabel* city_label;
     QLabel* country_label;
+    QPushButton* edit_button;
+    QPushButton* delete_button;
 
   public:
     SensorWidget(const Sensor& sensor, QWidget* parent = 0);
+
+  signals:
+    void edit(const Sensor* sensor);
+    void remove(const unsigned int sensor_id);
 };
 
 #endif

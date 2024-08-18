@@ -131,7 +131,8 @@ void SensorEditorDialog::showTypeEditor(int index) {
 
 void SensorEditorDialog::apply() {
     int sensor_id = id->value();
-    QString sensor_city = city->text();
+    QString sensor_city = city->text().toLower();
+    sensor_city[0] = sensor_city[0].toUpper();
     QString sensor_country = country->text();
     SensorEditor* editor = editors[stackedLayout->currentIndex()];
     Sensor* sensor = editor->create(sensor_id, sensor_city, sensor_country);

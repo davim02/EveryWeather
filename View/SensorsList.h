@@ -17,6 +17,8 @@ class SensorsList: public QWidget {
     
     signals:
         void sensorSelected(const Sensor* sensor);
+        void editSensor(const Sensor* sensor);
+        void removeSensor(const unsigned int sensor_id);
 
     public slots:
         void show(std::vector<Sensor*>* results);

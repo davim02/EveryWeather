@@ -47,7 +47,8 @@ void SensorsList::show() {
         SensorWidget* sensor_widget = new SensorWidget(**it);
         vlayout->addWidget(sensor_widget);
         connect(sensor_widget, &SensorWidget::clicked, std::bind(&SensorsList::sensorSelected, this, *it));
-        //connect(sensor_widget, &SensorWidget::clicked, [=](){ emit sensorSelected(*it); });
+        connect(sensor_widget, &SensorWidget::edit, this, &SensorsList::editSensor);
+        connect(sensor_widget, &SensorWidget::remove, this, &SensorsList::removeSensor);
     }
 }
 

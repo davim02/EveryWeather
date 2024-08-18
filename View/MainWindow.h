@@ -30,6 +30,7 @@ class MainWindow : public QMainWindow {
     public slots:
     void createSensor();
     void editSensor(const Sensor* sensor);
+    void removeSensor(const unsigned int sensor_id);
     void search(const QString& city);
     void close();
         /*void onSensorSelected(const Sensor* sensor);
