@@ -19,6 +19,8 @@ SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
     button->setEnabled(false);
     layout->addWidget(button);
 
+    layout->addSpacing(96);
+
     connect(button, &QPushButton::clicked, this, &SensorGraphWidget::simulateSensor);
 
 }
@@ -69,5 +71,6 @@ void SensorGraphWidget::simulateSensor() {
 
 void SensorGraphWidget::reset() {
     deleteInfoWidget();
+    layout->addSpacing(96);
     //deleteChart();
 }
