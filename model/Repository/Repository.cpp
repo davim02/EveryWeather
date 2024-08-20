@@ -24,15 +24,10 @@ Repository& Repository::remove(const unsigned int id) {
 }
 
 Repository& Repository::update(Sensor* sensor) { 
-    return add(sensor);
-/* ?
-    std::map<unsigned int, Sensor*>::const_iterator it = repository.find(sensor->getId());
+    remove(sensor->getId());
+    add(sensor);
 
-    if(it != repository.end()) {
-        delete it->second;
-        repository[sensor->getId()] = sensor;
-    }
-    return *this;   */
+    return *this;   
 }
 
 Repository& Repository::clear() {
@@ -67,6 +62,17 @@ std::vector<Sensor*> Repository::search(const std::string& city) const {
     std::vector<Sensor*> result;
     for (std::map<unsigned int, Sensor*>::const_iterator it = repository.begin(); it != repository.end(); it++) {
         if ((it->second)->getCity().find(city) != std::string::npos) {
+            result.push_back(it->second);
+        }
+    }
+    return result;
+}
+
+std::vector<Sensor*> Repository::search(const unsigned int id) const {
+    std::vector<Sensor*> result;
+    std::string id_str = std::to_string(id);
+    for (std::map<unsigned int, Sensor*>::const_iterator it = repository.begin(); it != repository.end(); it++) {
+        if (std::to_string((it->first)).find(id_str) != std::string::npos) {
             result.push_back(it->second);
         }
     }

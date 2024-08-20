@@ -18,21 +18,23 @@ class MainWindow : public QMainWindow {
         SensorsList* sensors_list;
         SearchWidget* search_widget;
         SensorGraphWidget* sensor_graph_widget;
+        QString saved_research;
         QAction* create_sensor;
         QToolBar* toolbar;
-
         
     public:
         explicit MainWindow(Repository *repository, QWidget *parent = 0);
         Repository* getRepository();
+        MainWindow& reloadRepo();
         MainWindow& reloadData();
+        void showResults();
 
     public slots:
-    void createSensor();
-    void editSensor(const Sensor* sensor);
-    void removeSensor(const unsigned int sensor_id);
-    void search(const QString& city);
-    void close();
+        void createSensor();
+        void editSensor(const Sensor* sensor);
+        void removeSensor(const unsigned int sensor_id);
+        void search(const QString& research);
+        void close();
         /*void onSensorSelected(const Sensor* sensor);
         void onSensorDeselected(const Sensor* sensor);
         void onSensorAdded(const Sensor* sensor);

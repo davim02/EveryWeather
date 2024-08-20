@@ -7,6 +7,8 @@
 #include <QMenuBar>
 #include <QApplication>
 #include <QMessageBox>
+#include <QRegularExpression>
+
 
 MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(parent), has_unsaved_changes(false), repository(repository)
 {
@@ -17,6 +19,8 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
 
     search_widget = new SearchWidget(this);
     left_side->addWidget(search_widget);
+    left_side->setAlignment(search_widget, Qt::AlignTop);
+    //left_side->addStretch();
 
     connect(search_widget, &SearchWidget::searchButtonClicked, this, &MainWindow::search);
 
@@ -62,7 +66,7 @@ Repository* MainWindow::getRepository() {
     return repository;
 }
 
-MainWindow& MainWindow::reloadData() {  //refreshes the sensors list da rivedere
+MainWindow& MainWindow::reloadRepo() { 
     std::vector<Sensor*> list = repository->getAll();
     sensors_list->show(&list);
     return *this;
@@ -71,31 +75,66 @@ MainWindow& MainWindow::reloadData() {  //refreshes the sensors list da rivedere
 void MainWindow::createSensor() {
     SensorEditorDialog dialog(this, repository, nullptr);
     if (dialog.exec() == QDialog::Accepted) {
-        
         has_unsaved_changes = true;
-        
     }
 }
 
 void MainWindow::removeSensor(const unsigned int sensor_id) {
     repository->remove(sensor_id);
     reloadData();
+    if (sensor_id == sensor_graph_widget->getSensor()->getId()) {
+        sensor_graph_widget->reset();
+    }
     has_unsaved_changes = true;
 }
 
 void MainWindow::editSensor(const Sensor* sensor) {
     SensorEditorDialog dialog(this, repository, sensor);
     if (dialog.exec() == QDialog::Accepted) {
-        
+        if (sensor->getId() == sensor_graph_widget->getSensor()->getId()) {
+            sensor_graph_widget->reset();
+        }
         has_unsaved_changes = true;
     }
 }
 
-void MainWindow::search(const QString& city) {
-    QString case_ins_city = city.toLower();
-    case_ins_city[0] = case_ins_city[0].toUpper();
-    std::vector<Sensor*> list = repository->search(case_ins_city.toStdString());
-    sensors_list->show(&list);
+void MainWindow::showResults() {
+    std::vector<Sensor*> list;
+    static QRegularExpression re(QRegularExpression::anchoredPattern("\\d*"));  // a digit (\d), zero or more times (*)
+
+    if (re.match(saved_research).hasMatch()) {
+        unsigned int id = saved_research.toUInt();
+        list = repository->search(id);
+    } else {
+        QString case_ins_city = saved_research.toLower();
+        case_ins_city[0] = case_ins_city[0].toUpper();
+        list = repository->search(case_ins_city.toStdString());
+    }
+
+    if (list.empty()) {
+        sensors_list->showNoResults();
+    } else {
+        sensors_list->show(&list);
+    }
+}
+
+void MainWindow::search(const QString& research) {
+    if (!research.isEmpty()) {
+        saved_research = research;
+        showResults();
+    } else {
+        reloadRepo();
+    }  
+}
+
+MainWindow& MainWindow::reloadData() {
+    if (!saved_research.isEmpty()) {
+        showResults();
+    } else {
+        reloadRepo();
+    }
+    
+    return *this;
 }
 
 void MainWindow::close() {

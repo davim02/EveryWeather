@@ -18,6 +18,7 @@ class Repository : public RepositoryInterface {
         virtual Sensor* get(const unsigned int id) const;
         virtual std::vector<Sensor*> getAll() const;
         std::vector<Sensor*> search(const std::string& city) const;
+        std::vector<Sensor*> search(const unsigned int id) const;
         void saveToFile(const std::string& filename) const;
 };
 

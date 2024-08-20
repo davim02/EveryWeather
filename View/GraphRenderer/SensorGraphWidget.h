@@ -18,14 +18,19 @@ class SensorGraphWidget: public QWidget {
     QChartView* chart_view;
     SensorInfoWidget* sensor_info;
     QPushButton* button;
-    void setGraph();
+    bool isChartSet;
+    void deleteInfoWidget();
+    void deleteChart();
+    void setChart();
 
   public:
     SensorGraphWidget(QWidget* parent = 0);
+    const Sensor* getSensor() const;
 
   public slots:
     void simulateSensor();
     void setSensor(const Sensor* sensor);
+    void reset();
 
 };
 

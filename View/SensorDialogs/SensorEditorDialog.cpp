@@ -41,6 +41,11 @@ SensorEditorDialog::SensorEditorDialog(
     }
     layout->addWidget(title);
 
+    if (sensor == nullptr) {
+        QLabel *id_warning = new QLabel("WARNING: If a sensor with this ID already exists, its data will be overwritten.");
+        layout->addWidget(id_warning);
+    }
+
     QFormLayout *formLayout = new QFormLayout();
     formLayout->setLabelAlignment(Qt::AlignLeft | Qt::AlignTop);
     //formLayout->setFieldGrowthPolicy(QFormLayout::ExpandingFieldsGrow);

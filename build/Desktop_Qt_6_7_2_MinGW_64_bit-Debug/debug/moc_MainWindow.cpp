@@ -45,7 +45,7 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "removeSensor",
     "sensor_id",
     "search",
-    "city",
+    "research",
     "close"
 );
 #else  // !QT_MOC_HAS_STRINGDATA

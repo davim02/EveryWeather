@@ -39,7 +39,7 @@ constexpr auto qt_meta_stringdata_CLASSSearchWidgetENDCLASS = QtMocHelpers::stri
     "SearchWidget",
     "searchButtonClicked",
     "",
-    "city"
+    "research"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."

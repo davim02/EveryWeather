@@ -16,7 +16,7 @@ class SearchWidget : public QWidget {
         SearchWidget(QWidget *parent = nullptr);
 
     signals:
-        void searchButtonClicked(const QString& city);
+        void searchButtonClicked(const QString& research);
 };
 
 #endif // SEARCHWIDGET_H

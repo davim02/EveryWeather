@@ -1,10 +1,9 @@
 #include "SensorsList.h"
 #include "../View/SensorRenderer/SensorWidgetVisitor.h"
-#include <QVBoxLayout>
 #include <QGridLayout>
-#include <QScrollArea>
 #include <QLayoutItem>
 #include <functional>
+#include <iostream>
 
 SensorsList::SensorsList(QWidget *parent)
     : QWidget(parent)
@@ -14,11 +13,15 @@ SensorsList::SensorsList(QWidget *parent)
     QGridLayout* layout = new QGridLayout(this);
     layout->setAlignment(Qt::AlignCenter);
 
+    no_results_label = new QLabel("No results found");
+    no_results_label->hide();
+    layout->addWidget(no_results_label, 0, 0, 1, 1);
+
     QWidget* container = new QWidget();
     vlayout = new QVBoxLayout(container);
     vlayout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 
-    QScrollArea* scroll_area = new QScrollArea();
+    scroll_area = new QScrollArea();
     scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scroll_area->setWidgetResizable(true);
@@ -38,6 +41,10 @@ void SensorsList::clear() {
 
 void SensorsList::show() {
     clear();
+    if (no_results_label->isVisible()) {
+        no_results_label->hide();
+        scroll_area->show();
+    }
 
     for (std::vector<Sensor*>::const_iterator it = sensors_list->begin();
          it != sensors_list->end();
@@ -53,7 +60,12 @@ void SensorsList::show() {
 }
 
 void SensorsList::show(std::vector<Sensor*>* results) {
-    
     sensors_list = results;
     show();
+}
+
+void SensorsList::showNoResults() {
+    std::cout << "no results found" << std::endl;
+    scroll_area->hide();
+    no_results_label->show();
 }
