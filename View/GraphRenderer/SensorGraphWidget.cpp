@@ -14,10 +14,11 @@ SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
     chart_view->setRenderHint(QPainter::Antialiasing);
     chart_view->setMinimumSize(500, 400);
     layout->addWidget(chart_view);
-    
+
     button = new QPushButton("Simulate sensor", this);
     button->setEnabled(false);
     layout->addWidget(button);
+    layout->setAlignment(button, Qt::AlignTop);
 
     layout->addSpacing(96);
 
@@ -30,6 +31,7 @@ const Sensor* SensorGraphWidget::getSensor() const {
 }
 
 void SensorGraphWidget::deleteInfoWidget() {
+
     QLayoutItem *child = layout->takeAt(2);
     if (child != nullptr) {
         std::cout << "old sensor info deleted" << std::endl;
@@ -37,6 +39,7 @@ void SensorGraphWidget::deleteInfoWidget() {
         delete child;
         button->setEnabled(false);
     }
+
 }
 
 void SensorGraphWidget::setSensor(const Sensor* sensor) {
@@ -59,6 +62,7 @@ void SensorGraphWidget::deleteChart() {
 
 void SensorGraphWidget::setChart() {
     deleteChart();
+    chart_view->show();
     SensorGraphWidgetVisitor visitor;
     sensor->accept(visitor);
     chart_view->setChart(visitor.getChart());
@@ -72,5 +76,6 @@ void SensorGraphWidget::simulateSensor() {
 void SensorGraphWidget::reset() {
     deleteInfoWidget();
     layout->addSpacing(96);
-    //deleteChart();
+    chart_view->hide();
+
 }

@@ -23,4 +23,5 @@ SensorInfoWidget::SensorInfoWidget(const Sensor& sensor, QWidget *parent)
     layout->addWidget(visitor.getWidget());
 
     setMinimumSize(250, 90);
+    setMaximumHeight(90);
 }
