@@ -50,7 +50,21 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = ..\..\main.cpp \
+SOURCES       = ..\..\model\Sensor.cpp \
+		..\..\model\Humidity.cpp \
+		..\..\model\Rainfall.cpp \
+		..\..\model\Temperature.cpp \
+		..\..\model\UV.cpp \
+		..\..\model\Simulation\HumiditySim.cpp \
+		..\..\model\Simulation\RainfallSim.cpp \
+		..\..\model\Simulation\UVSim.cpp \
+		..\..\model\Simulation\TemperatureSim.cpp \
+		..\..\main.cpp \
+		..\..\model\Repository\JsonRepository.cpp \
+		..\..\model\JsonFileIO\JsonFile.cpp \
+		..\..\model\JsonConverter\Json.cpp \
+		..\..\model\JsonConverter\JsonVisitor.cpp \
+		..\..\model\JsonConverter\Reader.cpp \
 		..\..\View\GraphRenderer\HumidityGraph.cpp \
 		..\..\View\GraphRenderer\RainfallGraph.cpp \
 		..\..\View\GraphRenderer\SensorGraphWidget.cpp \
@@ -68,18 +82,8 @@ SOURCES       = ..\..\main.cpp \
 		..\..\View\SensorDialogs\UVEditor.cpp \
 		..\..\View\SensorRenderer\SensorInfoWidget.cpp \
 		..\..\View\SensorRenderer\SensorInfoWidgetVisitor.cpp \
-		..\..\model\Humidity.cpp \
-		..\..\model\Rainfall.cpp \
-		..\..\model\Sensor.cpp \
-		..\..\model\Simulation\HumiditySim.cpp \
-		..\..\model\Simulation\RainfallSim.cpp \
-		..\..\model\Simulation\UVSim.cpp \
-		..\..\model\Temperature.cpp \
-		..\..\model\UV.cpp \
-		..\..\model\Simulation\TemperatureSim.cpp \
 		..\..\View\MainWindow.cpp \
 		..\..\View\SensorsList.cpp \
-		..\..\model\Repository\Repository.cpp \
 		..\..\View\SensorRenderer\SensorWidget.cpp \
 		..\..\View\SensorRenderer\SensorWidgetVisitor.cpp debug\qrc_resources.cpp \
 		debug\moc_SensorGraphWidget.cpp \
@@ -90,7 +94,21 @@ SOURCES       = ..\..\main.cpp \
 		debug\moc_MainWindow.cpp \
 		debug\moc_SensorsList.cpp \
 		debug\moc_SensorWidget.cpp
-OBJECTS       = debug/main.o \
+OBJECTS       = debug/Sensor.o \
+		debug/Humidity.o \
+		debug/Rainfall.o \
+		debug/Temperature.o \
+		debug/UV.o \
+		debug/HumiditySim.o \
+		debug/RainfallSim.o \
+		debug/UVSim.o \
+		debug/TemperatureSim.o \
+		debug/main.o \
+		debug/JsonRepository.o \
+		debug/JsonFile.o \
+		debug/Json.o \
+		debug/JsonVisitor.o \
+		debug/Reader.o \
 		debug/HumidityGraph.o \
 		debug/RainfallGraph.o \
 		debug/SensorGraphWidget.o \
@@ -108,18 +126,8 @@ OBJECTS       = debug/main.o \
 		debug/UVEditor.o \
 		debug/SensorInfoWidget.o \
 		debug/SensorInfoWidgetVisitor.o \
-		debug/Humidity.o \
-		debug/Rainfall.o \
-		debug/Sensor.o \
-		debug/HumiditySim.o \
-		debug/RainfallSim.o \
-		debug/UVSim.o \
-		debug/Temperature.o \
-		debug/UV.o \
-		debug/TemperatureSim.o \
 		debug/MainWindow.o \
 		debug/SensorsList.o \
-		debug/Repository.o \
 		debug/SensorWidget.o \
 		debug/SensorWidgetVisitor.o \
 		debug/qrc_resources.o \
@@ -132,7 +140,24 @@ OBJECTS       = debug/main.o \
 		debug/moc_SensorsList.o \
 		debug/moc_SensorWidget.o
 
-DIST          =  ..\..\model\Humidity.h \
+DIST          =  ..\..\model\Sensor.h \
+		..\..\model\Humidity.h \
+		..\..\model\Rainfall.h \
+		..\..\model\Temperature.h \
+		..\..\model\UV.h \
+		..\..\model\SensorVisitorConstInterface.h \
+		..\..\model\SensorVisitorInterface.h \
+		..\..\model\Simulation\HumiditySim.h \
+		..\..\model\Simulation\RainfallSim.h \
+		..\..\model\Simulation\UVSim.h \
+		..\..\model\Simulation\TemperatureSim.h \
+		..\..\model\Repository\JsonRepository.h \
+		..\..\model\Repository\RepositoryInterface.h \
+		..\..\model\JsonFileIO\JsonFile.h \
+		..\..\model\JsonConverter\Json.h \
+		..\..\model\JsonConverter\JsonVisitor.h \
+		..\..\model\JsonConverter\Reader.h \
+		..\..\model\JsonConverter\ReaderInterface.h \
 		..\..\View\GraphRenderer\HumidityGraph.h \
 		..\..\View\GraphRenderer\RainfallGraph.h \
 		..\..\View\GraphRenderer\SensorGraphWidget.h \
@@ -150,22 +175,24 @@ DIST          =  ..\..\model\Humidity.h \
 		..\..\View\SensorDialogs\UVEditor.h \
 		..\..\View\SensorRenderer\SensorInfoWidget.h \
 		..\..\View\SensorRenderer\SensorInfoWidgetVisitor.h \
-		..\..\model\Rainfall.h \
-		..\..\model\Sensor.h \
-		..\..\model\SensorVisitorConstInterface.h \
-		..\..\model\SensorVisitorInterface.h \
-		..\..\model\Simulation\HumiditySim.h \
-		..\..\model\Simulation\RainfallSim.h \
-		..\..\model\Simulation\UVSim.h \
-		..\..\model\Temperature.h \
-		..\..\model\UV.h \
-		..\..\model\Simulation\TemperatureSim.h \
 		..\..\View\MainWindow.h \
 		..\..\View\SensorsList.h \
-		..\..\model\Repository\Repository.h \
-		..\..\model\Repository\RepositoryInterface.h \
 		..\..\View\SensorRenderer\SensorWidget.h \
-		..\..\View\SensorRenderer\SensorWidgetVisitor.h ..\..\main.cpp \
+		..\..\View\SensorRenderer\SensorWidgetVisitor.h ..\..\model\Sensor.cpp \
+		..\..\model\Humidity.cpp \
+		..\..\model\Rainfall.cpp \
+		..\..\model\Temperature.cpp \
+		..\..\model\UV.cpp \
+		..\..\model\Simulation\HumiditySim.cpp \
+		..\..\model\Simulation\RainfallSim.cpp \
+		..\..\model\Simulation\UVSim.cpp \
+		..\..\model\Simulation\TemperatureSim.cpp \
+		..\..\main.cpp \
+		..\..\model\Repository\JsonRepository.cpp \
+		..\..\model\JsonFileIO\JsonFile.cpp \
+		..\..\model\JsonConverter\Json.cpp \
+		..\..\model\JsonConverter\JsonVisitor.cpp \
+		..\..\model\JsonConverter\Reader.cpp \
 		..\..\View\GraphRenderer\HumidityGraph.cpp \
 		..\..\View\GraphRenderer\RainfallGraph.cpp \
 		..\..\View\GraphRenderer\SensorGraphWidget.cpp \
@@ -183,18 +210,8 @@ DIST          =  ..\..\model\Humidity.h \
 		..\..\View\SensorDialogs\UVEditor.cpp \
 		..\..\View\SensorRenderer\SensorInfoWidget.cpp \
 		..\..\View\SensorRenderer\SensorInfoWidgetVisitor.cpp \
-		..\..\model\Humidity.cpp \
-		..\..\model\Rainfall.cpp \
-		..\..\model\Sensor.cpp \
-		..\..\model\Simulation\HumiditySim.cpp \
-		..\..\model\Simulation\RainfallSim.cpp \
-		..\..\model\Simulation\UVSim.cpp \
-		..\..\model\Temperature.cpp \
-		..\..\model\UV.cpp \
-		..\..\model\Simulation\TemperatureSim.cpp \
 		..\..\View\MainWindow.cpp \
 		..\..\View\SensorsList.cpp \
-		..\..\model\Repository\Repository.cpp \
 		..\..\View\SensorRenderer\SensorWidget.cpp \
 		..\..\View\SensorRenderer\SensorWidgetVisitor.cpp
 QMAKE_TARGET  = everyweather
@@ -216,10 +233,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) everyweather.zip $(SOURCES) $(DIST) ..\..\..\..\everyweather.pro C:\Qt\6.7.2\mingw_64\mkspecs\features\spec_pre.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\device_config.prf C:\Qt\6.7.2\mingw_64\mkspecs\common\sanitize.conf C:\Qt\6.7.2\mingw_64\mkspecs\common\gcc-base.conf C:\Qt\6.7.2\mingw_64\mkspecs\common\g++-base.conf C:\Qt\6.7.2\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\6.7.2\mingw_64\mkspecs\common\windows-vulkan.conf C:\Qt\6.7.2\mingw_64\mkspecs\common\g++-win32.conf C:\Qt\6.7.2\mingw_64\mkspecs\common\windows-desktop.conf C:\Qt\6.7.2\mingw_64\mkspecs\qconfig.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_ext_freetype.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_ext_libpng.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_charts.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_chartsqml.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_chartsqml_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_core.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_example_icons_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_help.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssettings.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_linguist.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediaquick_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_network.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_png_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatch_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatchconversions_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatchgenerators_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlbuiltins.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlbuiltins_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcompiler.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlls_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlnetwork.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlnetwork_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltoolingsettings_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3d.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3d_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3deffects.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3deffects_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dglslparser_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticles.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticles_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dspatialaudio_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dutils.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dutils_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickeffects_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimeline.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimeline_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimelineblendtrees.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimelineblendtrees_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_shadertools.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_shadertools_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_spatialaudio.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_spatialaudio_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_tools_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\features\qt_functions.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\qt_config.prf C:\Qt\6.7.2\mingw_64\mkspecs\win32-g++\qmake.conf C:\Qt\6.7.2\mingw_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\6.7.2\mingw_64\mkspecs\features\exclusive_builds.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\toolchain.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\default_pre.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\win32\default_pre.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\resolve_config.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\default_post.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\build_pass.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\qml_debug.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\precompile_header.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\warn_on.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\permissions.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\qt.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\resources_functions.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\resources.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\moc.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\win32\opengl.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\uic.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\qmake_use.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\file_copies.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\win32\windows.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\testcase_targets.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\exceptions.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\yacc.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\lex.prf ..\..\everyweather.pro ..\..\resources.qrc C:\Qt\6.7.2\mingw_64\lib\Qt6Charts.prl C:\Qt\6.7.2\mingw_64\lib\Qt6OpenGLWidgets.prl C:\Qt\6.7.2\mingw_64\lib\Qt6Widgets.prl C:\Qt\6.7.2\mingw_64\lib\Qt6OpenGL.prl C:\Qt\6.7.2\mingw_64\lib\Qt6Gui.prl C:\Qt\6.7.2\mingw_64\lib\Qt6Core.prl C:\Qt\6.7.2\mingw_64\lib\Qt6EntryPoint.prl   ..\..\resources.qrc C:\Qt\6.7.2\mingw_64\mkspecs\features\data\dummy.cpp ..\..\model\Humidity.h ..\..\View\GraphRenderer\HumidityGraph.h ..\..\View\GraphRenderer\RainfallGraph.h ..\..\View\GraphRenderer\SensorGraphWidget.h ..\..\View\GraphRenderer\SensorGraphWidgetVisitor.h ..\..\View\GraphRenderer\TemperatureGraph.h ..\..\View\GraphRenderer\UVGraph.h ..\..\View\SearchWidget.h ..\..\View\SensorDialogs\HumidityEditor.h ..\..\View\SensorDialogs\RainfallEditor.h ..\..\View\SensorDialogs\SensorEditor.h ..\..\View\SensorDialogs\SensorEditorDialog.h ..\..\View\SensorDialogs\SensorEditorDialogInjector.h ..\..\View\SensorDialogs\TemperatureEditor.h ..\..\View\SensorDialogs\TypeSelector.h ..\..\View\SensorDialogs\UVEditor.h ..\..\View\SensorRenderer\SensorInfoWidget.h ..\..\View\SensorRenderer\SensorInfoWidgetVisitor.h ..\..\model\Rainfall.h ..\..\model\Sensor.h ..\..\model\SensorVisitorConstInterface.h ..\..\model\SensorVisitorInterface.h ..\..\model\Simulation\HumiditySim.h ..\..\model\Simulation\RainfallSim.h ..\..\model\Simulation\UVSim.h ..\..\model\Temperature.h ..\..\model\UV.h ..\..\model\Simulation\TemperatureSim.h ..\..\View\MainWindow.h ..\..\View\SensorsList.h ..\..\model\Repository\Repository.h ..\..\model\Repository\RepositoryInterface.h ..\..\View\SensorRenderer\SensorWidget.h ..\..\View\SensorRenderer\SensorWidgetVisitor.h  ..\..\main.cpp ..\..\View\GraphRenderer\HumidityGraph.cpp ..\..\View\GraphRenderer\RainfallGraph.cpp ..\..\View\GraphRenderer\SensorGraphWidget.cpp ..\..\View\GraphRenderer\SensorGraphWidgetVisitor.cpp ..\..\View\GraphRenderer\TemperatureGraph.cpp ..\..\View\GraphRenderer\UVGraph.cpp ..\..\View\SearchWidget.cpp ..\..\View\SensorDialogs\HumidityEditor.cpp ..\..\View\SensorDialogs\RainfallEditor.cpp ..\..\View\SensorDialogs\SensorEditor.cpp ..\..\View\SensorDialogs\SensorEditorDialog.cpp ..\..\View\SensorDialogs\SensorEditorDialogInjector.cpp ..\..\View\SensorDialogs\TemperatureEditor.cpp ..\..\View\SensorDialogs\TypeSelector.cpp ..\..\View\SensorDialogs\UVEditor.cpp ..\..\View\SensorRenderer\SensorInfoWidget.cpp ..\..\View\SensorRenderer\SensorInfoWidgetVisitor.cpp ..\..\model\Humidity.cpp ..\..\model\Rainfall.cpp ..\..\model\Sensor.cpp ..\..\model\Simulation\HumiditySim.cpp ..\..\model\Simulation\RainfallSim.cpp ..\..\model\Simulation\UVSim.cpp ..\..\model\Temperature.cpp ..\..\model\UV.cpp ..\..\model\Simulation\TemperatureSim.cpp ..\..\View\MainWindow.cpp ..\..\View\SensorsList.cpp ..\..\model\Repository\Repository.cpp ..\..\View\SensorRenderer\SensorWidget.cpp ..\..\View\SensorRenderer\SensorWidgetVisitor.cpp     
+	$(ZIP) everyweather.zip $(SOURCES) $(DIST) ..\..\..\..\everyweather.pro C:\Qt\6.7.2\mingw_64\mkspecs\features\spec_pre.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\device_config.prf C:\Qt\6.7.2\mingw_64\mkspecs\common\sanitize.conf C:\Qt\6.7.2\mingw_64\mkspecs\common\gcc-base.conf C:\Qt\6.7.2\mingw_64\mkspecs\common\g++-base.conf C:\Qt\6.7.2\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\6.7.2\mingw_64\mkspecs\common\windows-vulkan.conf C:\Qt\6.7.2\mingw_64\mkspecs\common\g++-win32.conf C:\Qt\6.7.2\mingw_64\mkspecs\common\windows-desktop.conf C:\Qt\6.7.2\mingw_64\mkspecs\qconfig.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_ext_freetype.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_ext_libpng.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_charts.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_chartsqml.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_chartsqml_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_core.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_example_icons_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_help.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssettings.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_linguist.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediaquick_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_network.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_png_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatch_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatchconversions_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qdoccatchgenerators_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlbuiltins.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlbuiltins_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcompiler.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlls_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlnetwork.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlnetwork_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltoolingsettings_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3d.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3d_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3deffects.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3deffects_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dglslparser_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticles.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dparticles_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dspatialaudio_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dutils.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick3dutils_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basic_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2basicstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusion_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2fusionstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imagine_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2imaginestyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2material_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2materialstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universal_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2universalstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrols2windowsstyleimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickeffects_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimeline.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimeline_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimelineblendtrees.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quicktimelineblendtrees_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_shadertools.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_shadertools_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_spatialaudio.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_spatialaudio_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_tools_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\6.7.2\mingw_64\mkspecs\features\qt_functions.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\qt_config.prf C:\Qt\6.7.2\mingw_64\mkspecs\win32-g++\qmake.conf C:\Qt\6.7.2\mingw_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\6.7.2\mingw_64\mkspecs\features\exclusive_builds.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\toolchain.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\default_pre.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\win32\default_pre.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\resolve_config.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\default_post.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\build_pass.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\qml_debug.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\precompile_header.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\warn_on.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\permissions.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\qt.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\resources_functions.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\resources.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\moc.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\win32\opengl.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\uic.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\qmake_use.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\file_copies.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\win32\windows.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\testcase_targets.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\exceptions.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\yacc.prf C:\Qt\6.7.2\mingw_64\mkspecs\features\lex.prf ..\..\everyweather.pro ..\..\resources.qrc C:\Qt\6.7.2\mingw_64\lib\Qt6Charts.prl C:\Qt\6.7.2\mingw_64\lib\Qt6OpenGLWidgets.prl C:\Qt\6.7.2\mingw_64\lib\Qt6Widgets.prl C:\Qt\6.7.2\mingw_64\lib\Qt6OpenGL.prl C:\Qt\6.7.2\mingw_64\lib\Qt6Gui.prl C:\Qt\6.7.2\mingw_64\lib\Qt6Core.prl C:\Qt\6.7.2\mingw_64\lib\Qt6EntryPoint.prl   ..\..\resources.qrc C:\Qt\6.7.2\mingw_64\mkspecs\features\data\dummy.cpp ..\..\model\Sensor.h ..\..\model\Humidity.h ..\..\model\Rainfall.h ..\..\model\Temperature.h ..\..\model\UV.h ..\..\model\SensorVisitorConstInterface.h ..\..\model\SensorVisitorInterface.h ..\..\model\Simulation\HumiditySim.h ..\..\model\Simulation\RainfallSim.h ..\..\model\Simulation\UVSim.h ..\..\model\Simulation\TemperatureSim.h ..\..\model\Repository\JsonRepository.h ..\..\model\Repository\RepositoryInterface.h ..\..\model\JsonFileIO\JsonFile.h ..\..\model\JsonConverter\Json.h ..\..\model\JsonConverter\JsonVisitor.h ..\..\model\JsonConverter\Reader.h ..\..\model\JsonConverter\ReaderInterface.h ..\..\View\GraphRenderer\HumidityGraph.h ..\..\View\GraphRenderer\RainfallGraph.h ..\..\View\GraphRenderer\SensorGraphWidget.h ..\..\View\GraphRenderer\SensorGraphWidgetVisitor.h ..\..\View\GraphRenderer\TemperatureGraph.h ..\..\View\GraphRenderer\UVGraph.h ..\..\View\SearchWidget.h ..\..\View\SensorDialogs\HumidityEditor.h ..\..\View\SensorDialogs\RainfallEditor.h ..\..\View\SensorDialogs\SensorEditor.h ..\..\View\SensorDialogs\SensorEditorDialog.h ..\..\View\SensorDialogs\SensorEditorDialogInjector.h ..\..\View\SensorDialogs\TemperatureEditor.h ..\..\View\SensorDialogs\TypeSelector.h ..\..\View\SensorDialogs\UVEditor.h ..\..\View\SensorRenderer\SensorInfoWidget.h ..\..\View\SensorRenderer\SensorInfoWidgetVisitor.h ..\..\View\MainWindow.h ..\..\View\SensorsList.h ..\..\View\SensorRenderer\SensorWidget.h ..\..\View\SensorRenderer\SensorWidgetVisitor.h  ..\..\model\Sensor.cpp ..\..\model\Humidity.cpp ..\..\model\Rainfall.cpp ..\..\model\Temperature.cpp ..\..\model\UV.cpp ..\..\model\Simulation\HumiditySim.cpp ..\..\model\Simulation\RainfallSim.cpp ..\..\model\Simulation\UVSim.cpp ..\..\model\Simulation\TemperatureSim.cpp ..\..\main.cpp ..\..\model\Repository\JsonRepository.cpp ..\..\model\JsonFileIO\JsonFile.cpp ..\..\model\JsonConverter\Json.cpp ..\..\model\JsonConverter\JsonVisitor.cpp ..\..\model\JsonConverter\Reader.cpp ..\..\View\GraphRenderer\HumidityGraph.cpp ..\..\View\GraphRenderer\RainfallGraph.cpp ..\..\View\GraphRenderer\SensorGraphWidget.cpp ..\..\View\GraphRenderer\SensorGraphWidgetVisitor.cpp ..\..\View\GraphRenderer\TemperatureGraph.cpp ..\..\View\GraphRenderer\UVGraph.cpp ..\..\View\SearchWidget.cpp ..\..\View\SensorDialogs\HumidityEditor.cpp ..\..\View\SensorDialogs\RainfallEditor.cpp ..\..\View\SensorDialogs\SensorEditor.cpp ..\..\View\SensorDialogs\SensorEditorDialog.cpp ..\..\View\SensorDialogs\SensorEditorDialogInjector.cpp ..\..\View\SensorDialogs\TemperatureEditor.cpp ..\..\View\SensorDialogs\TypeSelector.cpp ..\..\View\SensorDialogs\UVEditor.cpp ..\..\View\SensorRenderer\SensorInfoWidget.cpp ..\..\View\SensorRenderer\SensorInfoWidgetVisitor.cpp ..\..\View\MainWindow.cpp ..\..\View\SensorsList.cpp ..\..\View\SensorRenderer\SensorWidget.cpp ..\..\View\SensorRenderer\SensorWidgetVisitor.cpp     
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\HumidityGraph.o debug\RainfallGraph.o debug\SensorGraphWidget.o debug\SensorGraphWidgetVisitor.o debug\TemperatureGraph.o debug\UVGraph.o debug\SearchWidget.o debug\HumidityEditor.o debug\RainfallEditor.o debug\SensorEditor.o debug\SensorEditorDialog.o debug\SensorEditorDialogInjector.o debug\TemperatureEditor.o debug\TypeSelector.o debug\UVEditor.o debug\SensorInfoWidget.o debug\SensorInfoWidgetVisitor.o debug\Humidity.o debug\Rainfall.o debug\Sensor.o debug\HumiditySim.o debug\RainfallSim.o debug\UVSim.o debug\Temperature.o debug\UV.o debug\TemperatureSim.o debug\MainWindow.o debug\SensorsList.o debug\Repository.o debug\SensorWidget.o debug\SensorWidgetVisitor.o debug\qrc_resources.o debug\moc_SensorGraphWidget.o debug\moc_SearchWidget.o debug\moc_SensorEditor.o debug\moc_SensorEditorDialog.o debug\moc_SensorInfoWidget.o debug\moc_MainWindow.o debug\moc_SensorsList.o debug\moc_SensorWidget.o
+	-$(DEL_FILE) debug\Sensor.o debug\Humidity.o debug\Rainfall.o debug\Temperature.o debug\UV.o debug\HumiditySim.o debug\RainfallSim.o debug\UVSim.o debug\TemperatureSim.o debug\main.o debug\JsonRepository.o debug\JsonFile.o debug\Json.o debug\JsonVisitor.o debug\Reader.o debug\HumidityGraph.o debug\RainfallGraph.o debug\SensorGraphWidget.o debug\SensorGraphWidgetVisitor.o debug\TemperatureGraph.o debug\UVGraph.o debug\SearchWidget.o debug\HumidityEditor.o debug\RainfallEditor.o debug\SensorEditor.o debug\SensorEditorDialog.o debug\SensorEditorDialogInjector.o debug\TemperatureEditor.o debug\TypeSelector.o debug\UVEditor.o debug\SensorInfoWidget.o debug\SensorInfoWidgetVisitor.o debug\MainWindow.o debug\SensorsList.o debug\SensorWidget.o debug\SensorWidgetVisitor.o debug\qrc_resources.o debug\moc_SensorGraphWidget.o debug\moc_SearchWidget.o debug\moc_SensorEditor.o debug\moc_SensorEditorDialog.o debug\moc_SensorInfoWidget.o debug\moc_MainWindow.o debug\moc_SensorsList.o debug\moc_SensorWidget.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -243,6 +260,7 @@ debug/qrc_resources.cpp: ../../resources.qrc \
 		C:/Qt/6.7.2/mingw_64/bin/rcc.exe \
 		../../assets/rainfall.png \
 		../../assets/uv.png \
+		../../assets/weather.png \
 		../../assets/temperature.png \
 		../../assets/humidity.png
 	C:\Qt\6.7.2\mingw_64\bin\rcc.exe -name resources --no-zstd ..\..\resources.qrc -o debug\qrc_resources.cpp
@@ -897,15 +915,15 @@ debug/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.h 
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h \
 		../../model/SensorVisitorConstInterface.h \
-		../../model/Repository/Repository.h \
-		../../model/Repository/RepositoryInterface.h \
 		../../View/MainWindow.h \
-		../../View/SensorsList.h \
-		../../View/SensorRenderer/SensorWidget.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		../../model/Repository/JsonRepository.h \
+		../../model/Repository/RepositoryInterface.h \
+		../../model/JsonFileIO/JsonFile.h \
+		../../model/JsonConverter/Json.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
@@ -950,21 +968,13 @@ debug/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.h 
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -986,68 +996,90 @@ debug/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.h 
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		../../View/SensorsList.h \
+		../../View/SensorRenderer/SensorWidget.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qrect.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qcolor.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qrgb.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpolygon.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qregion.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qline.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -1055,7 +1087,6 @@ debug/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.h 
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvector2d.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
@@ -1088,7 +1119,6 @@ debug/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.h 
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qexception.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpromise.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
@@ -1100,6 +1130,9 @@ debug/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.h 
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		../../View/SearchWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
@@ -1136,8 +1169,6 @@ debug/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.h 
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../View/SensorRenderer/SensorInfoWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -1156,7 +1187,6 @@ debug/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.h 
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstyleoption.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qslider.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractslider.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstyle.h \
@@ -1371,17 +1401,17 @@ debug/moc_SensorInfoWidget.cpp: ../../View/SensorRenderer/SensorInfoWidget.h \
 	C:\Qt\6.7.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/t480/Documents/GitHub/EveryWeather/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -IC:/Users/t480/Documents/GitHub/EveryWeather -IC:/Users/t480/Documents/GitHub/EveryWeather -IC:/Qt/6.7.2/mingw_64/include -IC:/Qt/6.7.2/mingw_64/include/QtCharts -IC:/Qt/6.7.2/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.7.2/mingw_64/include/QtWidgets -IC:/Qt/6.7.2/mingw_64/include/QtOpenGL -IC:/Qt/6.7.2/mingw_64/include/QtGui -IC:/Qt/6.7.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\View\SensorRenderer\SensorInfoWidget.h -o debug\moc_SensorInfoWidget.cpp
 
 debug/moc_MainWindow.cpp: ../../View/MainWindow.h \
-		../../model/Repository/Repository.h \
+		../../model/Repository/JsonRepository.h \
 		../../model/Repository/RepositoryInterface.h \
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h \
 		../../model/SensorVisitorConstInterface.h \
-		../../View/SensorsList.h \
-		../../View/SensorRenderer/SensorWidget.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		../../model/JsonFileIO/JsonFile.h \
+		../../model/JsonConverter/Json.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
@@ -1426,21 +1456,13 @@ debug/moc_MainWindow.cpp: ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -1462,68 +1484,90 @@ debug/moc_MainWindow.cpp: ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		../../View/SensorsList.h \
+		../../View/SensorRenderer/SensorWidget.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qrect.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qcolor.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qrgb.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpolygon.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qregion.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qline.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -1531,7 +1575,6 @@ debug/moc_MainWindow.cpp: ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvector2d.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
@@ -1564,7 +1607,6 @@ debug/moc_MainWindow.cpp: ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qexception.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpromise.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
@@ -1576,6 +1618,9 @@ debug/moc_MainWindow.cpp: ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		../../View/SearchWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
@@ -1612,8 +1657,6 @@ debug/moc_MainWindow.cpp: ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../View/SensorRenderer/SensorInfoWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -1829,6 +1872,9 @@ debug/moc_SensorsList.cpp: ../../View/SensorsList.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.2/mingw_64/bin/moc.exe
 	C:\Qt\6.7.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/t480/Documents/GitHub/EveryWeather/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -IC:/Users/t480/Documents/GitHub/EveryWeather -IC:/Users/t480/Documents/GitHub/EveryWeather -IC:/Qt/6.7.2/mingw_64/include -IC:/Qt/6.7.2/mingw_64/include/QtCharts -IC:/Qt/6.7.2/mingw_64/include/QtOpenGLWidgets -IC:/Qt/6.7.2/mingw_64/include/QtWidgets -IC:/Qt/6.7.2/mingw_64/include/QtOpenGL -IC:/Qt/6.7.2/mingw_64/include/QtGui -IC:/Qt/6.7.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\View\SensorsList.h -o debug\moc_SensorsList.cpp
@@ -2052,6 +2098,63 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
+debug/Sensor.o: ../../model/Sensor.cpp ../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Sensor.o ..\..\model\Sensor.cpp
+
+debug/Humidity.o: ../../model/Humidity.cpp ../../model/Humidity.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Humidity.o ..\..\model\Humidity.cpp
+
+debug/Rainfall.o: ../../model/Rainfall.cpp ../../model/Rainfall.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Rainfall.o ..\..\model\Rainfall.cpp
+
+debug/Temperature.o: ../../model/Temperature.cpp ../../model/Temperature.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Temperature.o ..\..\model\Temperature.cpp
+
+debug/UV.o: ../../model/UV.cpp ../../model/UV.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\UV.o ..\..\model\UV.cpp
+
+debug/HumiditySim.o: ../../model/Simulation/HumiditySim.cpp ../../model/Simulation/HumiditySim.h \
+		../../model/Humidity.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\HumiditySim.o ..\..\model\Simulation\HumiditySim.cpp
+
+debug/RainfallSim.o: ../../model/Simulation/RainfallSim.cpp ../../model/Simulation/RainfallSim.h \
+		../../model/Rainfall.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\RainfallSim.o ..\..\model\Simulation\RainfallSim.cpp
+
+debug/UVSim.o: ../../model/Simulation/UVSim.cpp ../../model/Simulation/UVSim.h \
+		../../model/UV.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\UVSim.o ..\..\model\Simulation\UVSim.cpp
+
+debug/TemperatureSim.o: ../../model/Simulation/TemperatureSim.cpp ../../model/Simulation/TemperatureSim.h \
+		../../model/Temperature.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\TemperatureSim.o ..\..\model\Simulation\TemperatureSim.cpp
+
 debug/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -2212,16 +2315,26 @@ debug/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		../../model/Repository/Repository.h \
+		../../View/MainWindow.h \
+		../../model/Repository/JsonRepository.h \
 		../../model/Repository/RepositoryInterface.h \
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h \
 		../../model/SensorVisitorConstInterface.h \
-		../../model/Temperature.h \
-		../../model/Humidity.h \
-		../../model/UV.h \
-		../../model/Rainfall.h \
-		../../View/MainWindow.h \
+		../../model/JsonFileIO/JsonFile.h \
+		../../model/JsonConverter/Json.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
 		../../View/SensorsList.h \
 		../../View/SensorRenderer/SensorWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
@@ -2234,13 +2347,11 @@ debug/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvector2d.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
@@ -2264,6 +2375,9 @@ debug/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		../../View/SearchWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
@@ -2300,8 +2414,6 @@ debug/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../View/SensorRenderer/SensorInfoWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -2311,6 +2423,691 @@ debug/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtoolbar.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/QAction
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\main.cpp
+
+debug/JsonRepository.o: ../../model/Repository/JsonRepository.cpp ../../model/Repository/JsonRepository.h \
+		../../model/Repository/RepositoryInterface.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h \
+		../../model/JsonFileIO/JsonFile.h \
+		../../model/JsonConverter/Json.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qassert.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qflags.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qswap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		../../model/JsonConverter/Reader.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\JsonRepository.o ..\..\model\Repository\JsonRepository.cpp
+
+debug/JsonFile.o: ../../model/JsonFileIO/JsonFile.cpp ../../model/JsonFileIO/JsonFile.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h \
+		../../model/JsonConverter/Json.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qassert.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qflags.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qswap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		../../model/JsonConverter/Reader.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QFile \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonDocument \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsondocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonArray \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonarray.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\JsonFile.o ..\..\model\JsonFileIO\JsonFile.cpp
+
+debug/Json.o: ../../model/JsonConverter/Json.cpp ../../model/JsonConverter/Json.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qassert.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qflags.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qswap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		../../model/JsonConverter/JsonVisitor.h \
+		../../model/Humidity.h \
+		../../model/Temperature.h \
+		../../model/Rainfall.h \
+		../../model/UV.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Json.o ..\..\model\JsonConverter\Json.cpp
+
+debug/JsonVisitor.o: ../../model/JsonConverter/JsonVisitor.cpp ../../model/JsonConverter/JsonVisitor.h \
+		../../model/Humidity.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h \
+		../../model/Temperature.h \
+		../../model/Rainfall.h \
+		../../model/UV.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qassert.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qflags.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qswap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonArray \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonarray.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\JsonVisitor.o ..\..\model\JsonConverter\JsonVisitor.cpp
+
+debug/Reader.o: ../../model/JsonConverter/Reader.cpp ../../model/JsonConverter/Reader.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconfig.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcore-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfigmacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtcoreexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qassert.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtnoop.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversion.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsysinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlogging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qflags.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qconstructormacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdarwinhelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qexceptionhandling.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qforeach.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttypetraits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmalloc.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qminmax.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnumeric.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qoverload.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qswap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearrayview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringfwd.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringliteral.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlatin1stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qanystringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringtokenizer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		../../model/Sensor.h \
+		../../model/SensorVisitorInterface.h \
+		../../model/SensorVisitorConstInterface.h \
+		../../model/Humidity.h \
+		../../model/Temperature.h \
+		../../model/Rainfall.h \
+		../../model/UV.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonArray \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonarray.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Reader.o ..\..\model\JsonConverter\Reader.cpp
 
 debug/HumidityGraph.o: ../../View/GraphRenderer/HumidityGraph.cpp ../../View/GraphRenderer/HumidityGraph.h \
 		../../model/Humidity.h \
@@ -4487,15 +5284,15 @@ debug/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ../.
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h \
 		../../model/SensorVisitorConstInterface.h \
-		../../model/Repository/Repository.h \
-		../../model/Repository/RepositoryInterface.h \
 		../../View/MainWindow.h \
-		../../View/SensorsList.h \
-		../../View/SensorRenderer/SensorWidget.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		../../model/Repository/JsonRepository.h \
+		../../model/Repository/RepositoryInterface.h \
+		../../model/JsonFileIO/JsonFile.h \
+		../../model/JsonConverter/Json.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
@@ -4540,21 +5337,13 @@ debug/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ../.
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -4576,68 +5365,90 @@ debug/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ../.
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		../../View/SensorsList.h \
+		../../View/SensorRenderer/SensorWidget.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qrect.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qcolor.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qrgb.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpolygon.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qregion.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qline.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -4645,7 +5456,6 @@ debug/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ../.
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvector2d.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
@@ -4678,7 +5488,6 @@ debug/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ../.
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qexception.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpromise.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
@@ -4690,6 +5499,9 @@ debug/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ../.
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		../../View/SearchWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
@@ -4726,8 +5538,6 @@ debug/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ../.
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../View/SensorRenderer/SensorInfoWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -4746,7 +5556,6 @@ debug/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ../.
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstyleoption.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qslider.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractslider.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstyle.h \
@@ -5998,75 +6807,18 @@ debug/SensorInfoWidgetVisitor.o: ../../View/SensorRenderer/SensorInfoWidgetVisit
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\SensorInfoWidgetVisitor.o ..\..\View\SensorRenderer\SensorInfoWidgetVisitor.cpp
 
-debug/Humidity.o: ../../model/Humidity.cpp ../../model/Humidity.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Humidity.o ..\..\model\Humidity.cpp
-
-debug/Rainfall.o: ../../model/Rainfall.cpp ../../model/Rainfall.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Rainfall.o ..\..\model\Rainfall.cpp
-
-debug/Sensor.o: ../../model/Sensor.cpp ../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Sensor.o ..\..\model\Sensor.cpp
-
-debug/HumiditySim.o: ../../model/Simulation/HumiditySim.cpp ../../model/Simulation/HumiditySim.h \
-		../../model/Humidity.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\HumiditySim.o ..\..\model\Simulation\HumiditySim.cpp
-
-debug/RainfallSim.o: ../../model/Simulation/RainfallSim.cpp ../../model/Simulation/RainfallSim.h \
-		../../model/Rainfall.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\RainfallSim.o ..\..\model\Simulation\RainfallSim.cpp
-
-debug/UVSim.o: ../../model/Simulation/UVSim.cpp ../../model/Simulation/UVSim.h \
-		../../model/UV.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\UVSim.o ..\..\model\Simulation\UVSim.cpp
-
-debug/Temperature.o: ../../model/Temperature.cpp ../../model/Temperature.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Temperature.o ..\..\model\Temperature.cpp
-
-debug/UV.o: ../../model/UV.cpp ../../model/UV.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\UV.o ..\..\model\UV.cpp
-
-debug/TemperatureSim.o: ../../model/Simulation/TemperatureSim.cpp ../../model/Simulation/TemperatureSim.h \
-		../../model/Temperature.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\TemperatureSim.o ..\..\model\Simulation\TemperatureSim.cpp
-
 debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
-		../../model/Repository/Repository.h \
+		../../model/Repository/JsonRepository.h \
 		../../model/Repository/RepositoryInterface.h \
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h \
 		../../model/SensorVisitorConstInterface.h \
-		../../View/SensorsList.h \
-		../../View/SensorRenderer/SensorWidget.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		../../model/JsonFileIO/JsonFile.h \
+		../../model/JsonConverter/Json.h \
+		../../model/JsonConverter/ReaderInterface.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qjsonvalue.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtconfiginclude.h \
@@ -6111,21 +6863,13 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearray.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtmetamacros.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpair.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -6147,68 +6891,90 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringbuilder.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringconverter_base.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qlist.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qbytearraylist.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringlist.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qalgorithms.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
+		../../View/SensorsList.h \
+		../../View/SensorRenderer/SensorWidget.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qicon.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qsize.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qmargins.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qrect.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qcolor.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qrgb.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtransform.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpolygon.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qregion.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qdatastream.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qline.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qwidget.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcoreevent.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetatype.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcompare.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcomparehelpers.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qfloat16.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmath.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmetacontainer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontainerinfo.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtaggedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qscopeguard.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qobject_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qbindingstorage.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qdebug.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qtextstream.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qmap.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qshareddata_impl.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qset.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfont.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -6216,7 +6982,6 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvector2d.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
@@ -6249,7 +7014,6 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qexception.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qpromise.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
@@ -6261,6 +7025,9 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QScrollArea \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		../../View/SearchWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
@@ -6297,8 +7064,6 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpainter.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../View/SensorRenderer/SensorInfoWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -6318,7 +7083,6 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstyleoption.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qregularexpression.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qslider.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractslider.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstyle.h \
@@ -6329,6 +7093,7 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qspinbox.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QStackedLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qstackedlayout.h \
+		../../model/JsonConverter/Reader.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMenu \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmenu.h \
@@ -6338,7 +7103,16 @@ debug/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QRegularExpression \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QDir \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qdir.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfileinfo.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qtimezone.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QFileDialog \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qfiledialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\MainWindow.o ..\..\View\MainWindow.cpp
 
 debug/SensorsList.o: ../../View/SensorsList.cpp ../../View/SensorsList.h \
@@ -6544,21 +7318,14 @@ debug/SensorsList.o: ../../View/SensorsList.cpp ../../View/SensorsList.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
-		../../View/SensorRenderer/SensorWidgetVisitor.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGridLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QScrollArea \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../View/SensorRenderer/SensorWidgetVisitor.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGridLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLayoutItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\SensorsList.o ..\..\View\SensorsList.cpp
-
-debug/Repository.o: ../../model/Repository/Repository.cpp ../../model/Repository/Repository.h \
-		../../model/Repository/RepositoryInterface.h \
-		../../model/Sensor.h \
-		../../model/SensorVisitorInterface.h \
-		../../model/SensorVisitorConstInterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Repository.o ..\..\model\Repository\Repository.cpp
 
 debug/SensorWidget.o: ../../View/SensorRenderer/SensorWidget.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
@@ -6750,6 +7517,7 @@ debug/SensorWidget.o: ../../View/SensorRenderer/SensorWidget.cpp C:/Qt/6.7.2/min
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QString \
 		../../View/SensorRenderer/SensorWidgetVisitor.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QWidget \

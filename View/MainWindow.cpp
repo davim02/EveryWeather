@@ -1,5 +1,9 @@
 #include "MainWindow.h"
 #include "SensorDialogs/SensorEditorDialog.h"
+#include "../model/JsonConverter/Reader.h"
+#include "../model/JsonConverter/Json.h"
+#include "../model/JsonFileIO/JsonFile.h"
+
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QWidget>
@@ -8,10 +12,67 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QRegularExpression>
+#include <QDir>
+#include <QFileDialog>
 
 
-MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(parent), has_unsaved_changes(false), repository(repository)
-{
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), has_unsaved_changes(false), repository(nullptr) {
+
+    QAction* create = new QAction(
+        //QIcon(QPixmap((":/assets/icons/new.svg"))),
+        "New"
+    );
+    create->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
+    connect(create, &QAction::triggered, this, &MainWindow::newDataset);
+
+    QAction* open = new QAction(
+        //QIcon(QPixmap((":/assets/icons/open.svg"))),
+        "Open"
+    );
+    open->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_O));
+    connect(open, &QAction::triggered, this, &MainWindow::openDataset);
+
+    QAction* save = new QAction(
+        //QIcon(QPixmap((":/assets/icons/save.svg"))),
+        "Save"
+    );
+    save->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
+    connect(save, &QAction::triggered, this, &MainWindow::saveDataset);
+
+    QAction* save_as = new QAction(
+        //QIcon(QPixmap((":/assets/icons/save_as.svg"))),
+        "Save As"
+    );
+    save_as->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
+    connect(save_as, &QAction::triggered, this, &MainWindow::saveAsDataset);
+
+    QAction* close = new QAction(
+        //QIcon(QPixmap((":/assets/icons/close.svg"))),
+        "Close"
+        );
+    close->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
+    connect(close, &QAction::triggered, this, &MainWindow::close);
+
+    create_sensor = new QAction(
+        //QIcon(QPixmap((":/assets/icons/new_sensor.svg"))),
+        "Add New Sensor"
+    );
+    create_sensor->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_N));
+    create_sensor->setEnabled(false);
+    connect(create_sensor, &QAction::triggered, this, &MainWindow::createSensor);
+    
+    //Sets menu
+    QMenu* file = menuBar()->addMenu("&File");
+    file->addAction(create);
+    file->addAction(open);
+    file->addAction(save);
+    file->addAction(save_as);
+    file->addSeparator();
+    file->addAction(close);
+    QMenu* sensor_menu = menuBar()->addMenu("&Sensor");
+    sensor_menu->addAction(create_sensor);
+
+    //Sets main widget
     QWidget* mainWidget = new QWidget(this);
     QHBoxLayout *layout = new QHBoxLayout(mainWidget);
 
@@ -26,8 +87,8 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
 
     sensors_list = new SensorsList(this);
     left_side->addWidget(sensors_list);
-    std::vector<Sensor*> list = repository->getAll();
-    sensors_list->show(&list);
+    //std::vector<Sensor*> list = repository->getAll();
+    //sensors_list->show(&list); da fare segnali
 
     layout->addLayout(left_side);
 
@@ -47,22 +108,9 @@ MainWindow::MainWindow(Repository* repository, QWidget *parent): QMainWindow(par
     setWindowTitle("EveryWeather");
     //setMinimumSize(800, 600);
     setBackgroundRole(QPalette::Light);
-
-    create_sensor = new QAction(
-        //QIcon(QPixmap((":/assets/icons/new_sensor.svg"))),
-        "Add New Sensor"
-    );
-    create_sensor->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_N));
-    create_sensor->setEnabled(true);
-
-    //Sets menu
-    QMenu* sensor_menu = menuBar()->addMenu("&Sensor");
-    sensor_menu->addAction(create_sensor);
-
-    connect(create_sensor, &QAction::triggered, this, &MainWindow::createSensor);
 }
 
-Repository* MainWindow::getRepository() {
+JsonRepository* MainWindow::getRepository() {
     return repository;
 }
 
@@ -72,8 +120,76 @@ MainWindow& MainWindow::reloadRepo() {
     return *this;
 }
 
+void MainWindow::newDataset() {
+    QString filepath = QFileDialog::getSaveFileName(
+        this, 
+        "Save new dataset", 
+        QDir::homePath(), 
+        "JSON files (*.json)"
+    );
+    if (filepath.isEmpty()) {
+        return; // User cancelled
+    }
+    if (repository != nullptr) {
+        delete repository;
+    }
+    Reader reader;
+    Json json_converter(reader);
+    JsonFile data_mapper(filepath.toStdString(), json_converter);
+    repository = new JsonRepository(data_mapper);
+    create_sensor->setEnabled(true);
+}
+
+void MainWindow::openDataset() {
+    QString filepath = QFileDialog::getOpenFileName(
+        this, 
+        "Open dataset", 
+        QDir::homePath(), 
+        "JSON files (*.json)"
+    );
+    if (filepath.isEmpty()) {
+        return; // User cancelled
+    }
+    if (repository != nullptr) {
+        delete repository;
+    }
+    Reader reader;
+    Json json_converter(reader);
+    JsonFile data_mapper(filepath.toStdString(), json_converter);
+    repository = new JsonRepository(data_mapper);
+    create_sensor->setEnabled(true);
+    reloadData();
+}
+
+void MainWindow::saveDataset() {
+    if (repository == nullptr) {
+        QMessageBox::warning(this, "Error", "No dataset is currently open");
+        return;
+    }
+    repository->store();
+    has_unsaved_changes = false;
+}
+
+void MainWindow::saveAsDataset() {
+    if (repository == nullptr) {
+        QMessageBox::warning(this, "Error", "No dataset is currently open");
+        return;
+    }
+    QString filepath = QFileDialog::getSaveFileName(
+        this, 
+        "Save dataset as", 
+        QDir::homePath(), 
+        "JSON files (*.json)"
+    );
+    if (filepath.isEmpty()) {
+        return; // User cancelled
+    }
+    repository->setFilepath(filepath.toStdString()).store();
+    has_unsaved_changes = false;
+}
+
 void MainWindow::createSensor() {
-    SensorEditorDialog dialog(this, repository, nullptr);
+    SensorEditorDialog dialog(this, nullptr);
     if (dialog.exec() == QDialog::Accepted) {
         has_unsaved_changes = true;
     }
@@ -89,7 +205,7 @@ void MainWindow::removeSensor(const unsigned int sensor_id) {
 }
 
 void MainWindow::editSensor(const Sensor* sensor) {
-    SensorEditorDialog dialog(this, repository, sensor);
+    SensorEditorDialog dialog(this, sensor);
     if (dialog.exec() == QDialog::Accepted) {
         if (sensor->getId() == sensor_graph_widget->getSensor()->getId()) {
             sensor_graph_widget->reset();
@@ -151,5 +267,24 @@ void MainWindow::close() {
         }
     } else {
         QApplication::quit();
+    }
+}
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    if (has_unsaved_changes) {
+        QMessageBox::StandardButton confirmation;
+        confirmation = QMessageBox::question(
+            this,
+            "Quit?",
+            "There are unsaved changes.\nDo you really want to quit?",
+            QMessageBox::Yes | QMessageBox::No
+            );
+        if (confirmation == QMessageBox::Yes) {
+            event->accept();
+        } else {
+            event->ignore();
+        }
+    } else {
+        event->accept();
     }
 }

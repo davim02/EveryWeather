@@ -17,7 +17,6 @@
 
 SensorEditorDialog::SensorEditorDialog(
         MainWindow *mainWindow,
-        Repository *repository,
         const Sensor* sensor
     ) 
         : mainWindow(mainWindow), sensor(sensor)
@@ -28,7 +27,7 @@ SensorEditorDialog::SensorEditorDialog(
         setWindowTitle("New Sensor");
     }
     
-    setFixedSize(300, 600);
+    setFixedSize(400, 600);
     
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);

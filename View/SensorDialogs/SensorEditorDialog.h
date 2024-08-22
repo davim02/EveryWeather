@@ -1,5 +1,4 @@
 #include "../../model/Sensor.h"
-#include "../../model/Repository/Repository.h"
 #include "../../View/MainWindow.h"
 #include "SensorEditor.h"
 #include <QDialog>
@@ -22,7 +21,7 @@ class SensorEditorDialog : public QDialog {
         QVector<SensorEditor*> editors;
 
     public:
-        SensorEditorDialog(MainWindow *mainWindow, Repository *repository, const Sensor *sensor = nullptr);
+        SensorEditorDialog(MainWindow *mainWindow, const Sensor *sensor = nullptr);
         
     public slots:
         void showTypeEditor(int index);

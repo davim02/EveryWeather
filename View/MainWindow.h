@@ -1,7 +1,7 @@
 #ifndef VIEW_MAIN_WINDOW_H
 #define VIEW_MAIN_WINDOW_H
 
-#include "../model/Repository/Repository.h"
+#include "../model/Repository/JsonRepository.h"
 #include "SensorsList.h"
 #include "SearchWidget.h"
 #include "GraphRenderer/SensorGraphWidget.h"
@@ -14,32 +14,34 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
     private:
         bool has_unsaved_changes;
-        Repository* repository;
+        JsonRepository* repository;
         SensorsList* sensors_list;
         SearchWidget* search_widget;
         SensorGraphWidget* sensor_graph_widget;
         QString saved_research;
         QAction* create_sensor;
         QToolBar* toolbar;
+
+    protected:
+        void closeEvent(QCloseEvent *event) override;
         
     public:
-        explicit MainWindow(Repository *repository, QWidget *parent = 0);
-        Repository* getRepository();
+        MainWindow(QWidget *parent = 0);
+        JsonRepository* getRepository();
         MainWindow& reloadRepo();
         MainWindow& reloadData();
         void showResults();
 
     public slots:
+        void newDataset();
+        void openDataset();
+        void saveDataset();
+        void saveAsDataset();
         void createSensor();
         void editSensor(const Sensor* sensor);
         void removeSensor(const unsigned int sensor_id);
         void search(const QString& research);
         void close();
-        /*void onSensorSelected(const Sensor* sensor);
-        void onSensorDeselected(const Sensor* sensor);
-        void onSensorAdded(const Sensor* sensor);
-        void onSensorRemoved(const Sensor* sensor);
-        void onSensorUpdated(const Sensor* sensor);*/
 };
 
 #endif

@@ -15,7 +15,24 @@ QT += widgets charts
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
-HEADERS += model/Humidity.h \
+HEADERS += model/Sensor.h \
+           model/Humidity.h \
+           model/Rainfall.h \
+           model/Temperature.h \
+           model/UV.h \
+           model/SensorVisitorConstInterface.h \
+           model/SensorVisitorInterface.h \
+           model/Simulation/HumiditySim.h \
+           model/Simulation/RainfallSim.h \
+           model/Simulation/UVSim.h \
+           model/Simulation/TemperatureSim.h \
+           model/Repository/JsonRepository.h \
+           model/Repository/RepositoryInterface.h \
+           model/JsonFileIO/JsonFile.h \
+           model/JsonConverter/Json.h \
+           model/JsonConverter/JsonVisitor.h \
+           model/JsonConverter/Reader.h \
+           model/JsonConverter/ReaderInterface.h \
            View/GraphRenderer/HumidityGraph.h \
            View/GraphRenderer/RainfallGraph.h \
            View/GraphRenderer/SensorGraphWidget.h \
@@ -33,23 +50,25 @@ HEADERS += model/Humidity.h \
            View/SensorDialogs/UVEditor.h \
            View/SensorRenderer/SensorInfoWidget.h \
            View/SensorRenderer/SensorInfoWidgetVisitor.h \
-           model/Rainfall.h \
-           model/Sensor.h \
-           model/SensorVisitorConstInterface.h \
-           model/SensorVisitorInterface.h \
-           model/Simulation/HumiditySim.h \
-           model/Simulation/RainfallSim.h \
-           model/Simulation/UVSim.h \
-           model/Temperature.h \
-           model/UV.h \
-           model/Simulation/TemperatureSim.h \
            View/MainWindow.h \
            View/SensorsList.h \
-           model/Repository/Repository.h \
-           model/Repository/RepositoryInterface.h \
            View/SensorRenderer/SensorWidget.h \
            View/SensorRenderer/SensorWidgetVisitor.h
-SOURCES += main.cpp \
+SOURCES += model/Sensor.cpp \
+           model/Humidity.cpp \
+           model/Rainfall.cpp \
+           model/Temperature.cpp \
+           model/UV.cpp \
+           model/Simulation/HumiditySim.cpp \
+           model/Simulation/RainfallSim.cpp \
+           model/Simulation/UVSim.cpp \
+           model/Simulation/TemperatureSim.cpp \
+           main.cpp \
+           model/Repository/JsonRepository.cpp \
+           model/JsonFileIO/JsonFile.cpp \
+           model/JsonConverter/Json.cpp \
+           model/JsonConverter/JsonVisitor.cpp \
+           model/JsonConverter/Reader.cpp \
            View/GraphRenderer/HumidityGraph.cpp \
            View/GraphRenderer/RainfallGraph.cpp \
            View/GraphRenderer/SensorGraphWidget.cpp \
@@ -67,18 +86,8 @@ SOURCES += main.cpp \
            View/SensorDialogs/UVEditor.cpp \
            View/SensorRenderer/SensorInfoWidget.cpp \
            View/SensorRenderer/SensorInfoWidgetVisitor.cpp \
-           model/Humidity.cpp \
-           model/Rainfall.cpp \
-           model/Sensor.cpp \
-           model/Simulation/HumiditySim.cpp \
-           model/Simulation/RainfallSim.cpp \
-           model/Simulation/UVSim.cpp \
-           model/Temperature.cpp \
-           model/UV.cpp \
-           model/Simulation/TemperatureSim.cpp \
            View/MainWindow.cpp \
            View/SensorsList.cpp \
-           model/Repository/Repository.cpp \
            View/SensorRenderer/SensorWidget.cpp \
            View/SensorRenderer/SensorWidgetVisitor.cpp
 RESOURCES = resources.qrc
