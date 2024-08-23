@@ -36,7 +36,6 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
 
     auto axisX = new QBarCategoryAxis;
     axisX->append(categories);
-    axisX->setTitleText("Month");
     addAxis(axisX, Qt::AlignBottom);
     auto axisY = new QValueAxis;
     if (temperature.isFahrenheit()) {
@@ -52,6 +51,6 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
     series->attachAxis(axisY);
 
     legend()->setVisible(true);
-    legend()->setAlignment(Qt::AlignBottom);
+    legend()->setAlignment(Qt::AlignRight);
     
 }

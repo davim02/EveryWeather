@@ -12,6 +12,6 @@ const std::vector<unsigned int>& UVSim::getData() const {
 void UVSim::simulateUV() {
     indexes.clear();
     for (int i = 0; i < 12; i++) {
-        indexes.push_back(rand() % 11);
+        indexes.push_back(rand() % 13);
     }
 }

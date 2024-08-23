@@ -3,6 +3,8 @@
 
 #include <QLineSeries>
 #include <QAreaSeries>
+#include <QBarCategoryAxis>
+#include <QValueAxis>
 
 HumidityGraph::HumidityGraph(const Humidity& humidity) : humidity(humidity) {
     HumiditySim humidity_sim = HumiditySim(humidity);
@@ -16,7 +18,26 @@ HumidityGraph::HumidityGraph(const Humidity& humidity) : humidity(humidity) {
     }
 
     auto series = new QAreaSeries(line_series);
-    series->setName("Percentage of Humidity (%)");
+
+    addSeries(series);
+    setTitle("Average humidity across the year");
+    setAnimationOptions(QChart::SeriesAnimations);
+
+    QStringList categories = {
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    };
+    QBarCategoryAxis *axisX = new QBarCategoryAxis;
+    axisX->append(categories);
+    addAxis(axisX, Qt::AlignBottom);
+    series->attachAxis(axisX);
+
+    QValueAxis *axisY = new QValueAxis;
+    axisY->setRange(0, 100);
+    axisY->setTitleText("Humidity (%)");
+    axisY->setLabelFormat("%i%");
+    axisY->setTickCount(6);
+    addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisY);
 
     QPen pen(0x059605);
     pen.setWidth(3);
@@ -28,7 +49,5 @@ HumidityGraph::HumidityGraph(const Humidity& humidity) : humidity(humidity) {
     gradient.setCoordinateMode(QGradient::ObjectBoundingMode);
     series->setBrush(gradient);
 
-    addSeries(series);
-    setTitle("Humidity");
-    createDefaultAxes();
+    legend()->hide();
 }

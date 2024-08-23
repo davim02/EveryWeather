@@ -30,7 +30,6 @@ RainfallGraph::RainfallGraph(const Rainfall& rainfall) : rainfall(rainfall) {
     };
     QBarCategoryAxis *axisX = new QBarCategoryAxis;
     axisX->append(categories);
-    axisX->setTitleText("Month");
     addAxis(axisX, Qt::AlignBottom);
     series->attachAxis(axisX);
 
@@ -46,6 +45,5 @@ RainfallGraph::RainfallGraph(const Rainfall& rainfall) : rainfall(rainfall) {
     addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
 
-    legend()->setVisible(true);
-    legend()->setAlignment(Qt::AlignBottom);
+    legend()->setVisible(false);
 }
