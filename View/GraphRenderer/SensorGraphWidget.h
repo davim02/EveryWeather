@@ -26,6 +26,7 @@ class SensorGraphWidget: public QWidget {
   public:
     SensorGraphWidget(QWidget* parent = 0);
     const Sensor* getSensor() const;
+    bool isSensorSet() const;
 
   public slots:
     void simulateSensor();

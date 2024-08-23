@@ -30,6 +30,14 @@ const Sensor* SensorGraphWidget::getSensor() const {
     return sensor;
 }
 
+bool SensorGraphWidget::isSensorSet() const {
+    if (sensor != nullptr) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void SensorGraphWidget::deleteInfoWidget() {
 
     QLayoutItem *child = layout->takeAt(2);

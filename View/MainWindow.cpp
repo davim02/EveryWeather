@@ -87,8 +87,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), has_unsaved_change
 
     sensors_list = new SensorsList(this);
     left_side->addWidget(sensors_list);
-    //std::vector<Sensor*> list = repository->getAll();
-    //sensors_list->show(&list); da fare segnali
 
     layout->addLayout(left_side);
 
@@ -106,8 +104,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), has_unsaved_change
     setCentralWidget(mainWidget);
 
     setWindowTitle("EveryWeather");
-    //setMinimumSize(800, 600);
-    setBackgroundRole(QPalette::Light);
+    //setBackgroundRole(QPalette::Light);
 }
 
 JsonRepository* MainWindow::getRepository() {
@@ -158,7 +155,7 @@ void MainWindow::openDataset() {
     JsonFile data_mapper(filepath.toStdString(), json_converter);
     repository = new JsonRepository(data_mapper);
     create_sensor->setEnabled(true);
-    reloadData();
+    reloadRepo();
 }
 
 void MainWindow::saveDataset() {
@@ -198,8 +195,11 @@ void MainWindow::createSensor() {
 void MainWindow::removeSensor(const unsigned int sensor_id) {
     repository->remove(sensor_id);
     reloadData();
-    if (sensor_id == sensor_graph_widget->getSensor()->getId()) {
-        sensor_graph_widget->reset();
+
+    if (sensor_graph_widget->isSensorSet()) {
+        if (sensor_id == sensor_graph_widget->getSensor()->getId()) {
+            sensor_graph_widget->reset();
+        }
     }
     has_unsaved_changes = true;
 }
@@ -207,8 +207,10 @@ void MainWindow::removeSensor(const unsigned int sensor_id) {
 void MainWindow::editSensor(const Sensor* sensor) {
     SensorEditorDialog dialog(this, sensor);
     if (dialog.exec() == QDialog::Accepted) {
-        if (sensor->getId() == sensor_graph_widget->getSensor()->getId()) {
-            sensor_graph_widget->reset();
+        if (sensor_graph_widget->isSensorSet()) {
+            if (sensor->getId() == sensor_graph_widget->getSensor()->getId()) {
+                sensor_graph_widget->reset();
+            }
         }
         has_unsaved_changes = true;
     }
@@ -239,6 +241,7 @@ void MainWindow::search(const QString& research) {
         saved_research = research;
         showResults();
     } else {
+        saved_research = "";
         reloadRepo();
     }  
 }

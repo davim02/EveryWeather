@@ -1,7 +1,7 @@
 #ifndef TYPESELECTOR_H
 #define TYPESELECTOR_H
 
-#include <../../model/SensorVisitorConstInterface.h>
+#include "../../model/SensorVisitorConstInterface.h"
 #include <QComboBox>
 
 class TypeSelector : public SensorVisitorConstInterface {
