@@ -14,6 +14,10 @@ class SensorWidget: public QPushButton {
     QLabel* country_label;
     QPushButton* edit_button;
     QPushButton* delete_button;
+  
+  protected:
+    virtual void enterEvent(QEvent* event);
+    virtual void leaveEvent(QEvent* event);
 
   public:
     SensorWidget(const Sensor& sensor, QWidget* parent = 0);

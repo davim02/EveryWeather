@@ -33,19 +33,21 @@ HumidityGraph::HumidityGraph(const Humidity& humidity) : humidity(humidity) {
 
     QValueAxis *axisY = new QValueAxis;
     axisY->setRange(0, 100);
-    axisY->setTitleText("Humidity (%)");
+    axisY->setTitleText("Humidity");
     axisY->setLabelFormat("%i%");
     axisY->setTickCount(6);
     addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
 
-    QPen pen(0x059605);
+    QPen pen(0x63ace5);
     pen.setWidth(3);
+    pen.setCapStyle(Qt::RoundCap);
+    pen.setJoinStyle(Qt::RoundJoin);
     series->setPen(pen);
 
     QLinearGradient gradient(QPointF(0, 0), QPointF(0, 1));
-    gradient.setColorAt(0.0, 0x3cc63c);
-    gradient.setColorAt(1.0, 0x26f626);
+    gradient.setColorAt(0.0, 0xadcbe3);
+    gradient.setColorAt(1.0, 0xe7eff6);
     gradient.setCoordinateMode(QGradient::ObjectBoundingMode);
     series->setBrush(gradient);
 

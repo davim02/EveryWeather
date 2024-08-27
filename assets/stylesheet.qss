@@ -5,5 +5,4 @@ SensorWidget:hover {
 
 SensorWidget QPushButton {
     border: none;
-    visibility: hidden;
 }

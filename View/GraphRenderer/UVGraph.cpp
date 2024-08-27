@@ -4,6 +4,7 @@
 #include <QLineSeries>
 #include <QBarCategoryAxis>
 #include <QValueAxis>
+#include <QLinearGradient>
 
 UVGraph::UVGraph(const UV& uv) : uv(uv) {
     UVSim uv_sim(uv);
@@ -34,6 +35,20 @@ UVGraph::UVGraph(const UV& uv) : uv(uv) {
     axisY->setTickCount(13);
     addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
+
+    QLinearGradient lineGradient;
+    lineGradient.setStart(QPointF(0, 0));
+    lineGradient.setFinalStop(QPointF(0, 1));
+    lineGradient.setColorAt(0.0, QColor(0xca2c92));
+    lineGradient.setColorAt(0.11, QColor(0xff0900));
+    lineGradient.setColorAt(0.30, QColor(0xff9200));
+    lineGradient.setColorAt(0.47, Qt::yellow);
+    lineGradient.setColorAt(0.52, Qt::yellow);
+    lineGradient.setColorAt(0.73, QColor(0x00ff00));
+    lineGradient.setColorAt(1.0, QColor(0x009900));
+    lineGradient.setCoordinateMode(QGradient::StretchToDeviceMode);
+    series->setPen(QPen(QBrush(lineGradient), 5));
+
 
     legend()->hide();
 }

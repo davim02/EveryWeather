@@ -20,6 +20,7 @@ SensorsList::SensorsList(QWidget *parent)
     QWidget* container = new QWidget();
     vlayout = new QVBoxLayout(container);
     vlayout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+    vlayout->setContentsMargins(1, 1, 1, 1);
 
     scroll_area = new QScrollArea();
     scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
