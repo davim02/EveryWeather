@@ -29,10 +29,19 @@ SensorWidget::SensorWidget(const Sensor& sensor, QWidget* parent): QPushButton(p
     
     QVBoxLayout* buttons_layout = new QVBoxLayout();
     buttons_layout->setAlignment(Qt::AlignRight);
-    edit_button = new QPushButton("Edit");
+
+    static const QIcon edit_icon(QPixmap(":assets/icons/edit.png"));
+    edit_button = new QPushButton(edit_icon, "");
+    edit_button->setIconSize(QSize(27, 27));
+    edit_button->setCursor(QCursor(Qt::PointingHandCursor));
     edit_button->setToolTip("Edit this sensor");
-    delete_button = new QPushButton("Del");
+
+    static const QIcon delete_icon(QPixmap(":assets/icons/bin.png"));
+    delete_button = new QPushButton(delete_icon, "");
+    delete_button->setIconSize(QSize(27, 27));
+    delete_button->setCursor(QCursor(Qt::PointingHandCursor));
     delete_button->setToolTip("Delete this sensor");
+    
     buttons_layout->addWidget(edit_button);
     buttons_layout->addWidget(delete_button);
 

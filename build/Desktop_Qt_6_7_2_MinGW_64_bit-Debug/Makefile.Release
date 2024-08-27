@@ -260,9 +260,20 @@ release/qrc_resources.cpp: ../../resources.qrc \
 		C:/Qt/6.7.2/mingw_64/bin/rcc.exe \
 		../../assets/rainfall.png \
 		../../assets/uv.png \
+		../../assets/stylesheet.qss \
 		../../assets/weather.png \
 		../../assets/temperature.png \
-		../../assets/humidity.png
+		../../assets/humidity.png \
+		../../assets/icons/bin.png \
+		../../assets/icons/new-document.png \
+		../../assets/icons/search.png \
+		../../assets/icons/save.png \
+		../../assets/icons/save-as.png \
+		../../assets/icons/edit.png \
+		../../assets/icons/new-file.png \
+		../../assets/icons/close.png \
+		../../assets/icons/new-document2.png \
+		../../assets/icons/open-file.png
 	C:\Qt\6.7.2\mingw_64\bin\rcc.exe -name resources --no-zstd ..\..\resources.qrc -o release\qrc_resources.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h
@@ -2315,6 +2326,10 @@ release/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplicati
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QFile \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfile.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
 		../../View/MainWindow.h \
 		../../model/Repository/JsonRepository.h \
 		../../model/Repository/RepositoryInterface.h \
@@ -2351,7 +2366,6 @@ release/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplicati
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qfontinfo.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qevent.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qeventpoint.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvector2d.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qvectornd.h \
@@ -3324,7 +3338,11 @@ release/HumidityGraph.o: ../../View/GraphRenderer/HumidityGraph.cpp ../../View/G
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/qxyseries.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/QImage \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QAreaSeries \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/qareaseries.h
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qareaseries.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/QBarCategoryAxis \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qbarcategoryaxis.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/QValueAxis \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qvalueaxis.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\HumidityGraph.o ..\..\View\GraphRenderer\HumidityGraph.cpp
 
 release/RainfallGraph.o: ../../View/GraphRenderer/RainfallGraph.cpp ../../View/GraphRenderer/RainfallGraph.h \
@@ -4471,7 +4489,11 @@ release/UVGraph.o: ../../View/GraphRenderer/UVGraph.cpp ../../View/GraphRenderer
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/qlineseries.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QXYSeries \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/qxyseries.h \
-		C:/Qt/6.7.2/mingw_64/include/QtGui/QImage
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QImage \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/QBarCategoryAxis \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qbarcategoryaxis.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/QValueAxis \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qvalueaxis.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\UVGraph.o ..\..\View\GraphRenderer\UVGraph.cpp
 
 release/SearchWidget.o: ../../View/SearchWidget.cpp ../../View/SearchWidget.h \

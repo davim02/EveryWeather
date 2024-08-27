@@ -9,7 +9,9 @@ SearchWidget::SearchWidget(QWidget *parent)
     searchLineEdit->setPlaceholderText("Search by city or ID...");
 
     // Create the search button
-    searchButton = new QPushButton("Search", this);
+    static const QIcon searchIcon(":assets/icons/search.png");
+    searchButton = new QPushButton(searchIcon, " Search", this);
+    searchButton->setCursor(QCursor(Qt::PointingHandCursor));
 
     // Create the layout
     QHBoxLayout* layout = new QHBoxLayout(this);

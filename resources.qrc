@@ -1,9 +1,20 @@
 <RCC>
     <qresource prefix="/">
+	<file>assets/stylesheet.qss</file>
         <file>assets/humidity.png</file>
         <file>assets/rainfall.png</file>
         <file>assets/temperature.png</file>
         <file>assets/uv.png</file>
         <file>assets/weather.png</file>
+	<file>assets/icons/bin.png</file>
+	<file>assets/icons/close.png</file>
+	<file>assets/icons/edit.png</file>
+	<file>assets/icons/new-document.png</file>
+	<file>assets/icons/new-document2.png</file>
+	<file>assets/icons/open-file.png</file>
+	<file>assets/icons/new-file.png</file>
+	<file>assets/icons/save.png</file>
+	<file>assets/icons/save-as.png</file>
+	<file>assets/icons/search.png</file>
     </qresource>
 </RCC>

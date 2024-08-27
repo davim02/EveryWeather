@@ -11,7 +11,11 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
     TemperatureSim temperature_sim = TemperatureSim(temperature);
 
     auto low = new QBarSet("Min");
+    low->setLabelColor(QColor(0, 0, 255));
+    low->setColor(QColor(0, 0, 255));
     auto high = new QBarSet("Max");
+    high->setLabelColor(QColor(255, 0, 0));
+    high->setColor(QColor(255, 0, 0));
 
     const std::vector<int>& min_temp = temperature_sim.getMinTemp();
     const std::vector<int>& max_temp = temperature_sim.getMaxTemp();
@@ -27,7 +31,6 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
 
     addSeries(series);
     setTitle("Average temperatures over the year");
-
     setAnimationOptions(QChart::SeriesAnimations);
 
     QStringList categories = {
