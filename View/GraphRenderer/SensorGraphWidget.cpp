@@ -4,7 +4,7 @@
 #include <QChart>
 #include <QLayoutItem>
 
-SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent) {
+SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent), sensor(nullptr) {
 
     layout = new QVBoxLayout(this);
     layout->setDirection(QBoxLayout::BottomToTop);

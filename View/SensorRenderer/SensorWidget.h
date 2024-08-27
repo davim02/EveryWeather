@@ -3,6 +3,7 @@
 
 #include <QPushButton>
 #include <QLabel>
+#include <QEvent>
 #include "../../model/Sensor.h"
 
 class SensorWidget: public QPushButton {
@@ -16,8 +17,7 @@ class SensorWidget: public QPushButton {
     QPushButton* delete_button;
   
   protected:
-    virtual void enterEvent(QEvent* event);
-    virtual void leaveEvent(QEvent* event);
+    virtual bool event(QEvent* e);
 
   public:
     SensorWidget(const Sensor& sensor, QWidget* parent = 0);

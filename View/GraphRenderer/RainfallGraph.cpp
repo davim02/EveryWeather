@@ -22,7 +22,7 @@ RainfallGraph::RainfallGraph(const Rainfall& rainfall) : rainfall(rainfall) {
     series->append(set);
 
     addSeries(series);
-    setTitle("Rainfall");
+    setTitle("Average rainfall across the year");
     setAnimationOptions(QChart::SeriesAnimations);
 
     QStringList categories = {

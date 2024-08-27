@@ -18,7 +18,7 @@ UVGraph::UVGraph(const UV& uv) : uv(uv) {
     }
 
     addSeries(series);
-    setTitle("average UV indexes across the months");
+    setTitle("Average UV indexes across the year");
     setAnimationOptions(QChart::SeriesAnimations);
 
     QStringList categories = {

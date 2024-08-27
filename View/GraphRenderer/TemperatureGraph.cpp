@@ -1,7 +1,7 @@
 #include "TemperatureGraph.h"
 #include "../../model/Simulation/TemperatureSim.h"
 
-#include <QLineseries>
+#include <QLineSeries>
 #include <QBarCategoryAxis>
 #include <QValueAxis>
 

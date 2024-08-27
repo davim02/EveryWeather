@@ -9,7 +9,8 @@
 
 SensorWidget::SensorWidget(const Sensor& sensor, QWidget* parent): QPushButton(parent), sensor(sensor) {
     setMinimumSize(265, 105);
-    
+    setAttribute(Qt::WA_Hover);
+
     QHBoxLayout* layout = new QHBoxLayout(this);
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -26,7 +27,7 @@ SensorWidget::SensorWidget(const Sensor& sensor, QWidget* parent): QPushButton(p
 
     layout->addLayout(location_layout);
     layout->addStretch();
-    
+
     QVBoxLayout* buttons_layout = new QVBoxLayout();
     buttons_layout->setAlignment(Qt::AlignRight);
 
@@ -43,7 +44,7 @@ SensorWidget::SensorWidget(const Sensor& sensor, QWidget* parent): QPushButton(p
     delete_button->setCursor(QCursor(Qt::PointingHandCursor));
     delete_button->setToolTip("Delete this sensor");
     delete_button->setVisible(false);
-    
+
     buttons_layout->addWidget(edit_button);
     buttons_layout->addWidget(delete_button);
 
@@ -53,15 +54,16 @@ SensorWidget::SensorWidget(const Sensor& sensor, QWidget* parent): QPushButton(p
     connect(delete_button, &QPushButton::clicked, std::bind(&SensorWidget::remove, this, sensor.getId()));
 }
 
-void SensorWidget::enterEvent(QEvent* event) {
-    edit_button->setVisible(true);
-    delete_button->setVisible(true);
-    qDebug() << "Enter event";
-}
 
+bool SensorWidget::event(QEvent* e) {
 
-void SensorWidget::leaveEvent(QEvent* event) {
-    edit_button->setVisible(true);
-    delete_button->setVisible(true);
-    qDebug() << "Leave event";
+    if (e->type() == QEvent::HoverEnter) {
+        edit_button->setVisible(true);
+        delete_button->setVisible(true);
+    } else if (e->type() == QEvent::HoverLeave) {
+        edit_button->setVisible(false);
+        delete_button->setVisible(false);
+    }
+
+    return QWidget::event(e);
 }

@@ -104,7 +104,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), has_unsaved_change
     setCentralWidget(mainWidget);
 
     setWindowTitle("EveryWeather");
-    //setBackgroundRole(QPalette::Light);
 }
 
 JsonRepository* MainWindow::getRepository() {
@@ -197,6 +196,7 @@ void MainWindow::removeSensor(const unsigned int sensor_id) {
     reloadData();
 
     if (sensor_graph_widget->isSensorSet()) {
+        qDebug() << "sensor is set";
         if (sensor_id == sensor_graph_widget->getSensor()->getId()) {
             sensor_graph_widget->reset();
         }
@@ -208,6 +208,7 @@ void MainWindow::editSensor(const Sensor* sensor) {
     SensorEditorDialog dialog(this, sensor);
     if (dialog.exec() == QDialog::Accepted) {
         if (sensor_graph_widget->isSensorSet()) {
+            qDebug() << "sensor is set";
             if (sensor->getId() == sensor_graph_widget->getSensor()->getId()) {
                 sensor_graph_widget->reset();
             }
@@ -257,20 +258,7 @@ MainWindow& MainWindow::reloadData() {
 }
 
 void MainWindow::close() {
-    if (has_unsaved_changes) {
-        QMessageBox::StandardButton confirmation;
-        confirmation = QMessageBox::question(
-            this,
-            "Quit?",
-            "There are unsaved changes.\nDo you really want to quit?",
-            QMessageBox::Yes | QMessageBox::No
-            );
-        if (confirmation == QMessageBox::Yes) {
-            QApplication::quit();
-        }
-    } else {
-        QApplication::quit();
-    }
+    QApplication::quit();
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
