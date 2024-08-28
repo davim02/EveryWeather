@@ -1,10 +1,14 @@
 #include <QApplication>
 #include <QFile>
+//#include <QStyleHints>
 
 #include "View/MainWindow.h"
 
 int main(int argc, char *argv[]) {
+
+    QApplication::setStyle("Material");
     QApplication app(argc, argv);
+    //qDebug() << QApplication::styleHints()->colorScheme();
     app.setWindowIcon(QIcon(":assets/weather.png"));
 
     QFile stylesheet(":/assets/stylesheet.qss");
