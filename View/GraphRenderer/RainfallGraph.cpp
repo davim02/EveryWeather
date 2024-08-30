@@ -1,6 +1,8 @@
 #include "RainfallGraph.h"
 #include "../../model/Simulation/RainfallSim.h"
 
+#include <QApplication>
+#include <QStyleHints>
 #include <QValueAxis>
 #include <QBarSet>
 #include <QBarSeries>
@@ -21,6 +23,10 @@ RainfallGraph::RainfallGraph(const Rainfall& rainfall) : rainfall(rainfall) {
     QBarSeries *series = new QBarSeries;
     series->append(set);
 
+    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+        setTheme(QChart::ChartThemeDark);
+        setBackgroundBrush(QBrush(QColor(0x31363b)));
+    }
     addSeries(series);
     setTitle("Average rainfall across the year");
     setAnimationOptions(QChart::SeriesAnimations);
@@ -44,6 +50,8 @@ RainfallGraph::RainfallGraph(const Rainfall& rainfall) : rainfall(rainfall) {
     
     addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
+
+    set->setColor(QColor(0x63ace5));
 
     legend()->setVisible(false);
 }

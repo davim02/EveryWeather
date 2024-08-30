@@ -1,6 +1,8 @@
 #include "UVGraph.h"
 #include "../../model/Simulation/UVSim.h"
 
+#include <QApplication>
+#include <QStyleHints>
 #include <QLineSeries>
 #include <QBarCategoryAxis>
 #include <QValueAxis>
@@ -17,6 +19,10 @@ UVGraph::UVGraph(const UV& uv) : uv(uv) {
         series->append(i, uv_values[i]);
     }
 
+    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+        setTheme(QChart::ChartThemeDark);
+        setBackgroundBrush(QBrush(QColor(0x31363b)));
+    }
     addSeries(series);
     setTitle("Average UV indexes across the year");
     setAnimationOptions(QChart::SeriesAnimations);

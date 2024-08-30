@@ -10,6 +10,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QApplication>
+#include <QStyleHints>
 #include <QMessageBox>
 #include <QRegularExpression>
 #include <QDir>
@@ -18,48 +19,46 @@
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), has_unsaved_changes(false), repository(nullptr) {
 
-    QAction* create = new QAction(
-        QIcon(QPixmap((":/assets/icons/new-file.png"))),
-        "New"
-    );
+    QAction* create = new QAction("New");
     create->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
     connect(create, &QAction::triggered, this, &MainWindow::newDataset);
 
-    QAction* open = new QAction(
-        QIcon(QPixmap((":/assets/icons/open-file.png"))),
-        "Open"
-    );
+    QAction* open = new QAction("Open");
     open->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_O));
     connect(open, &QAction::triggered, this, &MainWindow::openDataset);
 
-    QAction* save = new QAction(
-        QIcon(QPixmap((":/assets/icons/save.png"))),
-        "Save"
-    );
+    QAction* save = new QAction("Save");
     save->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
     connect(save, &QAction::triggered, this, &MainWindow::saveDataset);
 
-    QAction* save_as = new QAction(
-        QIcon(QPixmap((":/assets/icons/save-as.png"))),
-        "Save As"
-    );
+    QAction* save_as = new QAction("Save As");
     save_as->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
     connect(save_as, &QAction::triggered, this, &MainWindow::saveAsDataset);
 
-    QAction* close = new QAction(
-        QIcon(QPixmap((":/assets/icons/close.png"))),
-        "Close"
-        );
+    QAction* close = new QAction("Close");
     close->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
     connect(close, &QAction::triggered, this, &MainWindow::close);
 
-    create_sensor = new QAction(
-        QIcon(QPixmap((":/assets/icons/new_document.png"))),
-        "Add New Sensor"
-    );
+    create_sensor = new QAction("Add New Sensor");
     create_sensor->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_N));
     create_sensor->setEnabled(false);
     connect(create_sensor, &QAction::triggered, this, &MainWindow::createSensor);
+
+    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+        create->setIcon(QIcon(QPixmap(":/assets/icons/new-file_white.png")));
+        open->setIcon(QIcon(QPixmap(":/assets/icons/open-file_white.png")));
+        save->setIcon(QIcon(QPixmap(":/assets/icons/save_white.png")));
+        save_as->setIcon(QIcon(QPixmap(":/assets/icons/save-as_white.png")));
+        close->setIcon(QIcon(QPixmap(":/assets/icons/close_white.png")));
+        create_sensor->setIcon(QIcon(QPixmap(":/assets/icons/new-sensor_white.png")));
+    } else {
+        create->setIcon(QIcon(QPixmap(":/assets/icons/new-file.png")));
+        open->setIcon(QIcon(QPixmap(":/assets/icons/open-file.png")));
+        save->setIcon(QIcon(QPixmap(":/assets/icons/save.png")));
+        save_as->setIcon(QIcon(QPixmap(":/assets/icons/save-as.png")));
+        close->setIcon(QIcon(QPixmap(":/assets/icons/close.png")));
+        create_sensor->setIcon(QIcon(QPixmap(":/assets/icons/new-sensor.png")));
+    }
     
     //Sets menu
     QMenu* file = menuBar()->addMenu("&File");
@@ -117,6 +116,18 @@ MainWindow& MainWindow::reloadRepo() {
 }
 
 void MainWindow::newDataset() {
+    if (has_unsaved_changes) {
+            QMessageBox::StandardButton confirmation;
+            confirmation = QMessageBox::question(
+                this,
+                "Save changes?",
+                "Current dataset has unsaved changes.\nDo you want to save them?",
+                QMessageBox::Yes | QMessageBox::No
+            );
+            if (confirmation == QMessageBox::Yes) {
+                saveDataset();
+            }
+    }
     QString filepath = QFileDialog::getSaveFileName(
         this, 
         "Save new dataset", 
@@ -137,6 +148,18 @@ void MainWindow::newDataset() {
 }
 
 void MainWindow::openDataset() {
+    if (has_unsaved_changes) {
+        QMessageBox::StandardButton confirmation;
+        confirmation = QMessageBox::question(
+            this,
+            "Save changes?",
+            "Current dataset has unsaved changes.\nDo you want to save them?",
+            QMessageBox::Yes | QMessageBox::No
+        );
+        if (confirmation == QMessageBox::Yes) {
+            saveDataset();
+        }
+    }
     QString filepath = QFileDialog::getOpenFileName(
         this, 
         "Open dataset", 
@@ -192,15 +215,15 @@ void MainWindow::createSensor() {
 }
 
 void MainWindow::removeSensor(const unsigned int sensor_id) {
-    repository->remove(sensor_id);
-    reloadData();
-
+    
     if (sensor_graph_widget->isSensorSet()) {
-        qDebug() << "sensor is set";
         if (sensor_id == sensor_graph_widget->getSensor()->getId()) {
             sensor_graph_widget->reset();
         }
     }
+
+    repository->remove(sensor_id);
+    reloadData();
     has_unsaved_changes = true;
 }
 
@@ -209,8 +232,11 @@ void MainWindow::editSensor(const Sensor* sensor) {
     if (dialog.exec() == QDialog::Accepted) {
         if (sensor_graph_widget->isSensorSet()) {
             qDebug() << "sensor is set";
+            qDebug() << sensor->getId();
+            qDebug() << sensor_graph_widget->getSensor()->getId();
             if (sensor->getId() == sensor_graph_widget->getSensor()->getId()) {
                 sensor_graph_widget->reset();
+                qDebug() << "reset done";
             }
         }
         has_unsaved_changes = true;

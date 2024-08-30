@@ -13,6 +13,7 @@ SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent), sensor(n
     isChartSet = false;
     chart_view->setRenderHint(QPainter::Antialiasing);
     chart_view->setMinimumSize(500, 400);
+    chart_view->hide();
     layout->addWidget(chart_view);
 
     button = new QPushButton("Simulate sensor", this);

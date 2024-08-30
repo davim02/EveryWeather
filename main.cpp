@@ -1,6 +1,6 @@
 #include <QApplication>
 #include <QFile>
-//#include <QStyleHints>
+#include <QStyleHints>
 
 #include "View/MainWindow.h"
 
@@ -8,10 +8,14 @@ int main(int argc, char *argv[]) {
 
     QApplication::setStyle("Material");
     QApplication app(argc, argv);
-    //qDebug() << QApplication::styleHints()->colorScheme();
     app.setWindowIcon(QIcon(":assets/weather.png"));
 
-    QFile stylesheet(":/assets/stylesheet.qss");
+    QFile stylesheet;
+    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+        stylesheet.setFileName(":/assets/stylesheet_dark.qss");
+    } else {
+        stylesheet.setFileName(":/assets/stylesheet_light.qss");
+    }
     stylesheet.open(QFile::ReadOnly);
     app.setStyleSheet(QLatin1String(stylesheet.readAll()));
 

@@ -1,0 +1,12 @@
+
+SensorWidget:hover {
+    background-color: #4c4c4c;
+}
+
+SensorWidget QPushButton {
+    border: none;
+}
+
+SearchWidget QPushButton {
+    qproperty-icon: url(:assets/icons/search_white.png);
+}

@@ -8,7 +8,6 @@
 #include "RainfallGraph.h"
 #include "UVGraph.h"
 
-
 QChart* SensorGraphWidgetVisitor::getChart() const {
     return chart;
 }

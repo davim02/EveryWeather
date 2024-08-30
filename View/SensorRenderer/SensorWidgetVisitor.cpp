@@ -47,7 +47,7 @@ void SensorWidgetVisitor::visit(const Rainfall& rainfall) {
     
     QVBoxLayout* layout = new QVBoxLayout(widget);
 
-    QPixmap image(":assets/rainfall.png");
+    QPixmap image(":assets/rain.png");
     QLabel* icon = new QLabel();
     icon->setPixmap(image.scaledToHeight(45));
     layout->addWidget(icon);

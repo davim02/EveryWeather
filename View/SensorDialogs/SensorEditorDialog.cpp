@@ -41,7 +41,9 @@ SensorEditorDialog::SensorEditorDialog(
     layout->addWidget(title);
 
     if (sensor == nullptr) {
-        QLabel *id_warning = new QLabel("WARNING: If a sensor with this ID already exists, its data will be overwritten.");
+        QLabel *id_warning = new QLabel("<b>WARNING</b>: If a sensor with this ID already exists, its data will be overwritten.");
+        id_warning->setTextFormat(Qt::RichText);
+        id_warning->setWordWrap(true);
         layout->addWidget(id_warning);
     }
 

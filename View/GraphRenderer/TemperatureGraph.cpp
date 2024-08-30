@@ -1,10 +1,11 @@
 #include "TemperatureGraph.h"
 #include "../../model/Simulation/TemperatureSim.h"
 
+#include <QApplication>
+#include <QStyleHints>
 #include <QLineSeries>
 #include <QBarCategoryAxis>
 #include <QValueAxis>
-
 
 
 TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature(temperature) {
@@ -12,12 +13,17 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
 
     QLineSeries* low = new QLineSeries();
     low->setName("Min");
-    //low->setLabelColor(QColor(0, 0, 255));
-    low->setColor(QColor(0, 0, 255));
+    QPen pen_low = low->pen();
+    pen_low.setWidth(3);
+    pen_low.setColor(QColor(0x63ace5));
+    low->setPen(pen_low);
+
     QLineSeries* high = new QLineSeries();
     high->setName("Max");
-    //high->setLabelColor(QColor(255, 0, 0));
-    high->setColor(QColor(255, 0, 0));
+    QPen pen_high = high->pen();
+    pen_high.setWidth(3);
+    pen_high.setColor(QColor(0xff0000));
+    high->setPen(pen_high);
 
     const std::vector<int>& min_temp = temperature_sim.getMinTemp();
     const std::vector<int>& max_temp = temperature_sim.getMaxTemp();
@@ -27,9 +33,13 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
         high->append(i, max_temp[i]);
     }
 
-    addSeries(low);
-    addSeries(high);
+    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+        setTheme(QChart::ChartThemeDark);
+        setBackgroundBrush(QBrush(QColor(0x31363b)));
+    }
 
+    addSeries(high);
+    addSeries(low);
     setTitle("Average temperatures over the year");
     setAnimationOptions(QChart::SeriesAnimations);
 

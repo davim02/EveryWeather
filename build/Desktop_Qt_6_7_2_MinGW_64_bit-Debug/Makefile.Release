@@ -258,21 +258,28 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_resources.cpp
 release/qrc_resources.cpp: ../../resources.qrc \
 		C:/Qt/6.7.2/mingw_64/bin/rcc.exe \
-		../../assets/rainfall.png \
 		../../assets/uv.png \
-		../../assets/stylesheet.qss \
+		../../assets/rain.png \
+		../../assets/stylesheet_dark.qss \
 		../../assets/weather.png \
 		../../assets/temperature.png \
+		../../assets/stylesheet_light.qss \
 		../../assets/humidity.png \
+		../../assets/icons/new-file_white.png \
 		../../assets/icons/bin.png \
-		../../assets/icons/new-document.png \
 		../../assets/icons/search.png \
 		../../assets/icons/save.png \
+		../../assets/icons/new-sensor_white.png \
 		../../assets/icons/save-as.png \
+		../../assets/icons/save_white.png \
+		../../assets/icons/search_white.png \
 		../../assets/icons/edit.png \
+		../../assets/icons/close_white.png \
+		../../assets/icons/save-as_white.png \
+		../../assets/icons/open-file_white.png \
+		../../assets/icons/new-sensor.png \
 		../../assets/icons/new-file.png \
 		../../assets/icons/close.png \
-		../../assets/icons/new-document2.png \
 		../../assets/icons/open-file.png
 	C:\Qt\6.7.2\mingw_64\bin\rcc.exe -name resources --no-zstd ..\..\resources.qrc -o release\qrc_resources.cpp
 
@@ -1136,6 +1143,7 @@ release/moc_SensorEditorDialog.cpp: ../../View/SensorDialogs/SensorEditorDialog.
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -1624,6 +1632,7 @@ release/moc_MainWindow.cpp: ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -1875,6 +1884,7 @@ release/moc_SensorsList.cpp: ../../View/SensorsList.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h \
 		../../model/SensorVisitorConstInterface.h \
@@ -2084,6 +2094,7 @@ release/moc_SensorWidget.cpp: ../../View/SensorRenderer/SensorWidget.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h \
 		../../model/SensorVisitorConstInterface.h \
@@ -2330,6 +2341,8 @@ release/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplicati
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qfiledevice.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QStyleHints \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qstylehints.h \
 		../../View/MainWindow.h \
 		../../model/Repository/JsonRepository.h \
 		../../model/Repository/RepositoryInterface.h \
@@ -2384,6 +2397,7 @@ release/main.o: ../../main.cpp C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplicati
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -3332,6 +3346,12 @@ release/HumidityGraph.o: ../../View/GraphRenderer/HumidityGraph.cpp ../../View/G
 		C:/Qt/6.7.2/mingw_64/include/QtGui/QBrush \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QMargins \
 		../../model/Simulation/HumiditySim.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qcursor.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QStyleHints \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qstylehints.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QLineSeries \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/qlineseries.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QXYSeries \
@@ -3554,6 +3574,12 @@ release/RainfallGraph.o: ../../View/GraphRenderer/RainfallGraph.cpp ../../View/G
 		C:/Qt/6.7.2/mingw_64/include/QtGui/QBrush \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QMargins \
 		../../model/Simulation/RainfallSim.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qcursor.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QStyleHints \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qstylehints.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QValueAxis \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/qvalueaxis.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QBarSet \
@@ -4263,17 +4289,21 @@ release/TemperatureGraph.o: ../../View/GraphRenderer/TemperatureGraph.cpp ../../
 		C:/Qt/6.7.2/mingw_64/include/QtGui/QBrush \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QMargins \
 		../../model/Simulation/TemperatureSim.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/QValueAxis \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/qvalueaxis.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/QBarSet \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/qbarset.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/QStackedBarSeries \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/qstackedbarseries.h \
-		C:/Qt/6.7.2/mingw_64/include/QtCore/QStringList \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/QAbstractBarSeries \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/qabstractbarseries.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qcursor.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QStyleHints \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qstylehints.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/QLineSeries \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qlineseries.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/QXYSeries \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qxyseries.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QImage \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QBarCategoryAxis \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/qbarcategoryaxis.h
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qbarcategoryaxis.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/QValueAxis \
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qvalueaxis.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\TemperatureGraph.o ..\..\View\GraphRenderer\TemperatureGraph.cpp
 
 release/UVGraph.o: ../../View/GraphRenderer/UVGraph.cpp ../../View/GraphRenderer/UVGraph.h \
@@ -4485,6 +4515,12 @@ release/UVGraph.o: ../../View/GraphRenderer/UVGraph.cpp ../../View/GraphRenderer
 		C:/Qt/6.7.2/mingw_64/include/QtGui/QBrush \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QMargins \
 		../../model/Simulation/UVSim.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qcursor.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QStyleHints \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qstylehints.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QLineSeries \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/qlineseries.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QXYSeries \
@@ -4493,7 +4529,8 @@ release/UVGraph.o: ../../View/GraphRenderer/UVGraph.cpp ../../View/GraphRenderer
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QBarCategoryAxis \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/qbarcategoryaxis.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCharts/QValueAxis \
-		C:/Qt/6.7.2/mingw_64/include/QtCharts/qvalueaxis.h
+		C:/Qt/6.7.2/mingw_64/include/QtCharts/qvalueaxis.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QLinearGradient
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\UVGraph.o ..\..\View\GraphRenderer\UVGraph.cpp
 
 release/SearchWidget.o: ../../View/SearchWidget.cpp ../../View/SearchWidget.h \
@@ -5516,6 +5553,7 @@ release/SensorEditorDialog.o: ../../View/SensorDialogs/SensorEditorDialog.cpp ..
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -7042,6 +7080,7 @@ release/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -7123,6 +7162,8 @@ release/MainWindow.o: ../../View/MainWindow.cpp ../../View/MainWindow.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmenubar.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/QStyleHints \
+		C:/Qt/6.7.2/mingw_64/include/QtGui/qstylehints.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
@@ -7332,6 +7373,7 @@ release/SensorsList.o: ../../View/SensorsList.cpp ../../View/SensorsList.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h \
 		../../model/SensorVisitorConstInterface.h \
@@ -7553,6 +7595,7 @@ release/SensorWidget.o: ../../View/SensorRenderer/SensorWidget.cpp C:/Qt/6.7.2/m
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.7.2/mingw_64/include/QtCore/QEvent \
 		../../model/Sensor.h \
 		../../model/SensorVisitorInterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\SensorWidget.o ..\..\View\SensorRenderer\SensorWidget.cpp

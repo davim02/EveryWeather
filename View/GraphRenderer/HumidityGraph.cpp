@@ -1,6 +1,8 @@
 #include "HumidityGraph.h"
 #include "../../model/Simulation/HumiditySim.h"
 
+#include <QApplication>
+#include <QStyleHints>
 #include <QLineSeries>
 #include <QAreaSeries>
 #include <QBarCategoryAxis>
@@ -39,17 +41,22 @@ HumidityGraph::HumidityGraph(const Humidity& humidity) : humidity(humidity) {
     addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
 
-    QPen pen(0x63ace5);
+    QPen pen;
+    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+        setTheme(QChart::ChartThemeDark);
+        setBackgroundBrush(QBrush(QColor(0x31363b)));
+
+        series->setBrush(QBrush(QGradient(QGradient::FlyHigh)));
+        pen.setColor(QColor(0x6f86d6));
+    } else {
+        series->setBrush(QBrush(QGradient(QGradient::WinterNeva)));
+        pen.setColor(QColor(0x63ace5));
+    }
+
     pen.setWidth(3);
     pen.setCapStyle(Qt::RoundCap);
     pen.setJoinStyle(Qt::RoundJoin);
     series->setPen(pen);
-
-    QLinearGradient gradient(QPointF(0, 0), QPointF(0, 1));
-    gradient.setColorAt(0.0, 0xadcbe3);
-    gradient.setColorAt(1.0, 0xe7eff6);
-    gradient.setCoordinateMode(QGradient::ObjectBoundingMode);
-    series->setBrush(gradient);
 
     legend()->hide();
 }

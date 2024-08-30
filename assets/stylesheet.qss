@@ -1,8 +1,0 @@
-
-SensorWidget:hover {
-    background-color: #CCC;
-}
-
-SensorWidget QPushButton {
-    border: none;
-}
