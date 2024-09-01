@@ -143,6 +143,10 @@ void MainWindow::newDataset() {
     JsonFile data_mapper(filepath.toStdString(), json_converter);
     repository = new JsonRepository(data_mapper);
     create_sensor->setEnabled(true);
+    reloadRepo();
+    if (sensor_graph_widget->isSensorSet()) {
+        sensor_graph_widget->reset();
+    }
 }
 
 void MainWindow::openDataset() {
@@ -176,6 +180,9 @@ void MainWindow::openDataset() {
     repository = new JsonRepository(data_mapper);
     create_sensor->setEnabled(true);
     reloadRepo();
+    if (sensor_graph_widget->isSensorSet()) {
+        sensor_graph_widget->reset();
+    }
 }
 
 void MainWindow::saveDataset() {
@@ -229,12 +236,8 @@ void MainWindow::editSensor(const Sensor* sensor) {
     SensorEditorDialog dialog(this, sensor);
     if (dialog.exec() == QDialog::Accepted) {
         if (sensor_graph_widget->isSensorSet()) {
-            qDebug() << "sensor is set";
-            qDebug() << sensor->getId();
-            qDebug() << sensor_graph_widget->getSensor()->getId();
             if (sensor->getId() == sensor_graph_widget->getSensor()->getId()) {
                 sensor_graph_widget->reset();
-                qDebug() << "reset done";
             }
         }
         has_unsaved_changes = true;
