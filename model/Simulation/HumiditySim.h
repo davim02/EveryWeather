@@ -13,7 +13,7 @@ private:
 public:
     HumiditySim(const Humidity& humidity);
     const std::vector<int>& getData() const;
-    void simulateHumidity();
+    void simulate();
 };
 
-#endif // HUMIDITYSIM_H
+#endif

@@ -15,8 +15,8 @@ public:
     TemperatureSim(const Temperature& temperature);
     const std::vector<int>& getMinTemp() const;
     const std::vector<int>& getMaxTemp() const;
-    void simulateTemperature();
+    void simulate();
 
 };
 
-#endif // TEMPERATURESIM_H
+#endif

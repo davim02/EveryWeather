@@ -4,7 +4,7 @@
 TemperatureSim::TemperatureSim(const Temperature& temperature) : temperature(temperature) {
     temp_min = std::vector<int>();
     temp_max = std::vector<int>();
-    simulateTemperature();
+    simulate();
 }
 
 const std::vector<int>& TemperatureSim::getMinTemp() const {
@@ -15,7 +15,7 @@ const std::vector<int>& TemperatureSim::getMaxTemp() const {
     return temp_max;
 }
 
-void TemperatureSim::simulateTemperature() {
+void TemperatureSim::simulate() {
     int temp;
     temp_max.clear();
     temp_min.clear();

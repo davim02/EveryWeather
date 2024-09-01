@@ -3,10 +3,10 @@
 
 RainfallSim::RainfallSim(const Rainfall& rainfall) : rainfall(rainfall) {
     quantities = std::vector<double>();
-    simulateRainfall();
+    simulate();
 }
 
-void RainfallSim::simulateRainfall() {
+void RainfallSim::simulate() {
     quantities.clear();
     if (rainfall.isInches()) {
         for (int i = 0; i < 12; i++) {

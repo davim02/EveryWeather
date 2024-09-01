@@ -3,14 +3,14 @@
 
 HumiditySim::HumiditySim(const Humidity& humidity) : humidity(humidity) {
     percentages = std::vector<int>();
-    simulateHumidity();
+    simulate();
 }
 
 const std::vector<int>& HumiditySim::getData() const {
     return percentages;
 }
 
-void HumiditySim::simulateHumidity() {
+void HumiditySim::simulate() {
     int percentage;
     percentages.clear();
     for (int i = 0; i < 12; i++) {

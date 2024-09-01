@@ -13,7 +13,7 @@ private:
 public:
     RainfallSim(const Rainfall& rainfall);
     const std::vector<double>& getData() const;
-    void simulateRainfall();
+    void simulate();
 };
 
-#endif // RAINFALLSIM_H
+#endif

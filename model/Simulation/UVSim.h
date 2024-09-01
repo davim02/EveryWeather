@@ -13,7 +13,7 @@ private:
 public:
     UVSim(const UV& uv);
     const std::vector<unsigned int>& getData() const;
-    void simulateUV();
+    void simulate();
 };
 
-#endif // UVSIM_H
+#endif

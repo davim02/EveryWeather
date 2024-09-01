@@ -1,6 +1,5 @@
 #include "SensorGraphWidget.h"
 #include "SensorGraphWidgetVisitor.h"
-#include <iostream>
 #include <QChart>
 #include <QLayoutItem>
 
@@ -44,7 +43,6 @@ void SensorGraphWidget::deleteInfoWidget() {
 
     QLayoutItem *child = layout->takeAt(2);
     if (child != nullptr) {
-        std::cout << "old sensor info deleted" << std::endl;
         delete child->widget();
         delete child;
         button->setEnabled(false);
@@ -64,7 +62,6 @@ void SensorGraphWidget::deleteChart() {
 
     if(isChartSet) {
         QChart* oldChart = chart_view->chart();
-        std::cout << "old chart deleted" << std::endl;
         oldChart->deleteLater();
         isChartSet = false;
     }
