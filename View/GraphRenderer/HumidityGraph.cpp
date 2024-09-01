@@ -42,16 +42,16 @@ HumidityGraph::HumidityGraph(const Humidity& humidity) : humidity(humidity) {
     series->attachAxis(axisY);
 
     QPen pen;
-    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+    /*if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
         setTheme(QChart::ChartThemeDark);
         setBackgroundBrush(QBrush(QColor(0x31363b)));
 
         series->setBrush(QBrush(QGradient(QGradient::FlyHigh)));
         pen.setColor(QColor(0x6f86d6));
-    } else {
+    } else {*/
         series->setBrush(QBrush(QGradient(QGradient::WinterNeva)));
         pen.setColor(QColor(0x63ace5));
-    }
+    //}
 
     pen.setWidth(3);
     pen.setCapStyle(Qt::RoundCap);

@@ -19,10 +19,10 @@ UVGraph::UVGraph(const UV& uv) : uv(uv) {
         series->append(i, uv_values[i]);
     }
 
-    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+    /*if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
         setTheme(QChart::ChartThemeDark);
         setBackgroundBrush(QBrush(QColor(0x31363b)));
-    }
+    }*/
     addSeries(series);
     setTitle("Average UV indexes across the year");
     setAnimationOptions(QChart::SeriesAnimations);

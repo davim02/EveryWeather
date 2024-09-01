@@ -33,10 +33,10 @@ TemperatureGraph::TemperatureGraph(const Temperature& temperature) : temperature
         high->append(i, max_temp[i]);
     }
 
-    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+    /*if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
         setTheme(QChart::ChartThemeDark);
         setBackgroundBrush(QBrush(QColor(0x31363b)));
-    }
+    }*/
 
     addSeries(high);
     addSeries(low);

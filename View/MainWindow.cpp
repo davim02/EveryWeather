@@ -44,21 +44,21 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), has_unsaved_change
     create_sensor->setEnabled(false);
     connect(create_sensor, &QAction::triggered, this, &MainWindow::createSensor);
 
-    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+    /*if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
         create->setIcon(QIcon(QPixmap(":/assets/icons/new-file_white.png")));
         open->setIcon(QIcon(QPixmap(":/assets/icons/open-file_white.png")));
         save->setIcon(QIcon(QPixmap(":/assets/icons/save_white.png")));
         save_as->setIcon(QIcon(QPixmap(":/assets/icons/save-as_white.png")));
         close->setIcon(QIcon(QPixmap(":/assets/icons/close_white.png")));
         create_sensor->setIcon(QIcon(QPixmap(":/assets/icons/new-sensor_white.png")));
-    } else {
+    } else {*/
         create->setIcon(QIcon(QPixmap(":/assets/icons/new-file.png")));
         open->setIcon(QIcon(QPixmap(":/assets/icons/open-file.png")));
         save->setIcon(QIcon(QPixmap(":/assets/icons/save.png")));
         save_as->setIcon(QIcon(QPixmap(":/assets/icons/save-as.png")));
         close->setIcon(QIcon(QPixmap(":/assets/icons/close.png")));
         create_sensor->setIcon(QIcon(QPixmap(":/assets/icons/new-sensor.png")));
-    }
+    //}
     
     //Sets menu
     QMenu* file = menuBar()->addMenu("&File");
@@ -97,7 +97,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), has_unsaved_change
 
     mainWidget->setLayout(layout);
     mainWidget->setMinimumSize(800, 600);
-    mainWidget->setBackgroundRole(QPalette::Light);
     
     setCentralWidget(mainWidget);
 

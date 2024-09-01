@@ -23,10 +23,10 @@ RainfallGraph::RainfallGraph(const Rainfall& rainfall) : rainfall(rainfall) {
     QBarSeries *series = new QBarSeries;
     series->append(set);
 
-    if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+    /*if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
         setTheme(QChart::ChartThemeDark);
         setBackgroundBrush(QBrush(QColor(0x31363b)));
-    }
+    }*/
     addSeries(series);
     setTitle("Average rainfall across the year");
     setAnimationOptions(QChart::SeriesAnimations);
