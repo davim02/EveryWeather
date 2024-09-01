@@ -80,7 +80,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), has_unsaved_change
     search_widget = new SearchWidget(this);
     left_side->addWidget(search_widget);
     left_side->setAlignment(search_widget, Qt::AlignTop);
-    //left_side->addStretch();
 
     connect(search_widget, &SearchWidget::searchButtonClicked, this, &MainWindow::search);
 
@@ -251,8 +250,17 @@ void MainWindow::showResults() {
         unsigned int id = saved_research.toUInt();
         list = repository->search(id);
     } else {
-        QString case_ins_city = saved_research.toLower();
-        case_ins_city[0] = case_ins_city[0].toUpper();
+        QStringList temp = saved_research.toLower().split(" ");
+        QString case_ins_city = "";
+        for (int i = 0; i < temp.size(); i++) {
+            auto word = temp[i];
+            word[0] = word[0].toUpper();
+            case_ins_city += word;
+            if (i < temp.size() - 1) {
+                case_ins_city += " ";
+            }
+        }
+        
         list = repository->search(case_ins_city.toStdString());
     }
 

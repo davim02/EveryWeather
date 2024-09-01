@@ -7,6 +7,26 @@ SensorWidget QPushButton {
     border: none;
 }
 
+SearchWidget QLineEdit { 
+    background-color: #ffffff; 
+    color: #000000; 
+    border: 1px solid #63ace5; 
+    border-radius: 5px; 
+    padding: 5px;
+}
+
 SearchWidget QPushButton {
     qproperty-icon: url(:assets/icons/search.png);
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+SearchWidget QPushButton:hover {
+    background-color: #e9ecef;
+}
+
+SearchWidget QPushButton:pressed {
+    background-color: #dee2e6;
 }

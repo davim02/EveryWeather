@@ -18,6 +18,7 @@ SensorGraphWidget::SensorGraphWidget(QWidget* parent): QWidget(parent), sensor(n
 
     button = new QPushButton("Simulate sensor", this);
     button->setEnabled(false);
+    button->setCursor(QCursor(Qt::PointingHandCursor));
     layout->addWidget(button);
     layout->setAlignment(button, Qt::AlignTop);
 

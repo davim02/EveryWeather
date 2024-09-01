@@ -8,16 +8,10 @@ SearchWidget::SearchWidget(QWidget *parent)
     
     searchLineEdit = new QLineEdit(this);
     searchLineEdit->setPlaceholderText("Search by city or ID...");
-
-    /*if (QApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
-        searchLineEdit->setStyleSheet("QLineEdit { background-color: #31363b; color: #ffffff; border: 1px solid #63ace5; border-radius: 5px; padding: 5px; }");
-    } else {
-        searchLineEdit->setStyleSheet("QLineEdit { background-color: #ffffff; color: #000000; border: 1px solid #63ace5; border-radius: 5px; padding: 5px; }");
-    }*/
     
     searchButton = new QPushButton(" Search", this);
     searchButton->setCursor(QCursor(Qt::PointingHandCursor));
-
+    
     // Create the layout
     QHBoxLayout* layout = new QHBoxLayout(this);
     layout->addWidget(searchLineEdit);

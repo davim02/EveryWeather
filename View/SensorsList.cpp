@@ -66,7 +66,6 @@ void SensorsList::show(std::vector<Sensor*>* results) {
 }
 
 void SensorsList::showNoResults() {
-    std::cout << "no results found" << std::endl;
     scroll_area->hide();
     no_results_label->show();
 }

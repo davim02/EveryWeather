@@ -15,4 +15,4 @@ public:
     virtual void visit(const Humidity& humidity) = 0;
 };
 
-#endif // SENSORVISITORCONSTINTERFACE_H
+#endif
