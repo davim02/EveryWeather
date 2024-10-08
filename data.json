@@ -1,0 +1,42 @@
+[
+    {
+        "city": "Madrid",
+        "country": "ES",
+        "id": 1,
+        "isFahrenheit": false,
+        "type": "temperature"
+    },
+    {
+        "city": "Paris",
+        "country": "FR",
+        "id": 2,
+        "type": "humidity"
+    },
+    {
+        "city": "Paris",
+        "country": "FR",
+        "id": 3,
+        "isInches": true,
+        "type": "rainfall"
+    },
+    {
+        "city": "Madrid",
+        "country": "ES",
+        "id": 4,
+        "type": "uv"
+    },
+    {
+        "city": "London",
+        "country": "UK",
+        "id": 5,
+        "isInches": false,
+        "type": "rainfall"
+    },
+    {
+        "city": "New York",
+        "country": "US",
+        "id": 8,
+        "isFahrenheit": true,
+        "type": "temperature"
+    }
+]
